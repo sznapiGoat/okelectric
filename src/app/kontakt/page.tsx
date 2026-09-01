@@ -5,6 +5,7 @@ import { NAP, REGIONS_EXTENDED, REGION_LINE, TEAM } from "@/content/site";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
+import { PoptavkaForm } from "@/components/PoptavkaForm";
 import { TeamMemberCard } from "@/components/TeamMemberCard";
 
 export const metadata = pageMetadata({
@@ -20,6 +21,8 @@ const crumbs = [
 ];
 
 export default function ContactPage() {
+  const formEndpoint = process.env.NEXT_PUBLIC_FORM_ENDPOINT;
+
   return (
     <>
       <JsonLd data={breadcrumbSchema(crumbs)} />
@@ -97,6 +100,27 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      {/* Formulář se objeví, jakmile je nastavené NEXT_PUBLIC_FORM_ENDPOINT.
+          Bez endpointu by šlo o tlačítko, které nikam neodesílá. */}
+      {formEndpoint && (
+        <section className="border-b border-line bg-mist py-16 sm:py-20" aria-labelledby="poptavka">
+          <div className="shell grid gap-10 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-4">
+              <h2 id="poptavka" className="font-display text-display-md text-balance">
+                Nechce se vám volat?
+              </h2>
+              <p className="mt-4 text-[1.0625rem] leading-relaxed text-ink-soft">
+                Napište, co potřebujete, a ozveme se. Obvykle do druhého pracovního dne. U havárie
+                raději rovnou zavolejte, formulář nikdo nehlídá v noci.
+              </p>
+            </div>
+            <div className="lg:col-span-8">
+              <PoptavkaForm endpoint={formEndpoint} />
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="shell py-16 sm:py-20" aria-labelledby="lide">
         <h2 id="lide" className="font-display text-display-md text-balance">

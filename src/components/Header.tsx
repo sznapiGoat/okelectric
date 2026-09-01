@@ -121,7 +121,7 @@ export function Header() {
                       <span>
                         <span className="block text-[0.9375rem] font-semibold text-ink">{s.navLabel}</span>
                         <span className="mt-0.5 block text-[0.8125rem] leading-snug text-ink-faint">
-                          {s.lead.split(".")[0]}.
+                          {s.tagline}
                         </span>
                       </span>
                     </Link>

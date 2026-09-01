@@ -11,6 +11,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { ProjectGrid } from "@/components/ProjectGrid";
 import { Reveal } from "@/components/Reveal";
 import { ServiceIcon } from "@/components/ServiceIcon";
+import { ServiceLinkGrid } from "@/components/ServiceLinkGrid";
 import { ButtonAnchor } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
@@ -167,31 +168,7 @@ export function ServicePageTemplate({ service }: { service: Service }) {
         <section className="border-t border-line">
           <div className="shell py-16 sm:py-20">
             <h2 className="font-display text-display-sm">Souvisí s tím</h2>
-            <div className="mt-8 grid grid-cols-1 border-l border-t border-line sm:grid-cols-3">
-              {related.map((s) => (
-                <Link
-                  key={s.slug}
-                  href={`/${s.slug}`}
-                  className="group flex items-start gap-4 border-b border-r border-line p-6 transition-colors hover:bg-mist"
-                >
-                  <ServiceIcon
-                    slug={s.slug}
-                    className={cn(
-                      "mt-0.5 h-7 w-7 shrink-0",
-                      s.accent === "green" ? "text-brand" : "text-tech"
-                    )}
-                  />
-                  <span>
-                    <span className="block font-display text-[1.0625rem] font-semibold text-ink">
-                      {s.navLabel}
-                    </span>
-                    <span className="mt-1.5 block text-[0.875rem] leading-relaxed text-ink-soft">
-                      {s.lead.split(".")[0]}.
-                    </span>
-                  </span>
-                </Link>
-              ))}
-            </div>
+            <ServiceLinkGrid services={related} columns={3} className="mt-8" />
           </div>
         </section>
       )}

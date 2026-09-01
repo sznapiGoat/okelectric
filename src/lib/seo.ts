@@ -2,6 +2,15 @@ import type { Metadata } from "next";
 import { NAP, QUALIFICATIONS, REGIONS_EXTENDED, SITE_URL, TEAM } from "@/content/site";
 import type { FaqItem, Service } from "@/content/services";
 
+/**
+ * Náhledový obrázek se odvozuje z cesty, aby se nemusel psát u každé stránky.
+ * Soubory leží v public/og a generují se skriptem z referenčních fotografií.
+ */
+function ogImageForPath(path: string) {
+  const slug = path === "/" ? "home" : path.replace(/^\//, "").replace(/\/$/, "");
+  return `/og/${slug}.jpg`;
+}
+
 /** Sestaví Metadata s kanonickou URL a Open Graph pro libovolnou trasu. */
 export function pageMetadata(opts: {
   title: string;
@@ -10,6 +19,7 @@ export function pageMetadata(opts: {
   image?: string;
 }): Metadata {
   const url = `${SITE_URL}${opts.path}`;
+  const image = opts.image ?? ogImageForPath(opts.path);
   return {
     title: opts.title,
     description: opts.description,
@@ -21,13 +31,13 @@ export function pageMetadata(opts: {
       title: opts.title,
       description: opts.description,
       url,
-      images: [{ url: opts.image ?? "/og-default.jpg", width: 1200, height: 630, alt: opts.title }],
+      images: [{ url: image, width: 1200, height: 630, alt: opts.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: opts.title,
       description: opts.description,
-      images: [opts.image ?? "/og-default.jpg"],
+      images: [image],
     },
   };
 }

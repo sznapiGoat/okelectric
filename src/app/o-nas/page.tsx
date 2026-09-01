@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { PARTNERS, QUALIFICATIONS, REGIONS_EXTENDED, REGION_LINE, TEAM } from "@/content/site";
 import { SERVICES } from "@/content/services";
 import { PROJECTS_SORTED } from "@/content/projects";
@@ -6,6 +5,7 @@ import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
 import { JsonLd } from "@/components/JsonLd";
+import { ServiceLinkGrid } from "@/components/ServiceLinkGrid";
 import { TeamMemberCard } from "@/components/TeamMemberCard";
 
 export const metadata = pageMetadata({
@@ -153,20 +153,7 @@ export default function AboutPage() {
       {/* Co děláme */}
       <section className="shell py-16 sm:py-20">
         <h2 className="font-display text-display-sm">Čemu se věnujeme</h2>
-        <ul className="mt-8 grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 lg:grid-cols-4">
-          {SERVICES.map((s) => (
-            <li key={s.slug} className="border-b border-r border-line">
-              <Link href={`/${s.slug}`} className="block p-5 transition-colors hover:bg-mist">
-                <span className="font-display text-[1.0625rem] font-semibold text-ink">
-                  {s.navLabel}
-                </span>
-                <span className="mt-1.5 block text-[0.875rem] leading-relaxed text-ink-soft">
-                  {s.lead.split(".")[0]}.
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <ServiceLinkGrid services={SERVICES} columns={4} className="mt-8" />
       </section>
 
       <CTASection />

@@ -12,6 +12,10 @@ export type Service = {
   metaDescription: string;
   /** Jedna věta pod H1. */
   lead: string;
+  /** Krátký popisek do dlaždic a do menu, jeden řádek. */
+  tagline: string;
+  /** Datum poslední úpravy obsahu, ISO. Ručně bumpnout při editaci textu. */
+  updated: string;
   /** Text tlačítka, přebírá se ze současného webu. */
   ctaLabel: string;
   /** Vlastní hlavní text služby, 300 až 500 slov. */
@@ -37,6 +41,8 @@ export const SERVICES: Service[] = [
     metaDescription:
       "Výměna starých kotlů na tuhá paliva za tepelné čerpadlo, peletový nebo zplynovací kotel. Řídicí systémy kotelen, ekvitermní regulace, dotace Nová zelená úsporám. Písek, Protivín, Blatná, Šumava, Praha.",
     lead: "Nahrazujeme staré nevyhovující kotle na tuhá paliva efektivním zdrojem a doděláme k němu i regulaci, která z něj skutečně dostane, co umí.",
+    tagline: "Tepelná čerpadla, peletové kotle a regulace, která z nich dostane maximum.",
+    updated: "2026-09-01",
     ctaLabel: "Chci moderní kotelnu",
     body: [
       {
@@ -131,6 +137,8 @@ export const SERVICES: Service[] = [
     metaDescription:
       "Kompletní elektroinstalace novostaveb i rekonstrukce, montáž hromosvodů, úpravy elektroměrových rozvaděčů, osvětlení a pohony vrat. Písek, Protivín, Blatná, Šumava, Praha.",
     lead: "Elektroinstalace je nervovou soustavou domu. Rozhoduje o tom, jak pohodlně se v něm bude bydlet dalších třicet let, a předělává se hůř než cokoliv jiného.",
+    tagline: "Novostavby, rekonstrukce, hromosvody i příprava na wallbox.",
+    updated: "2026-09-01",
     ctaLabel: "Potřebuji elektrikáře",
     body: [
       {
@@ -222,6 +230,8 @@ export const SERVICES: Service[] = [
     metaDescription:
       "Certifikovaný montážní partner Jablotron. Alarmy, kamery, přístupové systémy a chytrá domácnost pro byty, domy i firmy. Montáž zpravidla za jeden den. Písek, Protivín, Blatná, Šumava, Praha.",
     lead: "Ochráníme, co je pro vás cenné, na nejvyšší dostupné technické úrovni. Jsme certifikovaným montážním partnerem firmy Jablotron.",
+    tagline: "Jablotron na míru objektu, montáž zpravidla za jeden den.",
+    updated: "2026-09-01",
     ctaLabel: "Chci alarm",
     body: [
       {
@@ -313,6 +323,8 @@ export const SERVICES: Service[] = [
     metaDescription:
       "Návrh a instalace fotovoltaických elektráren pro domácnosti i firmy, fotovoltaický ohřev vody a analýza starších elektráren termokamerou. Písek, Protivín, Blatná, Šumava, Praha.",
     lead: "Proměňte sluneční paprsky v energii, která pohání váš dům nebo firmu. S energií slunce to umíme na jedničku.",
+    tagline: "Elektrárny, ohřev vody i prověření starší instalace termokamerou.",
+    updated: "2026-09-01",
     ctaLabel: "Chci svou energii",
     body: [
       {
@@ -405,6 +417,8 @@ export const SERVICES: Service[] = [
     metaDescription:
       "Centrální i decentrální rekuperační jednotky Zehnder ComfoAir a ComfoSpot pro novostavby i starší domy. Bezplatný návrh, montáž, servis. Písek, Protivín, Blatná, Šumava, Praha.",
     lead: "Zbavíme vás vlhkosti a budete dýchat čistší vzduch díky rekuperačním systémům od švýcarského výrobce Zehnder.",
+    tagline: "Zehnder ComfoAir do novostaveb, ComfoSpot do starších domů.",
+    updated: "2026-09-01",
     ctaLabel: "Potřebuji větrat",
     body: [
       {
@@ -495,6 +509,8 @@ export const SERVICES: Service[] = [
     metaDescription:
       "Výchozí i periodické revize elektroinstalací, hromosvodů a fotovoltaických elektráren. Revize přípojek pro ČEZ a EG.D. Písek, Protivín, Blatná, Šumava, Praha.",
     lead: "Ujistěte se o bezpečnosti a spolehlivosti své instalace. Revizi si děláme sami, takže na ni nečekáte.",
+    tagline: "Výchozí i periodické revize elektroinstalací, hromosvodů a fotovoltaik.",
+    updated: "2026-09-01",
     ctaLabel: "Chci revizi",
     body: [
       {
@@ -585,6 +601,8 @@ export const SERVICES: Service[] = [
     metaDescription:
       "Rozvody vody a topení, podlahové vytápění, výměny radiátorů, oběhová čerpadla a izolace. Domácnosti, rodinné domy i průmyslové objekty. Písek, Protivín, Blatná, Šumava, Praha.",
     lead: "Kompletní služby v oblasti vodoinstalací a topenářských prací na jednom místě. Postaráme se o domácnosti, rodinné domy i průmyslové objekty.",
+    tagline: "Rozvody vody a topení, podlahové vytápění i havárie.",
+    updated: "2026-09-01",
     ctaLabel: "Instalatér (téměř) ihned",
     body: [
       {
@@ -676,6 +694,8 @@ export const SERVICES: Service[] = [
     metaDescription:
       "Profesionální výkresová dokumentace ve 2D i 3D. Projekty hromosvodů, zaměření skutečného stavu, návrhy strojních dílů a přípravků. Písek, Protivín, Blatná, Šumava, Praha.",
     lead: "Nakreslíme všechno, co je potřeba, od projektů hromosvodů po výkresy, které by obstály i před profesorem technického kreslení.",
+    tagline: "Projekty hromosvodů, zaměření skutečného stavu, 2D i 3D.",
+    updated: "2026-09-01",
     ctaLabel: "Potřebuji nakreslit",
     body: [
       {

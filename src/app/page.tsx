@@ -19,7 +19,8 @@ export const metadata = pageMetadata({
   path: "/",
 });
 
-const heroProject = PROJECTS_SORTED.find((p) => p.id === "p02")!;
+// Fotka do hero se vybírá podle id, aby se nezměnila při přeřazení referencí.
+const heroProject = PROJECTS_SORTED.find((p) => p.id === "p02") ?? PROJECTS_SORTED[0];
 const latest = PROJECTS_SORTED.slice(0, 6);
 
 export default function HomePage() {

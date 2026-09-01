@@ -28,10 +28,35 @@ předá objekt do `ServicePageTemplate`. Sitemap se doplní sama.
 - `pageMetadata()` v `src/lib/seo.ts` řeší title, description, canonical a Open Graph pro každou trasu
 - JSON-LD: `Electrician` / `HVACBusiness` / `LocalBusiness` na layoutu, `Service` a `FAQPage` na
   stránkách služeb, `BreadcrumbList` všude, `WebSite` na layoutu
-- `app/sitemap.ts` a `app/robots.ts` generují sitemap i robots ze seznamu služeb
+- `app/sitemap.ts` a `app/robots.ts` generují sitemap i robots ze seznamu služeb.
+  `lastModified` se bere z pole `updated` u každé služby, ne z času buildu, jinak by
+  každý deploy tvrdil Googlu, že se změnily všechny stránky. Při editaci textu je
+  potřeba datum ručně posunout.
+- Náhledové obrázky pro sdílení má každá stránka vlastní, v `public/og`. Odvozují se
+  automaticky z cesty, takže u nové trasy stačí přidat soubor se shodným názvem.
 
 Lighthouse na produkčním buildu: SEO 100, přístupnost 100, best practices 100, výkon 100 (desktop)
 a 93 (mobil, simulované 4G).
+
+## Poptávkový formulář
+
+Komponenta `PoptavkaForm` je hotová, ale **vypnutá**. Na stránce Kontakt se vykreslí
+teprve ve chvíli, kdy je nastavená proměnná `NEXT_PUBLIC_FORM_ENDPOINT`. Bez ní by
+na webu bylo tlačítko, které nikam neodesílá, což je horší než formulář žádný.
+
+Zapnutí:
+
+1. Založit formulář na Formspree a vzít URL `https://formspree.io/f/xxxxxxxx`
+2. Ve Vercelu přidat `NEXT_PUBLIC_FORM_ENDPOINT` s touto hodnotou
+3. Nasadit
+
+Formulář posílá JSON s poli `jmeno`, `obec`, `telefon`, `email`, `sluzba`, `zprava`
+a `souhlas`. Má skryté pole `web` jako past na roboty, validaci na straně klienta
+s chybami navázanými přes `aria-describedby` a stav odesílání i chyby.
+
+Text souhlasu se zpracováním údajů je zatím obecný. Před ostrým provozem by ho měl
+projít někdo, kdo řeší GDPR, a měla by k němu vzniknout stránka se zásadami
+zpracování.
 
 ## Co je potřeba doplnit před ostrým nasazením
 
