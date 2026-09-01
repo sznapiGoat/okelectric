@@ -2,26 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+    /* Displejové řezy potřebují vyšší leading, jinak se u víceřádkových
+       nadpisů ořezávají háčky a čárky. */
+    line-height: 1.08;
+  }
+
+  ::selection {
+    background: #60b23a;
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid #005aa5;
+    outline-offset: 3px;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* Vodorovná i svislá vlásková mřížka, na které stojí celý layout.
+     Používá se místo stínovaných karet. */
+  .shell {
+    @apply mx-auto w-full max-w-shell px-5 sm:px-8;
+  }
+
+  .rule {
+    @apply border-t border-line;
+  }
+
+  .schematic {
+    background-image: linear-gradient(to right, #e1e6e1 1px, transparent 1px),
+      linear-gradient(to bottom, #e1e6e1 1px, transparent 1px);
+    background-size: 96px 96px;
+  }
+
+  .eyebrow {
+    @apply font-sans text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink-faint;
+  }
+
+  .prose-body p {
+    @apply text-[1.0625rem] leading-[1.72] text-ink-soft;
+  }
+
+  .prose-body p + p {
+    @apply mt-4;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
   }
 }

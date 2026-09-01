@@ -34,3 +34,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# lokální podklady a testovací výstupy
+/oldImages
+/shot-*.png
+/cut-*.jpg
+/lh-*.json
+tsconfig.tsbuildinfo

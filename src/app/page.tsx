@@ -1,101 +1,211 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Phone } from "lucide-react";
+import { SERVICES } from "@/content/services";
+import { PROJECTS_SORTED } from "@/content/projects";
+import { NAP, REGIONS_EXTENDED, REGION_LINE, TEAM } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
+import { CTASection } from "@/components/CTASection";
+import { ProjectGalleryItem } from "@/components/ProjectGalleryItem";
+import { ServiceCard } from "@/components/ServiceCard";
+import { TrustStrip } from "@/components/TrustStrip";
+import { ButtonAnchor, ButtonLink } from "@/components/ui/Button";
+import { cn } from "@/lib/utils";
 
-export default function Home() {
+export const metadata = pageMetadata({
+  title: "Elektrikáři a topenáři Písek, Protivín, Blatná | OKelectric",
+  description:
+    "Elektroinstalace a hromosvody, kotelny a tepelná čerpadla, fotovoltaika, rekuperace, alarmy a revize pod jednou firmou. Písek, Protivín, Blatná, Šumava a Praha.",
+  path: "/",
+});
+
+const heroProject = PROJECTS_SORTED.find((p) => p.id === "p02")!;
+const latest = PROJECTS_SORTED.slice(0, 6);
+
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <>
+      {/* Hero */}
+      <section className="relative overflow-hidden border-b border-line">
+        <div
+          className="schematic pointer-events-none absolute inset-0 opacity-60 [mask-image:radial-gradient(120%_90%_at_15%_0%,black,transparent)]"
+          aria-hidden
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <div className="shell relative grid gap-12 pb-16 pt-14 sm:pt-20 lg:grid-cols-12 lg:gap-14 lg:pb-24 lg:pt-24">
+          <div className="lg:col-span-6 xl:col-span-6">
+            <h1 className="font-display text-display-xl text-balance">
+              Elektrikáři,
+              <br />
+              kteří umí i topit.
+            </h1>
+
+            <p className="mt-7 max-w-lg text-[1.15rem] leading-[1.6] text-ink-soft text-pretty sm:text-[1.25rem]">
+              Elektroinstalace, hromosvody, kotelny a tepelná čerpadla, fotovoltaika, rekuperace i
+              alarmy. Vše pod jednou firmou, včetně revize, kterou vystavíme sami.
+            </p>
+
+            <div className="mt-9 flex flex-wrap items-center gap-3">
+              <ButtonAnchor href={`tel:${NAP.phone}`} variant="brand" size="lg">
+                <Phone className="h-5 w-5" aria-hidden />
+                {NAP.phoneDisplay}
+              </ButtonAnchor>
+              <ButtonLink href="/reference" variant="outline" size="lg">
+                Prohlédnout reference
+              </ButtonLink>
+            </div>
+
+            <dl className="mt-12 grid max-w-lg grid-cols-3 border-t border-line">
+              {[
+                { label: "Oborů", value: SERVICES.length },
+                { label: "Lidí v týmu", value: TEAM.length },
+                { label: "Doložených realizací", value: PROJECTS_SORTED.length },
+              ].map((stat, i) => (
+                <div
+                  key={stat.label}
+                  className={cn(
+                    "flex flex-col justify-between py-5",
+                    i < 2 && "border-r border-line",
+                    i === 0 ? "pr-4" : "px-4"
+                  )}
+                >
+                  <dt className="text-[0.8125rem] leading-snug text-ink-faint">{stat.label}</dt>
+                  <dd className="mt-2 font-display text-[1.75rem] font-bold tabular-nums text-ink">
+                    {stat.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div className="lg:col-span-6">
+            <figure className="relative">
+              <div className="relative aspect-[4/3] overflow-hidden bg-mist lg:aspect-[4/3.5]">
+                <Image
+                  src={heroProject.image}
+                  alt={heroProject.alt}
+                  fill
+                  priority
+                  fetchPriority="high"
+                  sizes="(min-width: 1024px) 46vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-line py-3.5 text-[0.8125rem]">
+                <span className="font-semibold text-ink">{heroProject.title}</span>
+                <span className="text-ink-faint">
+                  {heroProject.place}, {heroProject.dateLabel}
+                </span>
+              </figcaption>
+            </figure>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        {/* Pás obcí */}
+        <div className="relative border-t border-line bg-mist">
+          <div className="shell flex flex-wrap items-center gap-x-5 gap-y-2 py-4 text-[0.8125rem] text-ink-faint">
+            <span className="font-semibold text-ink-soft">Jezdíme do:</span>
+            {REGIONS_EXTENDED.map((r) => (
+              <span key={r}>{r}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Služby */}
+      <section className="shell py-16 sm:py-24" aria-labelledby="sluzby">
+        <div className="max-w-2xl">
+          <h2 id="sluzby" className="font-display text-display-lg text-balance">
+            Osm oborů, jedno telefonní číslo.
+          </h2>
+          <p className="mt-5 text-[1.0625rem] leading-relaxed text-ink-soft">
+            Většina zakázek u nás začíná jednou věcí a skončí u tří. Právě proto děláme elektriku i
+            topení pod jednou střechou, aby se na stavbě nedohadovaly dvě party nad jedním rozvaděčem.
+          </p>
+        </div>
+
+        <div className="mt-12 grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 lg:grid-cols-4">
+          {SERVICES.map((service) => (
+            <ServiceCard key={service.slug} service={service} />
+          ))}
+        </div>
+      </section>
+
+      <TrustStrip />
+
+      {/* Reference */}
+      <section className="shell py-16 sm:py-24" aria-labelledby="reference">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div className="max-w-2xl">
+            <h2 id="reference" className="font-display text-display-lg text-balance">
+              Poslední realizace
+            </h2>
+            <p className="mt-5 text-[1.0625rem] leading-relaxed text-ink-soft">
+              Fotky z vlastních zakázek, ne z katalogu. Od bytového rozvaděče v Písku po osvětlení
+              uvnitř mostní konstrukce dálnice D4.
+            </p>
+          </div>
+          <Link
+            href="/reference"
+            className="inline-flex items-center gap-2 text-[0.9375rem] font-semibold text-ink hover:text-brand-deep"
+          >
+            Všech {PROJECTS_SORTED.length} realizací
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </Link>
+        </div>
+
+        <div className="mt-12 grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
+          {latest.map((p) => (
+            <ProjectGalleryItem key={p.id} project={p} />
+          ))}
+        </div>
+      </section>
+
+      {/* Tým */}
+      <section className="border-t border-line bg-mist py-16 sm:py-24" aria-labelledby="tym">
+        <div className="shell grid gap-10 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-4">
+            <h2 id="tym" className="font-display text-display-lg text-balance">
+              Volejte rovnou tomu, kdo to dělá.
+            </h2>
+            <p className="mt-5 text-[1.0625rem] leading-relaxed text-ink-soft">
+              Nemáme dispečink ani formulářovou frontu. Každý obor má u nás svého člověka a ten vám
+              telefon zvedne. Pracujeme v oblasti {REGION_LINE}.
+            </p>
+            <ButtonLink href="/o-nas" variant="outline" size="lg" className="mt-8">
+              Poznat tým a kvalifikace
+            </ButtonLink>
+          </div>
+
+          <div className="lg:col-span-8">
+            <ul className="border-t border-line">
+              {TEAM.map((m) => (
+                <li
+                  key={m.slug}
+                  className="flex flex-col gap-2 border-b border-line py-5 sm:flex-row sm:items-baseline sm:gap-6"
+                >
+                  <div className="sm:w-56 sm:shrink-0">
+                    <p className="font-display text-[1.0625rem] font-semibold text-ink">{m.name}</p>
+                    <p className="text-[0.8125rem] text-ink-faint">{m.town}</p>
+                  </div>
+                  <p className="flex-1 text-[0.9375rem] leading-relaxed text-ink-soft">{m.role}</p>
+                  <a
+                    href={`tel:${m.phone}`}
+                    className="font-display text-[1.0625rem] font-semibold text-ink hover:text-brand-deep sm:shrink-0"
+                  >
+                    {m.phoneDisplay}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <CTASection
+        heading="Vaše spokojenost je naším cílem a závazkem."
+        text={`Každý projekt je jiný, proto začínáme tím, že posloucháme. Zavolejte a řekněte, co potřebujete. Pracujeme v oblasti ${REGION_LINE}.`}
+      />
+    </>
   );
 }
