@@ -43,6 +43,25 @@ a 93 (mobil, simulované 4G).
 - **Fotografie týmu.** `TeamMemberCard` je zatím bez portrétů.
 - **Kontaktní formulář.** Web záměrně tlačí na telefon, formulář v tomto průchodu není.
 
+## Značka a favicon
+
+Zdrojová geometrie značky je `public/brand/mark.svg` (dům se solárním polem) a
+`public/brand/mark-solid.svg` (totéž bez bílé mřížky, pro velikosti pod 40 px, kde se
+mřížka stejně slije). Z těchto dvou souborů se generuje všechno ostatní: `favicon.ico`
+(16, 32 a 48 px, bez mřížky), `icon.png`, `apple-icon.png` a `public/brand/logo.png`
+pro JSON-LD.
+
+V komponentách se značka vykresluje inline přes `BrandMark`, ne přes `next/image`.
+U logotypu o velikosti 1 kB to ušetří jeden HTTP požadavek na každé stránce a značka
+zůstane ostrá v jakémkoli zvětšení.
+
+Podklady ve Figmě: https://www.figma.com/design/PHzaINhJNNbsgA9MMdy05o
+
+Pozor, tohle je **návrh, ne schválené logo**. Původní rastrové logo klienta zůstává
+nedotčené v `public/brand/logo-original.png`. Nová značka z něj přebírá dům, solární
+panely a obě firemní barvy, ale vypouští sirénu, klimatizaci, list a zástrčku, protože
+šest prvků v 16 px splyne v skvrnu.
+
 ## Fotografie
 
 Fotky v `public/reference/` pocházejí z původního webu, ale ne z těch verzí, které byly vidět na

@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import { SERVICES } from "@/content/services";
 import { NAP, REGION_LINE } from "@/content/site";
+import { BrandMark } from "@/components/BrandMark";
 import { ServiceIcon } from "@/components/ServiceIcon";
 import { cn } from "@/lib/utils";
 
@@ -45,14 +45,7 @@ export function Header() {
       <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur supports-[backdrop-filter]:bg-paper/85">
       <div className="shell flex h-16 items-center gap-4 lg:h-20">
         <Link href="/" className="flex shrink-0 items-center gap-2.5">
-          <Image
-            src="/brand/mark.png"
-            alt=""
-            width={340}
-            height={234}
-            priority
-            className="h-9 w-auto lg:h-10"
-          />
+          <BrandMark className="h-9 w-9 lg:h-10 lg:w-10" />
           <span className="flex flex-col leading-none">
             <span className="font-display text-[1.15rem] font-bold tracking-tight text-tech">
               OK<span className="text-brand-deep">electric</span>

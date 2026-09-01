@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { BrandMark } from "@/components/BrandMark";
 import { SERVICES } from "@/content/services";
 import { NAP, REGIONS_EXTENDED, TEAM } from "@/content/site";
 
@@ -10,7 +10,7 @@ export function Footer() {
       <div className="shell grid gap-12 py-16 md:grid-cols-12 md:py-20">
         <div className="md:col-span-4">
           <Link href="/" className="flex items-center gap-2.5">
-            <Image src="/brand/mark.png" alt="" width={340} height={234} className="h-10 w-auto" />
+            <BrandMark className="h-10 w-10" />
             <span className="font-display text-xl font-bold tracking-tight text-tech">
               OK<span className="text-brand-deep">electric</span>
             </span>
