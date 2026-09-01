@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { CATEGORY_LABELS, type Project, type ProjectCategory } from "@/content/projects";
-import { ProjectGalleryItem } from "@/components/ProjectGalleryItem";
+import { ProjectGrid } from "@/components/ProjectGrid";
 import { cn } from "@/lib/utils";
 
 type Filter = ProjectCategory | "vse";
@@ -60,11 +60,13 @@ export function ReferenceGallery({
         Zobrazeno {visible.length} realizací.
       </p>
 
-      <div className="mt-10 grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
-        {visible.map((p, i) => (
-          <ProjectGalleryItem key={p.id} project={p} priority={i < 3} headingLevel={headingLevel} />
-        ))}
-      </div>
+      <ProjectGrid
+        key={filter}
+        projects={visible}
+        headingLevel={headingLevel}
+        priorityCount={3}
+        className="mt-10"
+      />
     </div>
   );
 }

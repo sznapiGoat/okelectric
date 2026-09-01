@@ -6,7 +6,7 @@ import { PROJECTS_SORTED } from "@/content/projects";
 import { NAP, REGIONS_EXTENDED, REGION_LINE, TEAM } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 import { CTASection } from "@/components/CTASection";
-import { ProjectGalleryItem } from "@/components/ProjectGalleryItem";
+import { ProjectGrid } from "@/components/ProjectGrid";
 import { ServiceCard } from "@/components/ServiceCard";
 import { TrustStrip } from "@/components/TrustStrip";
 import { ButtonAnchor, ButtonLink } from "@/components/ui/Button";
@@ -154,11 +154,7 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
-          {latest.map((p) => (
-            <ProjectGalleryItem key={p.id} project={p} />
-          ))}
-        </div>
+        <ProjectGrid projects={latest} className="mt-12" />
       </section>
 
       {/* Tým */}

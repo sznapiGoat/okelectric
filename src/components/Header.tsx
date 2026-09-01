@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import { SERVICES } from "@/content/services";
 import { NAP, REGION_LINE } from "@/content/site";
@@ -20,6 +20,13 @@ export function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const servicesRef = useRef<HTMLDivElement>(null);
+  const servicesTriggerRef = useRef<HTMLButtonElement>(null);
+
+  const closeServices = useCallback((returnFocus = false) => {
+    setServicesOpen(false);
+    if (returnFocus) servicesTriggerRef.current?.focus();
+  }, []);
 
   useEffect(() => {
     setMobileOpen(false);
@@ -58,18 +65,42 @@ export function Header() {
 
         <nav className="ml-auto hidden items-center gap-1 lg:flex" aria-label="Hlavní navigace">
           <div
+            ref={servicesRef}
             className="relative"
             onMouseEnter={() => setServicesOpen(true)}
             onMouseLeave={() => setServicesOpen(false)}
+            onKeyDown={(e) => {
+              if (e.key === "Escape" && servicesOpen) {
+                e.preventDefault();
+                closeServices(true);
+              }
+            }}
+            onBlur={(e) => {
+              // Zavřít, jakmile fokus opustí trigger i panel.
+              if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+                setServicesOpen(false);
+              }
+            }}
           >
             <button
+              ref={servicesTriggerRef}
               type="button"
               className={cn(
                 "flex h-10 items-center gap-1.5 px-3 text-[0.9375rem] font-medium transition-colors",
                 servicesOpen ? "text-brand-deep" : "text-ink-soft hover:text-ink"
               )}
               aria-expanded={servicesOpen}
+              aria-haspopup="true"
+              aria-controls="menu-sluzby"
               onClick={() => setServicesOpen((v) => !v)}
+              onKeyDown={(e) => {
+                if (e.key !== "ArrowDown") return;
+                e.preventDefault();
+                setServicesOpen(true);
+                requestAnimationFrame(() => {
+                  servicesRef.current?.querySelector<HTMLAnchorElement>("#menu-sluzby a")?.focus();
+                });
+              }}
             >
               Služby
               <ChevronDown
@@ -80,7 +111,7 @@ export function Header() {
 
             {servicesOpen && (
               <div className="absolute left-1/2 top-full w-[42rem] -translate-x-1/2 pt-2">
-                <div className="grid grid-cols-2 border border-line bg-paper">
+                <div id="menu-sluzby" className="grid grid-cols-2 border border-line bg-paper">
                   {SERVICES.map((s) => (
                     <Link
                       key={s.slug}

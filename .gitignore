@@ -41,3 +41,5 @@ next-env.d.ts
 /cut-*.jpg
 /lh-*.json
 tsconfig.tsbuildinfo
+/.orig
+/sheet*.jpg

@@ -82,3 +82,26 @@
     text-wrap: pretty;
   }
 }
+
+@layer components {
+  /* Náhled fotografie se jen prolne, žádná animační knihovna kvůli tomu
+     není potřeba a udrží to domovskou stránku bez framer-motion. */
+  .lightbox {
+    animation: lightbox-in 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @keyframes lightbox-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lightbox {
+      animation: none;
+    }
+  }
+}

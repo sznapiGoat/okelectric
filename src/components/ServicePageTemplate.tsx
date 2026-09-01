@@ -8,7 +8,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { JsonLd } from "@/components/JsonLd";
-import { ProjectGalleryItem } from "@/components/ProjectGalleryItem";
+import { ProjectGrid } from "@/components/ProjectGrid";
 import { Reveal } from "@/components/Reveal";
 import { ServiceIcon } from "@/components/ServiceIcon";
 import { ButtonAnchor } from "@/components/ui/Button";
@@ -142,11 +142,7 @@ export function ServicePageTemplate({ service }: { service: Service }) {
               </Link>
             </div>
 
-            <div className="mt-10 grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
-              {projects.map((p) => (
-                <ProjectGalleryItem key={p.id} project={p} />
-              ))}
-            </div>
+            <ProjectGrid projects={projects} className="mt-10" />
           </div>
         </section>
       )}

@@ -45,9 +45,16 @@ a 93 (mobil, simulované 4G).
 
 ## Fotografie
 
-Fotky v `public/reference/` pocházejí z původního webu. Popisky (`alt`) v `projects.ts` popisují,
-co je na snímku skutečně vidět, ne co říká název souboru. Několik názvů souborů je zavádějících,
-například `PCO.jpg` je ve skutečnosti výrobní hala v Českých Budějovicích.
+Fotky v `public/reference/` pocházejí z původního webu, ale ne z těch verzí, které byly vidět na
+stránce. WordPress tam servíroval ořezy 1024x800, originály jsou 4080x2296. Uložené jsou proto
+znovu, ve 2048 px na šířku v poměru 5:4, což pokryje i náhled na retina displeji.
+
+Dvě výjimky, kde víc neexistuje: rozvodna Billa v Uničově má originál 574x1020 a termokamerový
+snímek z Číčenic 320x240, což je nativní rozlišení čipu termokamery, ne chyba stahování.
+
+Popisky (`alt`) v `projects.ts` popisují, co je na snímku skutečně vidět, ne co říká název souboru.
+Několik názvů je zavádějících, například `PCO.jpg` je ve skutečnosti výrobní hala v Českých
+Budějovicích.
 
 ## Blog
 
