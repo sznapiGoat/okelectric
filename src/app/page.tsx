@@ -6,11 +6,11 @@ import { PROJECTS_SORTED } from "@/content/projects";
 import { NAP, REGIONS_EXTENDED, REGION_LINE, TEAM } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 import { CTASection } from "@/components/CTASection";
+import { HeroProof } from "@/components/HeroProof";
 import { ProjectGrid } from "@/components/ProjectGrid";
 import { ServiceCard } from "@/components/ServiceCard";
 import { TrustStrip } from "@/components/TrustStrip";
 import { ButtonAnchor, ButtonLink } from "@/components/ui/Button";
-import { cn } from "@/lib/utils";
 
 export const metadata = pageMetadata({
   title: "Elektrikáři a topenáři Písek, Protivín, Blatná | OKelectric",
@@ -56,27 +56,7 @@ export default function HomePage() {
               </ButtonLink>
             </div>
 
-            <dl className="mt-12 grid max-w-lg grid-cols-3 border-t border-line">
-              {[
-                { label: "Oborů", value: SERVICES.length },
-                { label: "Lidí v týmu", value: TEAM.length },
-                { label: "Doložených realizací", value: PROJECTS_SORTED.length },
-              ].map((stat, i) => (
-                <div
-                  key={stat.label}
-                  className={cn(
-                    "flex flex-col justify-between py-5",
-                    i < 2 && "border-r border-line",
-                    i === 0 ? "pr-4" : "px-4"
-                  )}
-                >
-                  <dt className="text-[0.8125rem] leading-snug text-ink-faint">{stat.label}</dt>
-                  <dd className="mt-2 font-display text-[1.75rem] font-bold tabular-nums text-ink">
-                    {stat.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
+            <HeroProof />
           </div>
 
           <div className="lg:col-span-6">

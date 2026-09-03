@@ -49,18 +49,23 @@ export function ServicePageTemplate({ service }: { service: Service }) {
               </p>
 
               {owner && (
-                <div className="mt-9 flex flex-wrap items-center gap-3">
-                  <ButtonAnchor
-                    href={`tel:${owner.phone}`}
-                    variant={service.accent === "green" ? "brand" : "tech"}
-                    size="lg"
-                  >
-                    <Phone className="h-5 w-5" aria-hidden />
-                    {service.ctaLabel}
-                  </ButtonAnchor>
-                  <span className="text-[0.9375rem] text-ink-faint">
-                    {owner.phoneDisplay}, {owner.name.split(" ").slice(-1)[0]}
-                  </span>
+                <div className="mt-9">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <ButtonAnchor
+                      href={`tel:${owner.phone}`}
+                      variant={service.accent === "green" ? "brand" : "tech"}
+                      size="lg"
+                    >
+                      <Phone className="h-5 w-5" aria-hidden />
+                      {service.ctaLabel}
+                    </ButtonAnchor>
+                    <span className="text-[0.9375rem] text-ink-faint">
+                      {owner.phoneDisplay}, {owner.name.split(" ").slice(-1)[0]}
+                    </span>
+                  </div>
+                  <p className="mt-3.5 max-w-md text-[0.9375rem] leading-relaxed text-ink-soft">
+                    {service.ctaNote}
+                  </p>
                 </div>
               )}
             </div>

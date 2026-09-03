@@ -16,8 +16,10 @@ export type Service = {
   tagline: string;
   /** Datum poslední úpravy obsahu, ISO. Ručně bumpnout při editaci textu. */
   updated: string;
-  /** Text tlačítka, přebírá se ze současného webu. */
+  /** Text tlačítka. */
   ctaLabel: string;
+  /** Jedna věta pod tlačítkem: co se stane, když zavolám. Snižuje obavu z kliknutí. */
+  ctaNote: string;
   /** Vlastní hlavní text služby, 300 až 500 slov. */
   body: { heading: string; paragraphs: string[] }[];
   /** Odrážkový výčet konkrétních prací. */
@@ -44,6 +46,7 @@ export const SERVICES: Service[] = [
     tagline: "Tepelná čerpadla, peletové kotle a regulace, která z nich dostane maximum.",
     updated: "2026-09-01",
     ctaLabel: "Chci moderní kotelnu",
+    ctaNote: "Přijedeme se podívat na kotelnu a otopnou soustavu, pak pošleme nabídku.",
     body: [
       {
         heading: "Moderní vytápění bez kompromisů",
@@ -140,6 +143,7 @@ export const SERVICES: Service[] = [
     tagline: "Novostavby, rekonstrukce, hromosvody i příprava na wallbox.",
     updated: "2026-09-01",
     ctaLabel: "Potřebuji elektrikáře",
+    ctaNote: "Řekneme, co to obnáší, ideálně dřív, než se začne bourat.",
     body: [
       {
         heading: "Pár zásuvek natahá i soused. Dům ne",
@@ -233,6 +237,7 @@ export const SERVICES: Service[] = [
     tagline: "Jablotron na míru objektu, montáž zpravidla za jeden den.",
     updated: "2026-09-01",
     ctaLabel: "Chci alarm",
+    ctaNote: "Projdeme objekt a navrhneme sestavu podle rizika, ne podle ceníku.",
     body: [
       {
         heading: "Bezpečí na prvním místě",
@@ -325,7 +330,8 @@ export const SERVICES: Service[] = [
     lead: "Proměňte sluneční paprsky v energii, která pohání váš dům nebo firmu. S energií slunce to umíme na jedničku.",
     tagline: "Elektrárny, ohřev vody i prověření starší instalace termokamerou.",
     updated: "2026-09-01",
-    ctaLabel: "Chci svou energii",
+    ctaLabel: "Chci fotovoltaiku",
+    ctaNote: "Velikost elektrárny spočítáme z vaší roční spotřeby, ne z plochy střechy.",
     body: [
       {
         heading: "Elektrárna, která se počítá",
@@ -420,6 +426,7 @@ export const SERVICES: Service[] = [
     tagline: "Zehnder ComfoAir do novostaveb, ComfoSpot do starších domů.",
     updated: "2026-09-01",
     ctaLabel: "Potřebuji větrat",
+    ctaNote: "Návrh projektu i cenovou nabídku děláme bezplatně.",
     body: [
       {
         heading: "Větrat a přitom netopit ven",
@@ -512,6 +519,7 @@ export const SERVICES: Service[] = [
     tagline: "Výchozí i periodické revize elektroinstalací, hromosvodů a fotovoltaik.",
     updated: "2026-09-01",
     ctaLabel: "Chci revizi",
+    ctaNote: "Řekněte, co a proč potřebujete zrevidovat. Rozsah i cenu odhadneme rovnou.",
     body: [
       {
         heading: "Revize není razítko, ale kontrola",
@@ -603,7 +611,8 @@ export const SERVICES: Service[] = [
     lead: "Kompletní služby v oblasti vodoinstalací a topenářských prací na jednom místě. Postaráme se o domácnosti, rodinné domy i průmyslové objekty.",
     tagline: "Rozvody vody a topení, podlahové vytápění i havárie.",
     updated: "2026-09-01",
-    ctaLabel: "Instalatér (téměř) ihned",
+    ctaLabel: "Potřebuji instalatéra",
+    ctaNote: "U havárie voláme zpět, jakmile to jde, i o víkendu.",
     body: [
       {
         heading: "Voda a topení bez shánění dalších firem",
@@ -697,6 +706,7 @@ export const SERVICES: Service[] = [
     tagline: "Projekty hromosvodů, zaměření skutečného stavu, 2D i 3D.",
     updated: "2026-09-01",
     ctaLabel: "Potřebuji nakreslit",
+    ctaNote: "Řekneme, jaké podklady k tomu potřebujeme a v jakém formátu dodáme.",
     body: [
       {
         heading: "Dokumentace, která se dá číst",

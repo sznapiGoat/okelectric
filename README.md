@@ -35,6 +35,22 @@ předá objekt do `ServicePageTemplate`. Sitemap se doplní sama.
 - Náhledové obrázky pro sdílení má každá stránka vlastní, v `public/og`. Odvozují se
   automaticky z cesty, takže u nové trasy stačí přidat soubor se shodným názvem.
 
+### Poznámka k měření výkonu
+
+Lighthouse na mobilu kolísá mezi běhy o zhruba tři body (93 až 96) na naprosto
+shodném buildu. Než něco kvůli výkonu předěláte, změřte stejný build třikrát,
+ať neopravujete šum. Ověřeno: odebrání `priority` z hero obrázku i přepnutí fontů
+na `display: optional` skončilo uvnitř tohoto rozptylu, takže obojí bylo zamítnuto.
+
+Obrázkové audity (`modern-image-formats`, `uses-responsive-images`,
+`uses-optimized-images`) i `critical-request-chains` procházejí na plný počet.
+LCP prvek je text, ne fotka, takže optimalizace obrázků nemá na LCP vliv.
+
+Dvě věci propadají a obě jsou mimo naši kontrolu: `render-blocking-resources`
+(jediný 7kB CSS soubor, inline CSS umí až Next 15) a `legacy-javascript` (11 kB
+polyfillů zabalených napevno v Nextu, `browserslist` na ně nemá vliv, ověřeno
+shodným hashem chunku před změnou i po ní).
+
 Lighthouse na produkčním buildu: SEO 100, přístupnost 100, best practices 100, výkon 100 (desktop)
 a 93 (mobil, simulované 4G).
 
