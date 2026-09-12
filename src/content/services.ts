@@ -31,12 +31,20 @@ export type Service = {
   projectCategories: ProjectCategory[];
   /** Slug člena týmu, který službu vede. */
   owner: string;
+  /**
+   * Kam se s touhle službou jezdí.
+   *  local    - drobný servis a výjezdy, dává smysl jen v dojezdu z Písku
+   *  national - plánovaná zakázka na několik dní, vzdálenost neřešíme
+   * Řídí areaServed ve schema.org i větu o působnosti na stránce služby.
+   */
+  reach: "local" | "national";
   accent: "green" | "blue";
 };
 
 export const SERVICES: Service[] = [
   {
     slug: "kotelny-tepelna-cerpadla",
+    reach: "national",
     navLabel: "Kotelny a tepelná čerpadla",
     title: "Kotelny a tepelná čerpadla",
     metaTitle: "Kotelny a tepelná čerpadla Písek, Protivín, Blatná | OKelectric",
@@ -52,7 +60,7 @@ export const SERVICES: Service[] = [
         heading: "Moderní vytápění bez kompromisů",
         paragraphs: [
           "Vytápění je největší položkou v provozu domu a zároveň místem, kde se nejvíc podepíše kvalita provedení. Instalujeme tepelná čerpadla, peletové kotle i zplynovací kotle na kusové dřevo a stavíme kolem nich kompletní kotelnu: akumulaci, oběhová čerpadla, směšovací ventily topných okruhů a řízení, které celek drží pohromadě.",
-          "Pracujeme v Písku, Protivíně, Blatné, v podhůří Šumavy i v Praze. Většina zakázek jsou rodinné domy, kde se vyměňuje dosluhující kotel na tuhá paliva, děláme ale i složitější kotelny s více zdroji, kde se kombinuje tepelné čerpadlo s krbem nebo se záložním elektrokotlem.",
+          "Většina zakázek jsou rodinné domy, kde se vyměňuje dosluhující kotel na tuhá paliva, děláme ale i složitější kotelny s více zdroji, kde se kombinuje tepelné čerpadlo s krbem nebo se záložním elektrokotlem.",
         ],
       },
       {
@@ -123,7 +131,7 @@ export const SERVICES: Service[] = [
       },
       {
         q: "V jakém okolí kotelny stavíte?",
-        a: "Běžně jezdíme po Písku, Protivíně, Blatné, Vodňanech a Strakonicích, dále na Šumavu a do Prahy. Vzdálenější zakázku posoudíme podle rozsahu.",
+        a: "Na Písecku a v jižních Čechách jsme každý týden. Kotelna je práce na několik dní, takže za ní vyjedeme i podstatně dál - řekněte, kde jste, a domluvíme se.",
       },
     ],
     related: ["instalaterske-topenarske-prace", "fotovoltaika", "rekuperace"],
@@ -134,6 +142,7 @@ export const SERVICES: Service[] = [
 
   {
     slug: "elektroinstalace",
+    reach: "local",
     navLabel: "Elektroinstalace a hromosvody",
     title: "Elektroinstalace a hromosvody",
     metaTitle: "Elektrikář Písek, Protivín, Blatná | Elektroinstalace a hromosvody | OKelectric",
@@ -155,7 +164,7 @@ export const SERVICES: Service[] = [
       {
         heading: "Novostavby, rekonstrukce i průmysl",
         paragraphs: [
-          "Děláme kompletní elektroinstalace rodinných domů a bytů v Písku, Protivíně, Blatné, na Šumavě i v Praze, včetně návrhu rozmístění a dokumentace. Stejně tak řešíme dílčí zásahy: rekonstrukci bytového rozvaděče, úpravu elektroměrového rozvaděče pro nový odběr, přípravu na nabíjecí stanici nebo dotažení okruhů, které v domě chybí.",
+          "Děláme kompletní elektroinstalace rodinných domů a bytů včetně návrhu rozmístění a dokumentace. Stejně tak řešíme dílčí zásahy: rekonstrukci bytového rozvaděče, úpravu elektroměrového rozvaděče pro nový odběr, přípravu na nabíjecí stanici nebo dotažení okruhů, které v domě chybí.",
           "Kromě rezidenčních zakázek pracujeme i na větších celcích. Realizovali jsme rozvodnu distribučního centra Billa v Uničově, výměnu rozvaděčů v průmyslovém areálu ve Strakonicích, úpravu výrobní haly v Českých Budějovicích a instalaci osvětlení uvnitř mostní konstrukce dálnice D4.",
         ],
       },
@@ -217,7 +226,7 @@ export const SERVICES: Service[] = [
       },
       {
         q: "Jak daleko jezdíte?",
-        a: "Základní působiště je Písek, Protivín a Blatná. Běžně jezdíme na Šumavu, do Prahy, Plzně a Tábora.",
+        a: "Domovská oblast je Písecko, běžně jsme po celých jižních Čechách. U větších akcí jezdíme i dál.",
       },
     ],
     related: ["elektrorevize", "alarmy-zabezpeceni", "fotovoltaika"],
@@ -228,6 +237,7 @@ export const SERVICES: Service[] = [
 
   {
     slug: "alarmy-zabezpeceni",
+    reach: "local",
     navLabel: "Alarmy a zabezpečení",
     title: "Zabezpečení majetku, vozidel a chytrá domácnost",
     metaTitle: "Alarmy a zabezpečení Písek, Protivín, Blatná | Jablotron | OKelectric",
@@ -242,7 +252,7 @@ export const SERVICES: Service[] = [
       {
         heading: "Bezpečí na prvním místě",
         paragraphs: [
-          "Zabezpečení má smysl tehdy, když je navržené na konkrétní objekt. Jinak se chrání byt v panelovém domě, jinak samostatně stojící dům na okraji obce a úplně jinak dílna nebo sklad. Navrhujeme a instalujeme systémy na míru, od alarmů přes kamerový dohled po přístupové systémy, a to v Písku, Protivíně, Blatné, na Šumavě i v Praze.",
+          "Zabezpečení má smysl tehdy, když je navržené na konkrétní objekt. Jinak se chrání byt v panelovém domě, jinak samostatně stojící dům na okraji obce a úplně jinak dílna nebo sklad. Navrhujeme a instalujeme systémy na míru, od alarmů přes kamerový dohled po přístupové systémy, a to na Písecku i po jižních Čechách.",
           "Připojení na pult centralizované ochrany bezpečnostní agentury je jen otázkou vašeho přání. Doporučujeme tříměsíční dohled bezpečnostní služby zdarma, abyste si vyzkoušeli, jestli ho chcete provozovat trvale.",
         ],
       },
@@ -322,6 +332,7 @@ export const SERVICES: Service[] = [
 
   {
     slug: "fotovoltaika",
+    reach: "national",
     navLabel: "Fotovoltaika",
     title: "Fotovoltaické systémy",
     metaTitle: "Fotovoltaika Písek, Protivín, Blatná | FVE, ohřev vody, dotace | OKelectric",
@@ -352,7 +363,7 @@ export const SERVICES: Service[] = [
         heading: "Elektrikáři, ne montážní parta",
         paragraphs: [
           "Fotovoltaika je z poloviny práce na střeše a z poloviny práce v rozvaděči. Protože děláme běžné elektroinstalace a hromosvody, řešíme rovnou i přepěťovou ochranu, koordinaci s jímací soustavou a přípravu na wallbox. Instalujeme mimo jiné střídače a baterie SolaX a umíme nastavit řízení přetoků do bojleru, jak jsme dělali v Čimelicích.",
-          "Působíme v Písku, Protivíně, Blatné, na Šumavě a v Praze, jednotlivé zakázky ale máme i dál po republice.",
+          "Domovská oblast je Písecko a jižní Čechy, jednotlivé elektrárny ale máme i daleko za jejich hranicí.",
         ],
       },
     ],
@@ -417,6 +428,7 @@ export const SERVICES: Service[] = [
 
   {
     slug: "rekuperace",
+    reach: "national",
     navLabel: "Rekuperace",
     title: "Rekuperace",
     metaTitle: "Rekuperace Písek, Protivín, Blatná | Zehnder ComfoAir | OKelectric",
@@ -432,7 +444,7 @@ export const SERVICES: Service[] = [
         heading: "Větrat a přitom netopit ven",
         paragraphs: [
           "Rekuperace zajišťuje nepřetržitou výměnu vzduchu, aniž byste ztráceli teplo. Odcházející vzduch předá svou energii vzduchu přiváděnému, takže dům dýchá a přitom se nevytápí ulice. Vedle úspory to řeší i vlhkost a alergeny, tedy věci, které se v dobře utěsněné novostavbě dřív nebo později projeví.",
-          "Moderní jednotky jsou tiché, nenápadné a účinné. Pracujeme se systémy švýcarského výrobce Zehnder, konkrétně s centrálními jednotkami ComfoAir a decentrálními ComfoSpot. Instalujeme je v Písku, Protivíně, Blatné, na Šumavě i v Praze.",
+          "Moderní jednotky jsou tiché, nenápadné a účinné. Pracujeme se systémy švýcarského výrobce Zehnder, konkrétně s centrálními jednotkami ComfoAir a decentrálními ComfoSpot. Instalujeme je na Písecku i mimo jižní Čechy.",
         ],
       },
       {
@@ -510,6 +522,7 @@ export const SERVICES: Service[] = [
 
   {
     slug: "elektrorevize",
+    reach: "local",
     navLabel: "Elektrorevize",
     title: "Revize elektrických zařízení",
     metaTitle: "Elektrorevize Písek, Protivín, Blatná | Revize hromosvodů a FVE | OKelectric",
@@ -525,7 +538,7 @@ export const SERVICES: Service[] = [
         heading: "Revize není razítko, ale kontrola",
         paragraphs: [
           "Revizní zpráva má smysl jen tehdy, když za ní stojí skutečné měření a prohlídka. Provádíme revize vyhrazených elektrických zařízení na základě platného oprávnění a měříme moderními přístroji, ne odhadem podle stáří instalace.",
-          "Revidujeme v Písku, Protivíně, Blatné, na Šumavě i v Praze. Většina zakázek jsou výchozí revize po naší vlastní montáži, děláme ale i revize po jiných firmách a periodické kontroly stávajících objektů.",
+          "Revidujeme na Písecku a po jižních Čechách. Většina zakázek jsou výchozí revize po naší vlastní montáži, děláme ale i revize po jiných firmách a periodické kontroly stávajících objektů.",
         ],
       },
       {
@@ -603,6 +616,7 @@ export const SERVICES: Service[] = [
 
   {
     slug: "instalaterske-topenarske-prace",
+    reach: "local",
     navLabel: "Instalatérské a topenářské práce",
     title: "Instalatérské a topenářské práce",
     metaTitle: "Instalatér a topenář Písek, Protivín, Blatná | OKelectric",
@@ -617,7 +631,7 @@ export const SERVICES: Service[] = [
       {
         heading: "Voda a topení bez shánění dalších firem",
         paragraphs: [
-          "Běžné rozvody vody, topení a podlahového vytápění jsou u nás samozřejmostí. Montujeme plastové, měděné i ocelové rozvody podle toho, co dává v konkrétním objektu smysl, a děláme to jak v rodinných domech, tak v průmyslových provozech na Písecku, Protivínsku a Blatensku, na Šumavě i v Praze.",
+          "Běžné rozvody vody, topení a podlahového vytápění jsou u nás samozřejmostí. Montujeme plastové, měděné i ocelové rozvody podle toho, co dává v konkrétním objektu smysl, a děláme to jak v rodinných domech, tak v průmyslových provozech po celých jižních Čechách.",
           "Výhoda spolupráce s námi je v tom, že instalatér a elektrikář jsou jedna firma. U tepelných čerpadel, elektrokotlů a řízených soustav se voda a elektřina protínají v každém druhém kroku a právě na tom rozhraní vzniká většina problémů, když se na stavbě potkají dvě nezávislé party.",
         ],
       },
@@ -632,7 +646,6 @@ export const SERVICES: Service[] = [
         heading: "Havárie",
         paragraphs: [
           "Urgentní situace a havarijní stavy řešíme podle svých možností i o víkendech. Nejsme nonstop pohotovost a neslibujeme to, ale pokud teče, zavolejte, ozveme se.",
-          "Instalatérskou a topenářskou část u nás vede pan Biedermann z Písku, telefon 603 815 149.",
         ],
       },
     ],
@@ -651,7 +664,7 @@ export const SERVICES: Service[] = [
     },
     process: [
       {
-        title: "Zavolejte panu Biedermannovi",
+        title: "Zavolejte co nejdřív",
         text: "Popíšete, co potřebujete. U havárie voláme zpět co nejdřív, jak to jde.",
       },
       {
@@ -691,12 +704,13 @@ export const SERVICES: Service[] = [
     ],
     related: ["kotelny-tepelna-cerpadla", "rekuperace", "elektroinstalace"],
     projectCategories: ["kotelny", "klimatizace"],
-    owner: "jiri-biedermann",
+    owner: "ondrej-krejci",
     accent: "green",
   },
 
   {
     slug: "vykresova-dokumentace",
+    reach: "national",
     navLabel: "Výkresová dokumentace",
     title: "Výkresová dokumentace",
     metaTitle: "Výkresová dokumentace 2D a 3D, projekty hromosvodů | OKelectric Písek",
@@ -712,7 +726,7 @@ export const SERVICES: Service[] = [
         heading: "Dokumentace, která se dá číst",
         paragraphs: [
           "Vytváříme profesionální dokumentaci ve 2D formátech i ve 3D, přesně podle vašich požadavků. Vycházíme z toho, že výkres má sloužit tomu, kdo podle něj bude pracovat, ne archivu. Proto kreslíme čitelně, s popisem, který dává smysl i za pět let, až se k dokumentaci někdo vrátí kvůli rekonstrukci.",
-          "Nejčastěji jde o projekty hromosvodů a elektroinstalací pro domy a provozovny v Písku, Protivíně, Blatné, na Šumavě i v Praze. Dokumentaci děláme jak k vlastním realizacím, tak samostatně jako službu.",
+          "Nejčastěji jde o projekty hromosvodů a elektroinstalací pro domy a provozovny. Dokumentaci kreslíme bez ohledu na to, kde stavba stojí. Dokumentaci děláme jak k vlastním realizacím, tak samostatně jako službu.",
         ],
       },
       {

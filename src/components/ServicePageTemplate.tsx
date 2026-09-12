@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Check, Phone } from "lucide-react";
 import { SERVICES, type Service } from "@/content/services";
 import { projectsByCategory } from "@/content/projects";
-import { REGION_LINE, TEAM } from "@/content/site";
+import { coverageLine, TEAM } from "@/content/site";
 import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
@@ -123,8 +123,10 @@ export function ServicePageTemplate({ service }: { service: Service }) {
                   </li>
                 ))}
               </ol>
+              {/* Tichá zmínka o dojezdu. U velkých oborů říká, že vzdálenost neřešíme,
+                  ale drobným písmem na konci - ne jako slib na půl obrazovky. */}
               <p className="mt-6 text-[0.875rem] leading-relaxed text-ink-faint">
-                Pracujeme v oblasti {REGION_LINE}.
+                {coverageLine(service.reach)}.
               </p>
             </div>
           </div>

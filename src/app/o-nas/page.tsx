@@ -6,12 +6,13 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
 import { JsonLd } from "@/components/JsonLd";
 import { ServiceLinkGrid } from "@/components/ServiceLinkGrid";
+import { TeamMatrix } from "@/components/TeamMatrix";
 import { TeamMemberCard } from "@/components/TeamMemberCard";
 
 export const metadata = pageMetadata({
   title: "O nás, tým a kvalifikace | OKelectric Písek, Protivín, Blatná",
   description:
-    "Pět lidí, osm oborů. Oprávnění dle §6, §7 a §8 NV č. 194/2022, kvalifikace pro fotovoltaiku 26-014-H a tepelná čerpadla 26-074-M, revize vyhrazených elektrických zařízení.",
+    "Čtyři lidi, osm oborů. Oprávnění dle §6, §7 a §8 NV č. 194/2022, kvalifikace pro fotovoltaiku 26-014-H a tepelná čerpadla 26-074-M, revize vyhrazených elektrických zařízení.",
   path: "/o-nas",
 });
 
@@ -35,7 +36,7 @@ export default function AboutPage() {
           <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
               <h1 className="font-display text-display-lg text-balance">
-                Pět lidí, osm oborů, jeden telefon.
+                Čtyři lidi, osm oborů, jeden telefon.
               </h1>
               <div className="prose-body mt-7 max-w-prose">
                 <p>
@@ -97,13 +98,24 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
+        {/* Čtyři lidi padnou beze zbytku do dvou i do čtyř sloupců, doplňky mřížky nejsou potřeba. */}
+        <div className="mt-12 grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 xl:grid-cols-4">
           {TEAM.map((m) => (
             <TeamMemberCard key={m.slug} member={m} />
           ))}
-          {/* Doplněk mřížky, aby spodní linka lícovala i při lichém počtu karet. */}
-          <div className="hidden border-b border-r border-line sm:block lg:hidden" aria-hidden />
-          <div className="hidden border-b border-r border-line lg:block" aria-hidden />
+        </div>
+
+        <div className="mt-16 max-w-3xl">
+          <h3 className="font-display text-[1.4rem] font-semibold tracking-tight text-ink">
+            Kdo dělá co
+          </h3>
+          <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-soft">
+            Elektroinstalaci dělá celá parta, u specializovaných oborů má každý svoje.
+            Volejte rovnou tomu, koho se to týká.
+          </p>
+          <div className="mt-6">
+            <TeamMatrix />
+          </div>
         </div>
       </section>
 
@@ -133,18 +145,30 @@ export default function AboutPage() {
               ))}
             </dl>
 
-            <h3 className="mt-12 font-display text-display-sm">Značky, se kterými pracujeme</h3>
-            <dl className="mt-6 grid grid-cols-1 border-l border-t border-line sm:grid-cols-3">
-              {PARTNERS.map((p) => (
-                <div key={p.name} className="border-b border-r border-line p-5">
-                  <dt className="font-display text-[1.15rem] font-semibold text-ink">{p.name}</dt>
-                  <dd className="mt-1 text-[0.9375rem] text-ink-soft">{p.detail}</dd>
-                </div>
-              ))}
-            </dl>
+            {PARTNERS.length > 0 && (
+              <>
+                <h3 className="mt-12 font-display text-display-sm">Značky, se kterými pracujeme</h3>
+                <dl className="mt-6 grid grid-cols-1 border-l border-t border-line sm:grid-cols-3">
+                  {PARTNERS.map((p) => (
+                    <div key={p.name} className="border-b border-r border-line p-5">
+                      <dt className="font-display text-[1.15rem] font-semibold text-ink">
+                        <a
+                          href={p.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-ink hover:text-brand-deep"
+                        >
+                          {p.name}
+                        </a>
+                      </dt>
+                      <dd className="mt-1 text-[0.9375rem] text-ink-soft">{p.detail}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </>
+            )}
             <p className="mt-5 max-w-xl text-[0.875rem] leading-relaxed text-ink-faint">
-              Systém JABLOTRON 100 je certifikovaný dle EN 50131-4 do stupně zabezpečení 2. Pro montáž
-              zabezpečovací techniky držíme koncesovanou živnost.
+              Pro montáž zabezpečovací techniky držíme koncesovanou živnost.
             </p>
           </div>
         </div>

@@ -1,23 +1,20 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { BrandMark } from "@/components/BrandMark";
+import { BrandLogo } from "@/components/BrandLogo";
 import { SERVICES } from "@/content/services";
-import { NAP, REGIONS_EXTENDED, TEAM } from "@/content/site";
+import { COVERAGE, NAP, TEAM } from "@/content/site";
 
 export function Footer() {
   return (
     <footer className="border-t border-line bg-mist">
       <div className="shell grid gap-12 py-16 md:grid-cols-12 md:py-20">
         <div className="md:col-span-4">
-          <Link href="/" className="flex items-center gap-2.5">
-            <BrandMark className="h-10 w-10" />
-            <span className="font-display text-xl font-bold tracking-tight text-tech">
-              OK<span className="text-brand-deep">electric</span>
-            </span>
+          <Link href="/" className="flex items-center" aria-label="OKelectric, úvodní stránka">
+            <BrandLogo className="h-16" />
           </Link>
           <p className="mt-5 max-w-xs text-[0.9375rem] leading-relaxed text-ink-soft">
-            Jsme vaši elektrikáři a topenáři. Elektroinstalace, kotelny, fotovoltaika, rekuperace a
-            zabezpečení na jihu Čech i v Praze.
+            Jsme vaši elektrikáři a topenáři. Elektroinstalace, kotelny, fotovoltaika,
+            rekuperace i zabezpečení pod jednou firmou.
           </p>
 
           <div className="mt-6 space-y-2 text-[0.9375rem]">
@@ -97,9 +94,10 @@ export function Footer() {
             </li>
           </ul>
 
-          <h2 className="eyebrow mt-8">Kde pracujeme</h2>
+          <h2 className="eyebrow mt-8">Kam jezdíme</h2>
           <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-soft">
-            {REGIONS_EXTENDED.join(", ")}
+            {COVERAGE.core.label}, běžně po celých jižních Čechách. Za většími zakázkami
+            i dál, stačí se ozvat.
           </p>
         </div>
       </div>
@@ -108,7 +106,9 @@ export function Footer() {
         <div className="shell flex flex-col gap-3 py-6 text-[0.8125rem] text-ink-faint sm:flex-row sm:items-center sm:justify-between">
           <p>&copy; {new Date().getFullYear()} OKelectric</p>
           <p>
-            {TEAM.length} lidí v týmu, {SERVICES.length} oborů, jeden telefon:{" "}
+            {/* Čeština skloňuje jinak pro 2-4 a jinak od 5 výš. */}
+            {TEAM.length} {TEAM.length >= 5 ? "lidí" : "lidi"} v týmu, {SERVICES.length} oborů,
+            jeden telefon:{" "}
             <a href={`tel:${NAP.phone}`} className="font-semibold text-ink hover:text-brand-deep">
               {NAP.phoneDisplay}
             </a>

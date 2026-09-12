@@ -17,22 +17,76 @@ export const NAP = {
   instagram: "https://www.instagram.com/okelectric.cz/",
 } as const;
 
-/** Obce a oblasti, kde firma reálně působí. Používá se v metadatech i v textech. */
-export const REGIONS = ["Písek", "Protivín", "Blatná", "Šumava", "Praha"] as const;
-export const REGIONS_EXTENDED = [
+/**
+ * Působnost. Města se schválně nikde nevypisují jako seznam - zákazník z vesnice
+ * vedle Písku by v něm svoji obec nenašel a odešel by. Na webu je proto mapka
+ * s okruhy, jmenné výčty zůstávají jen ve strukturovaných datech pro vyhledávače.
+ *
+ *  core       - domovská oblast, jezdíme na cokoli včetně drobného servisu
+ *  extended   - dojedeme běžně, dopravu řešíme podle rozsahu
+ *  nationwide - plánované zakázky, kvůli kterým má smysl vyjet dál
+ */
+export const COVERAGE = {
+  core: {
+    label: "Do 30 minut od Písku",
+    promise: "Jezdíme na cokoli včetně drobných oprav a servisu.",
+    /** Kilometry od sídla. Vykresluje se jako vnitřní okruh v mapce. */
+    radiusKm: 30,
+  },
+  extended: {
+    label: "Jižní Čechy",
+    promise: "Běžná část našeho týdne. U menších zakázek se domluvíme na dopravě.",
+    radiusKm: 90,
+  },
+  nationwide: {
+    label: "Dál po domluvě",
+    promise:
+      "Za kotelnou, fotovoltaikou nebo rekuperací vyjedeme i na druhý konec republiky. Řekněte, kde jste.",
+    radiusKm: 220,
+  },
+} as const;
+
+/**
+ * Obce pro strukturovaná data a patičku. Ve viditelném obsahu se nepoužívají.
+ * Jsou to místa s doloženou realizací, ne přání.
+ */
+export const REGIONS_LOCAL = [
   "Písek",
   "Protivín",
   "Blatná",
   "Vodňany",
-  "Strakonice",
   "Čimelice",
-  "Šumava",
+  "Mirovice",
+  "Milevsko",
+  "Strakonice",
+  "Horažďovice",
+  "České Budějovice",
   "Tábor",
-  "Plzeň",
-  "Praha",
+  "Prachatice",
 ] as const;
 
-export const REGION_LINE = "Písek, Protivín, Blatná, Šumava a Praha";
+export const REGIONS_EXTENDED = [
+  ...REGIONS_LOCAL,
+  "Praha",
+  "Plzeň",
+  "Brno",
+  "Ostrava",
+  "Uničov",
+] as const;
+
+/** Zkrácený výčet do titulků a meta popisků. */
+export const REGIONS = ["Písek", "Protivín", "Blatná", "Strakonice"] as const;
+
+/** Věty o působnosti. Žádná z nich netvrdí "celá ČR". */
+export const REGION_LINE = "Písecko a jižní Čechy";
+export const REGION_LINE_NATIONAL = "Písecko, jižní Čechy a po domluvě dál";
+
+/** Věta o působnosti pro hlavičku služby, liší se podle dojezdu. */
+export function coverageLine(reach: "local" | "national") {
+  return reach === "national"
+    ? "Písecko, jižní Čechy a po domluvě kamkoli"
+    : "Písecko a jižní Čechy";
+}
 
 export type TeamMember = {
   slug: string;
@@ -55,7 +109,13 @@ export const TEAM: TeamMember[] = [
     phoneDisplay: "+420 739 664 789",
     email: "krejci@okelectric.cz",
     town: "Protivín",
-    handles: ["kotelny-tepelna-cerpadla", "fotovoltaika", "rekuperace", "elektroinstalace"],
+    handles: [
+      "kotelny-tepelna-cerpadla",
+      "fotovoltaika",
+      "rekuperace",
+      "elektroinstalace",
+      "instalaterske-topenarske-prace",
+    ],
   },
   {
     slug: "ondrej-lesak",
@@ -87,16 +147,6 @@ export const TEAM: TeamMember[] = [
     town: "Písek",
     handles: ["elektroinstalace"],
   },
-  {
-    slug: "jiri-biedermann",
-    name: "Jiří Biedermann",
-    role: "Instalatér, topenář",
-    phone: "+420603815149",
-    phoneDisplay: "+420 603 815 149",
-    email: "biedermann@okelectric.cz",
-    town: "Písek",
-    handles: ["instalaterske-topenarske-prace", "kotelny-tepelna-cerpadla"],
-  },
 ];
 
 export type Qualification = { label: string; detail: string };
@@ -124,8 +174,12 @@ export const QUALIFICATIONS: Qualification[] = [
   },
 ];
 
-export const PARTNERS = [
-  { name: "NIBE", detail: "Tepelná čerpadla" },
-  { name: "Zehnder", detail: "Rekuperace" },
-  { name: "Jablotron", detail: "Zabezpečení, certifikovaný montážní partner" },
-] as const;
+/**
+ * Značky, se kterými firma pracuje. Zatím prázdné - původní trojice
+ * (NIBE, Zehnder, Jablotron) byla odebrána a finální seznam se teprve potvrzuje.
+ * Až přijde, stačí doplnit sem; obě místa, kde se vykresluje, prázdný seznam
+ * samy přeskočí. Pole `url` vede na web výrobce, `logo` na soubor v public/partners.
+ */
+export type Partner = { name: string; detail: string; url: string; logo?: string };
+
+export const PARTNERS: Partner[] = [];
