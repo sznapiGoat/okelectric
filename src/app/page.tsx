@@ -3,8 +3,9 @@ import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
 import { SERVICES } from "@/content/services";
 import { PROJECTS_SORTED } from "@/content/projects";
-import { NAP, REGIONS_EXTENDED, REGION_LINE, TEAM } from "@/content/site";
+import { NAP, REGION_LINE, TEAM } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
+import { CoverageSection } from "@/components/CoverageSection";
 import { CTASection } from "@/components/CTASection";
 import { HeroProof } from "@/components/HeroProof";
 import { ProjectGrid } from "@/components/ProjectGrid";
@@ -46,6 +47,10 @@ export default function HomePage() {
               alarmy. Vše pod jednou firmou, včetně revize, kterou vystavíme sami.
             </p>
 
+            <p className="mt-4 text-[0.9375rem] font-medium text-ink-soft">
+              Parta z Písecka. Za většími zakázkami vyjedeme i dál.
+            </p>
+
             <div className="mt-9 flex flex-wrap items-center gap-3">
               <ButtonAnchor href={`tel:${NAP.phone}`} variant="brand" size="lg">
                 <Phone className="h-5 w-5" aria-hidden />
@@ -82,15 +87,6 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Pás obcí */}
-        <div className="relative border-t border-line bg-mist">
-          <div className="shell flex flex-wrap items-center gap-x-5 gap-y-2 py-4 text-[0.8125rem] text-ink-faint">
-            <span className="font-semibold text-ink-soft">Jezdíme do:</span>
-            {REGIONS_EXTENDED.map((r) => (
-              <span key={r}>{r}</span>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* Služby */}
@@ -178,6 +174,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <CoverageSection />
 
       <CTASection
         heading="Vaše spokojenost je naším cílem a závazkem."

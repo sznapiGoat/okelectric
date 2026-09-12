@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { NAP, QUALIFICATIONS, REGIONS_EXTENDED, SITE_URL, TEAM } from "@/content/site";
+import { NAP, QUALIFICATIONS, REGIONS_LOCAL, SITE_URL, TEAM } from "@/content/site";
 import type { FaqItem, Service } from "@/content/services";
 
 /**
@@ -42,6 +42,25 @@ export function pageMetadata(opts: {
   };
 }
 
+/**
+ * Města, kam firma reálně dojíždí na cokoli. Pro celostátní služby se k nim
+ * přidává celá ČR, aby Google nehádal, že jde o pražskou firmu.
+ */
+const localAreaServed = REGIONS_LOCAL.map((name) => ({ "@type": "City", name }));
+
+const czechRepublic = { "@type": "Country", name: "Česká republika" } as const;
+
+/** Dojezdová oblast kolem sídla, doplněk k výčtu měst. */
+const serviceRadius = {
+  "@type": "GeoCircle",
+  geoMidpoint: {
+    "@type": "GeoCoordinates",
+    latitude: NAP.geo.latitude,
+    longitude: NAP.geo.longitude,
+  },
+  geoRadius: "30000",
+} as const;
+
 const postalAddress = {
   "@type": "PostalAddress",
   addressLocality: NAP.addressLocality,
@@ -59,7 +78,7 @@ export function localBusinessSchema() {
     name: NAP.name,
     legalName: NAP.legalName,
     description:
-      "Elektroinstalace, hromosvody, tepelná čerpadla a kotelny, fotovoltaika, rekuperace, alarmy a revize na Písecku, Protivínsku a Blatensku.",
+      "Elektroinstalace, hromosvody, revize a zabezpečení na Písecku a v jižních Čechách. Fotovoltaiku, kotelny s tepelným čerpadlem a rekuperace realizujeme po celé ČR.",
     url: SITE_URL,
     telephone: NAP.phone,
     email: NAP.email,
@@ -71,7 +90,7 @@ export function localBusinessSchema() {
       latitude: NAP.geo.latitude,
       longitude: NAP.geo.longitude,
     },
-    areaServed: REGIONS_EXTENDED.map((name) => ({ "@type": "City", name })),
+    areaServed: [...localAreaServed, serviceRadius, czechRepublic],
     sameAs: [NAP.facebook, NAP.instagram],
     employee: TEAM.map((m) => ({
       "@type": "Person",
@@ -99,7 +118,10 @@ export function serviceSchema(service: Service) {
     serviceType: service.navLabel,
     url: `${SITE_URL}/${service.slug}`,
     provider: { "@id": `${SITE_URL}/#business` },
-    areaServed: REGIONS_EXTENDED.map((name) => ({ "@type": "City", name })),
+    areaServed:
+      service.reach === "national"
+        ? [...localAreaServed, czechRepublic]
+        : [...localAreaServed, serviceRadius],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: service.scope.heading,

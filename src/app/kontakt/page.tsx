@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
 import { SERVICES } from "@/content/services";
-import { NAP, REGIONS_EXTENDED, REGION_LINE, TEAM } from "@/content/site";
+import { COVERAGE, NAP, REGION_LINE, TEAM } from "@/content/site";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
@@ -69,9 +69,10 @@ export default function ContactPage() {
               </div>
 
               <div className="mt-8 border-t border-line pt-6">
-                <h2 className="font-display text-[1.0625rem] font-semibold">Kde pracujeme</h2>
+                <h2 className="font-display text-[1.0625rem] font-semibold">Kam jezdíme</h2>
                 <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-soft">
-                  {REGIONS_EXTENDED.join(", ")}. Vzdálenější zakázku posoudíme podle rozsahu.
+                  {COVERAGE.core.label} na cokoli, běžně po celých jižních Čechách.
+                  Za většími zakázkami vyjedeme i dál &ndash; napište, kde jste.
                 </p>
               </div>
 

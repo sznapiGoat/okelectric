@@ -6,7 +6,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import { SERVICES } from "@/content/services";
 import { NAP, REGION_LINE } from "@/content/site";
-import { BrandMark } from "@/components/BrandMark";
+import { BrandLogo } from "@/components/BrandLogo";
 import { ServiceIcon } from "@/components/ServiceIcon";
 import { cn } from "@/lib/utils";
 
@@ -44,16 +44,8 @@ export function Header() {
     <>
       <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur supports-[backdrop-filter]:bg-paper/85">
       <div className="shell flex h-16 items-center gap-4 lg:h-20">
-        <Link href="/" className="flex shrink-0 items-center gap-2.5">
-          <BrandMark className="h-9 w-9 lg:h-10 lg:w-10" />
-          <span className="flex flex-col leading-none">
-            <span className="font-display text-[1.15rem] font-bold tracking-tight text-tech">
-              OK<span className="text-brand-deep">electric</span>
-            </span>
-            <span className="mt-0.5 hidden text-[0.66rem] font-medium uppercase tracking-[0.13em] text-ink-faint sm:block">
-              Elektrikáři a topenáři
-            </span>
-          </span>
+        <Link href="/" className="flex shrink-0 items-center" aria-label="OKelectric, úvodní stránka">
+          <BrandLogo priority className="h-11 lg:h-14" />
         </Link>
 
         <nav className="ml-auto hidden items-center gap-1 lg:flex" aria-label="Hlavní navigace">
