@@ -191,6 +191,27 @@ export type Partner = {
 
 export const PARTNERS: Partner[] = [
   {
+    name: "NIBE",
+    detail: "Tepelná čerpadla",
+    url: "https://www.nibe.eu/cz/cs/",
+    logo: "/partners/nibe.svg",
+    logoHeight: 20,
+  },
+  {
+    name: "Zehnder",
+    detail: "Rekuperace",
+    url: "https://www.zehnder.cz/cs",
+    logo: "/partners/zehnder.svg",
+    logoHeight: 40,
+  },
+  {
+    name: "Jablotron",
+    detail: "Alarmy a zabezpečení",
+    url: "https://www.jablotron.com/",
+    logo: "/partners/jablotron.svg",
+    logoHeight: 20,
+  },
+  {
     name: "Hotjet",
     detail: "Tepelná čerpadla",
     url: "https://www.hotjet.cz/",
@@ -200,7 +221,7 @@ export const PARTNERS: Partner[] = [
   {
     name: "GoodWe",
     detail: "Střídače pro fotovoltaiku",
-    url: "https://www.goodwe.com/",
+    url: "https://cz.goodwe.com/",
     logo: "/partners/goodwe.svg",
     logoHeight: 18,
   },
@@ -235,7 +256,7 @@ export const PARTNERS: Partner[] = [
   {
     name: "DEHN",
     detail: "Ochrana před bleskem a přepětím",
-    url: "https://www.dehn.cz/",
+    url: "https://www.dehn.cz/cs",
     logo: "/partners/dehn.svg",
     logoHeight: 24,
   },
