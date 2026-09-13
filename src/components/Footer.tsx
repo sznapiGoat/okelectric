@@ -10,7 +10,7 @@ export function Footer() {
       <div className="shell grid gap-12 py-16 md:grid-cols-12 md:py-20">
         <div className="md:col-span-4">
           <Link href="/" className="flex items-center" aria-label="OKelectric, úvodní stránka">
-            <BrandLogo className="h-16" />
+            <BrandLogo variant="full" className="h-20" />
           </Link>
           <p className="mt-5 max-w-xs text-[0.9375rem] leading-relaxed text-ink-soft">
             Jsme vaši elektrikáři a topenáři. Elektroinstalace, kotelny, fotovoltaika,

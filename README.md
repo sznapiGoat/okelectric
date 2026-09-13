@@ -88,24 +88,28 @@ zpracování.
 - **Texty klimatizace** jsou návrh. Potvrdit s firmou značky, se kterými pracují, a kdo obor vede
   (zatím Krejčí). U práce s chladivem uvést certifikaci pro F-plyny, pokud ji mají.
 
-## Značka a favicon
+## Logo a favicon
 
-Zdrojová geometrie značky je `public/brand/mark.svg` (dům se solárním polem) a
-`public/brand/mark-solid.svg` (totéž bez bílé mřížky, pro velikosti pod 40 px, kde se
-mřížka stejně slije). Z těchto dvou souborů se generuje všechno ostatní: `favicon.ico`
-(16, 32 a 48 px, bez mřížky), `icon.png`, `apple-icon.png` a `public/brand/logo.png`
-pro JSON-LD.
+**Logo klienta** je v `public/brand` ve všech podobách, které klient dodal:
 
-V komponentách se značka vykresluje inline přes `BrandMark`, ne přes `next/image`.
-U logotypu o velikosti 1 kB to ušetří jeden HTTP požadavek na každé stránce a značka
-zůstane ostrá v jakémkoli zvětšení.
+- `okelectric-logo.pdf` tiskový vektor, zdroj pro SVG
+- `okelectric-logo-vodorovne.png` a `okelectric-logo-ctverec.png` rastry ve vysokém rozlišení
 
-Podklady ve Figmě: https://www.figma.com/design/PHzaINhJNNbsgA9MMdy05o
+Na webu se používá vodorovný lockup jako SVG převedené z PDF (`BrandLogo`). Barvy
+v PDF jsou posunuté pro tisk, v SVG jsou proto nahrazené barvami z PNG, které přesně
+odpovídají tokenům webu (`#60B23A`, `#005AA5`, `#0073C6`, `#E31E24`).
 
-Pozor, tohle je **návrh, ne schválené logo**. Původní rastrové logo klienta zůstává
-nedotčené v `public/brand/logo-original.png`. Nová značka z něj přebírá dům, solární
-panely a obě firemní barvy, ale vypouští sirénu, klimatizaci, list a zástrčku, protože
-šest prvků v 16 px splyne v skvrnu.
+- `okelectric-logo-bez-sloganu.svg` do hlavičky. Slogan "jsme vaši elektrikáři" by v její
+  výšce měl pod 6 px a slil by se.
+- `okelectric-logo.svg` celý lockup se sloganem, do patičky.
+- `logo.png` (512x512) čtvercový lockup na bílém poli pro JSON-LD. Google chce u loga
+  čtvercový nebo blízký formát.
+
+**Favicon** se generuje z `public/brand/mark.svg` a `mark-solid.svg`, zjednodušeného domu
+se solárním polem (`BrandMark`, podklady ve Figmě:
+https://www.figma.com/design/PHzaINhJNNbsgA9MMdy05o). Je to **návrh, ne schválená
+značka**: celé logo se sirénou, klimatizací, listem a zástrčkou se v 16 px slije ve skvrnu.
+Stejná zjednodušená značka je v rohu OG obrázků.
 
 ## Značky partnerů
 
