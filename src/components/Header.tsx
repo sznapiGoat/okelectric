@@ -45,7 +45,7 @@ export function Header() {
       <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur supports-[backdrop-filter]:bg-paper/85">
       <div className="shell flex h-16 items-center gap-4 lg:h-20">
         <Link href="/" className="flex shrink-0 items-center" aria-label="OKelectric, úvodní stránka">
-          <BrandLogo priority className="h-11 lg:h-14" />
+          <BrandLogo priority className="h-11 lg:h-16" />
         </Link>
 
         <nav className="ml-auto hidden items-center gap-1 lg:flex" aria-label="Hlavní navigace">
