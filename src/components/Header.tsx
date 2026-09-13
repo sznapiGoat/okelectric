@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import { SERVICES } from "@/content/services";
-import { NAP, REGION_LINE } from "@/content/site";
+import { BASE_LINE, NAP } from "@/content/site";
 import { BrandLogo } from "@/components/BrandLogo";
 import { ServiceIcon } from "@/components/ServiceIcon";
 import { cn } from "@/lib/utils";
@@ -200,7 +200,7 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <p className="px-5 py-8 text-sm text-ink-faint">{REGION_LINE}</p>
+            <p className="px-5 py-8 text-sm text-ink-faint">{BASE_LINE}.</p>
           </nav>
         </div>
       )}

@@ -12,7 +12,7 @@ import { SITE_URL } from "@/content/site";
 const STATIC_UPDATED: Record<string, string> = {
   "/": "2026-09-13",
   "/o-nas": "2026-09-13",
-  "/kontakt": "2026-09-01",
+  "/kontakt": "2026-09-13",
 };
 
 /** Reference se mění s poslední doloženou realizací. */

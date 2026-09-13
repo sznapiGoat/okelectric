@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { PROJECTS_SORTED } from "@/content/projects";
 import { SERVICES } from "@/content/services";
-import { REGION_LINE } from "@/content/site";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
@@ -9,9 +8,9 @@ import { JsonLd } from "@/components/JsonLd";
 import { ReferenceGallery } from "@/components/ReferenceGallery";
 
 export const metadata = pageMetadata({
-  title: "Reference a dokončené realizace | OKelectric Písek, Protivín, Blatná",
+  title: "Reference | Fotovoltaika, tepelná čerpadla, elektro | OKelectric",
   description:
-    "Fotogalerie dokončených zakázek: fotovoltaika, elektroinstalace, hromosvody, tepelná čerpadla, rekuperace a klimatizace na Písecku, Strakonicku a Blatensku.",
+    "Fotogalerie dokončených zakázek: fotovoltaika, elektroinstalace, hromosvody, tepelná čerpadla, rekuperace a klimatizace. Od Písku, Blatné a Strakonic po Uničov a dálnici D4.",
   path: "/reference",
 });
 
@@ -34,8 +33,8 @@ export default function ReferencePage() {
                 {PROJECTS_SORTED.length} realizací, které si můžete prohlédnout
               </h1>
               <p className="mt-6 max-w-xl text-[1.15rem] leading-[1.6] text-ink-soft text-pretty">
-                Rodinné domy, průmyslové areály i dálniční most. Fotky jsou z našich vlastních zakázek
-                v oblasti {REGION_LINE} a okolí.
+                Rodinné domy, průmyslové areály i dálniční most. Všechny fotky jsou z našich vlastních
+                zakázek, ne z katalogu.
               </p>
             </div>
           </div>
@@ -66,7 +65,7 @@ export default function ReferencePage() {
 
       <CTASection
         heading="Chcete něco podobného?"
-        text={`Řekněte nám, co máte v plánu. Přijedeme se podívat a pošleme nabídku. Pracujeme v oblasti ${REGION_LINE}.`}
+        text="Řekněte nám, co máte v plánu a kde. Přijedeme se podívat a pošleme nabídku."
       />
     </>
   );

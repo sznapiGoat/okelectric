@@ -1,6 +1,6 @@
 import { Phone } from "lucide-react";
 import { SERVICES } from "@/content/services";
-import { NAP, REGION_LINE } from "@/content/site";
+import { NAP } from "@/content/site";
 import { ServiceLinkGrid } from "@/components/ServiceLinkGrid";
 import { ButtonAnchor, ButtonLink } from "@/components/ui/Button";
 
@@ -20,7 +20,6 @@ export default function NotFound() {
       <h1 className="mt-4 font-display text-display-lg text-balance">Tahle stránka tu není.</h1>
       <p className="mt-5 max-w-lg text-[1.0625rem] leading-relaxed text-ink-soft">
         Možná se přesunula, možná jste se překlikli. Zavolejte, nebo si vyberte z toho, co děláme.
-        Pracujeme v oblasti {REGION_LINE}.
       </p>
 
       <div className="mt-8 flex flex-wrap gap-3">

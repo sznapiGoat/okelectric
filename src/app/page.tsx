@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
 import { SERVICES } from "@/content/services";
 import { PROJECTS_SORTED } from "@/content/projects";
-import { NAP, REGION_LINE, TEAM } from "@/content/site";
+import { NAP, TEAM } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 import { CoverageSection } from "@/components/CoverageSection";
 import { CTASection } from "@/components/CTASection";
@@ -14,9 +14,9 @@ import { TrustStrip } from "@/components/TrustStrip";
 import { ButtonAnchor, ButtonLink } from "@/components/ui/Button";
 
 export const metadata = pageMetadata({
-  title: "Elektrikáři a topenáři Písek, Protivín, Blatná | OKelectric",
+  title: "Elektrikář a topenář Písek | Tepelná čerpadla, FVE | OKelectric",
   description:
-    "Elektroinstalace a hromosvody, kotelny a tepelná čerpadla, fotovoltaika, rekuperace, alarmy a revize pod jednou firmou. Písek, Protivín, Blatná, Šumava a Praha.",
+    "Elektroinstalace a hromosvody, tepelná čerpadla, fotovoltaika, rekuperace, klimatizace, kamery a revize pod jednou firmou, včetně projektu. Sídlo u Písku, za prací jezdíme i daleko.",
   path: "/",
 });
 
@@ -40,7 +40,8 @@ export default function HomePage() {
 
         <div className="shell relative grid gap-12 pb-16 pt-14 sm:pt-20 lg:grid-cols-12 lg:gap-14 lg:pb-24 lg:pt-24">
           <div className="lg:col-span-6 xl:col-span-6">
-            <h1 className="font-display text-display-xl text-balance">
+            <p className="eyebrow">Elektrikáři a topenáři od Písku</p>
+            <h1 className="mt-4 font-display text-display-xl text-balance">
               Energie. Teplo.
               <br />
               Jeden tým.
@@ -52,7 +53,7 @@ export default function HomePage() {
             </p>
 
             <p className="mt-4 text-[0.9375rem] font-medium text-ink-soft">
-              Parta z Písecka. Za většími zakázkami vyjedeme i dál.
+              Sídlo máme u Písku, za prací jezdíme tam, kde je potřeba.
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">
@@ -130,7 +131,7 @@ export default function HomePage() {
             </h2>
             <p className="mt-5 text-[1.0625rem] leading-relaxed text-ink-soft">
               Nemáme dispečink ani formulářovou frontu. Každý obor má u nás svého člověka a ten vám
-              telefon zvedne. Pracujeme v oblasti {REGION_LINE}.
+              telefon zvedne.
             </p>
             <ButtonLink href="/o-nas" variant="outline" size="lg" className="mt-8">
               Poznat tým a kvalifikace
@@ -166,7 +167,7 @@ export default function HomePage() {
 
       <CTASection
         heading="Vaše spokojenost je naším cílem a závazkem."
-        text={`Každý projekt je jiný, proto začínáme tím, že posloucháme. Zavolejte a řekněte, co potřebujete. Pracujeme v oblasti ${REGION_LINE}.`}
+        text="Každý projekt je jiný, proto začínáme tím, že posloucháme. Zavolejte a řekněte, co potřebujete a kde."
       />
     </>
   );

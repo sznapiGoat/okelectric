@@ -1,6 +1,6 @@
 # OKelectric
 
-Demo web pro OKelectric, elektrikáře a topenáře z Písecka. Next.js 14 (App Router), TypeScript,
+Demo web pro OKelectric, elektrikáře a topenáře se sídlem u Písku. Next.js 14 (App Router), TypeScript,
 Tailwind, framer-motion. Bez CMS, obsah je natvrdo v `src/content/` a je strukturovaný tak, aby se
 dal později přenést do Sanity beze změny komponent.
 
@@ -16,7 +16,7 @@ npm run build   # produkční build, všech 20 tras je statických
 
 Veškerý text a data jsou oddělené od komponent:
 
-- `src/content/site.ts` NAP, tým, kvalifikace, obsluhované obce, značky partnerů
+- `src/content/site.ts` NAP, tým, kvalifikace, věty o sídle a dojezdu, obce pro strukturovaná data, značky partnerů
 - `src/content/services.ts` osm služeb včetně vlastního textu, procesu, FAQ a případného
   výrobku s parametry (u tepelných čerpadel Hotjet ZETXe s odkazem na web výrobce)
 - `src/content/projects.ts` 27 realizací s popisky fotografií
@@ -77,11 +77,12 @@ zpracování.
 
 ## Co je potřeba doplnit před ostrým nasazením
 
-- **IČO, DIČ a sídlo firmy.** Současný web je neuvádí, proto nejsou ani tady. Doplňte v
+- **IČO a DIČ.** Současný web je neuvádí, proto nejsou ani tady. Doplňte v
   `src/content/site.ts` (`NAP`) a promítne se do JSON-LD i do patičky.
-- **Zeměpisné souřadnice.** V `NAP.geo` je zatím střed Protivína, ne skutečná provozovna.
-- **Otevírací doba**, pokud ji firma chce uvádět. Doplnit do `localBusinessSchema()` jako
-  `openingHoursSpecification`.
+- **Telefon v profilu na Googlu.** Adresa, souřadnice a otevírací doba na webu jsou převzaté
+  z profilu firmy na Mapách Google. Profil ale uvádí telefon 776 229 279 (Lesák), zatímco
+  web vede poptávky na 739 664 789 (Krejčí). Firma má v profilu telefon přepsat na
+  739 664 789, aby se údaje shodovaly.
 - **Fotografie týmu.** `TeamMemberCard` je zatím bez portrétů.
 - **Kontaktní formulář.** Web záměrně tlačí na telefon, formulář v tomto průchodu není.
 - **Texty klimatizace** jsou návrh. Potvrdit s firmou značky, se kterými pracují, a kdo obor vede
@@ -123,7 +124,35 @@ zůstaly beze změny kvůli SEO (`/elektrorevize`, `/alarmy-zabezpeceni`,
 `/kotelny-tepelna-cerpadla`), mění se jen názvy. Stará `/vykresova-dokumentace`
 trvale přesměrovává na `/elektrorevize` (`next.config.mjs`).
 
-OG obrázky čtyř změněných služeb jsou vygenerované znovu ve stejném stylu jako ostatní.
+## Působnost a místní SEO
+
+Firma nechce působit celostátně, ale ani se uzavřít do jižních Čech. Viditelný text proto
+říká, **odkud firma je** ("Sídlo máme u Písku"), ne kde působí, a dosah dokládá konkrétními
+zakázkami (Uničov, dálnice D4). Věty jsou na jednom místě v `site.ts` (`BASE_LINE`,
+`REACH_LINE`, `coverageLine`, `COVERAGE`). Okruhy na homepage jsou rozdělené podle druhu
+práce, ne podle kilometrů.
+
+Pro vyhledávače:
+
+- **Titulky** mají tvar "Služba Písek | upřesnění | OKelectric". Jen Písek, ne výčet
+  Protivín, Blatná, Šumava: malé obce mají zanedbatelné hledanosti, výčet ředí titulek
+  a v náhledu výsledku působí jako region. Služba je v titulku vždy první.
+- **Strukturovaná data** (`lib/seo.ts`) dál nesou adresu v Protivíně, souřadnice a
+  `areaServed` s obcemi z `REGIONS_LOCAL`, u plánovaných služeb i celou ČR. Návštěvník
+  je nevidí a Google podle nich firmu místně zařadí.
+- **Homepage H1** ("Energie. Teplo. Jeden tým.") klíčová slova nenese, proto je nad ním
+  viditelný řádek "Elektrikáři a topenáři od Písku".
+- Názvy obcí zůstávají v textech tam, kde jsou dokladem, ne hranicí (realizace fotovoltaik,
+  reference).
+- Největší páka mimo web je **profil firmy na Googlu** (Google Business Profile) s adresou
+  shodnou s `NAP`, fotkami realizací a recenzemi. Bez něj se v mapách a v místních
+  výsledcích neobjeví žádný web.
+
+## OG obrázky
+
+Všech 12 náhledů v `public/og` je vygenerovaných jednotně z referenčních fotek: tmavý pás,
+název, podtitul a řádek "Sídlo u Písku · okelectric.cz". Delší názvy mají menší písmo,
+aby nenarážely do značky. Při nové stránce stačí přidat obrázek se shodným názvem jako trasa.
 
 ## Fotografie
 

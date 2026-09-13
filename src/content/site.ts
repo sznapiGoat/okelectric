@@ -7,47 +7,66 @@ export const NAP = {
   phone: "+420739664789",
   phoneDisplay: "+420 739 664 789",
   email: "krejci@okelectric.cz",
-  /** Firma zatím veřejně neuvádí sídlo ani IČO. Doplnit před ostrým nasazením. */
-  addressLocality: "Protivín",
+  /**
+   * Adresa a souřadnice přesně podle profilu firmy na Googlu (Mapy Google), aby se
+   * údaje o firmě na webu a v profilu shodovaly. Při změně upravit na obou místech.
+   * IČO zatím chybí.
+   */
+  streetAddress: "Smetanova Lhota 12",
+  addressLocality: "Smetanova Lhota",
   addressRegion: "Jihočeský kraj",
-  postalCode: "398 11",
+  postalCode: "398 04",
   addressCountry: "CZ",
-  geo: { latitude: 49.2003, longitude: 14.2211 },
+  geo: { latitude: 49.4483256, longitude: 14.0879804 },
+  /**
+   * Otevírací doba podle profilu firmy na Googlu. Musí se shodovat s profilem,
+   * jinak Google bere údaje o firmě jako nespolehlivé.
+   */
+  openingHours: { days: "Po–Pá", opens: "07:00", closes: "18:00" },
+  /** Profil firmy na Mapách Google. Odkazuje na něj kontakt i strukturovaná data. */
+  googleMaps:
+    "https://www.google.com/maps/search/?api=1&query=OK%20electric&query_place_id=ChIJ49V39gZBC0cRF1YhDj3FTJs",
   facebook: "https://www.facebook.com/okelectriccz",
   instagram: "https://www.instagram.com/okelectric.cz/",
 } as const;
 
 /**
- * Působnost. Města se schválně nikde nevypisují jako seznam - zákazník z vesnice
- * vedle Písku by v něm svoji obec nenašel a odešel by. Na webu je proto mapka
- * s okruhy, jmenné výčty zůstávají jen ve strukturovaných datech pro vyhledávače.
+ * Působnost. Web říká, ODKUD firma je, ne KDE působí.
  *
- *  core       - domovská oblast, jezdíme na cokoli včetně drobného servisu
- *  extended   - dojedeme běžně, dopravu řešíme podle rozsahu
- *  nationwide - plánované zakázky, kvůli kterým má smysl vyjet dál
+ * Firma nechce působit jako celostátní, ale nechce se ani uzavřít do jednoho regionu.
+ * Viditelný text proto jmenuje jen sídlo ("u Písku") a dosah dokládá konkrétními
+ * zakázkami (Uničov, dálnice D4), ne hranicí. Výčty obcí zůstávají jen ve
+ * strukturovaných datech, titulcích a meta popiscích, kde pomáhají vyhledávačům
+ * a návštěvník je jako hranici nevnímá.
+ */
+export const BASE_LINE = "Sídlo máme u Písku";
+
+/** Jedna věta o dosahu, do CTA, patičky a podobných míst. */
+export const REACH_LINE = "Sídlo máme u Písku a za prací jezdíme tam, kde je potřeba.";
+
+/**
+ * Tři úrovně dojezdu podle druhu práce, ne podle zeměpisu. Vykreslují se
+ * u schématu okruhů na homepage.
  */
 export const COVERAGE = {
   core: {
-    label: "Do 30 minut od Písku",
-    promise: "Jezdíme na cokoli včetně drobných oprav a servisu.",
-    /** Kilometry od sídla. Vykresluje se jako vnitřní okruh v mapce. */
-    radiusKm: 30,
+    label: "Servis a drobné opravy",
+    promise: "Po okolí sídla přijedeme i na jednu zásuvku nebo kapající ventil.",
   },
   extended: {
-    label: "Jižní Čechy",
-    promise: "Běžná část našeho týdne. U menších zakázek se domluvíme na dopravě.",
-    radiusKm: 90,
+    label: "Montáže a rekonstrukce",
+    promise:
+      "Elektroinstalace, kotelny, fotovoltaiky i klimatizace stavíme tam, kde nás zákazník potřebuje.",
   },
   nationwide: {
-    label: "Dál po domluvě",
+    label: "Velké a specializované zakázky",
     promise:
-      "Za kotelnou, fotovoltaikou nebo rekuperací vyjedeme i na druhý konec republiky. Řekněte, kde jste.",
-    radiusKm: 220,
+      "Rozvodna distribučního centra v Uničově nebo osvětlení mostu na dálnici D4. Vzdálenost řešíme až u nabídky.",
   },
 } as const;
 
 /**
- * Obce pro strukturovaná data a patičku. Ve viditelném obsahu se nepoužívají.
+ * Obce pro strukturovaná data. Ve viditelném obsahu se nepoužívají.
  * Jsou to místa s doloženou realizací, ne přání.
  */
 export const REGIONS_LOCAL = [
@@ -56,6 +75,7 @@ export const REGIONS_LOCAL = [
   "Blatná",
   "Vodňany",
   "Čimelice",
+  "Smetanova Lhota",
   "Mirovice",
   "Milevsko",
   "Strakonice",
@@ -74,18 +94,11 @@ export const REGIONS_EXTENDED = [
   "Uničov",
 ] as const;
 
-/** Zkrácený výčet do titulků a meta popisků. */
-export const REGIONS = ["Písek", "Protivín", "Blatná", "Strakonice"] as const;
-
-/** Věty o působnosti. Žádná z nich netvrdí "celá ČR". */
-export const REGION_LINE = "Písecko a jižní Čechy";
-export const REGION_LINE_NATIONAL = "Písecko, jižní Čechy a po domluvě dál";
-
-/** Věta o působnosti pro hlavičku služby, liší se podle dojezdu. */
+/** Věta o dojezdu pod postupem na stránce služby, liší se podle druhu práce. */
 export function coverageLine(reach: "local" | "national") {
   return reach === "national"
-    ? "Písecko, jižní Čechy a po domluvě kamkoli"
-    : "Písecko a jižní Čechy";
+    ? "Sídlo máme u Písku. Za touhle prací jezdíme i daleko, vzdálenost řešíme až u nabídky."
+    : "Sídlo máme u Písku. Servis a menší práce děláme hlavně v okolí, větší zakázku probereme kdekoli.";
 }
 
 export type TeamMember = {

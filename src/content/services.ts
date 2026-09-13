@@ -57,9 +57,9 @@ export const SERVICES: Service[] = [
     reach: "national",
     navLabel: "Tepelná čerpadla",
     title: "Tepelná čerpadla",
-    metaTitle: "Tepelná čerpadla a kotelny Písek, Protivín, Blatná | OKelectric",
+    metaTitle: "Tepelná čerpadla Písek | Montáž, kotelny a dotace | OKelectric",
     metaDescription:
-      "Výměna starých kotlů na tuhá paliva za tepelné čerpadlo, peletový nebo zplynovací kotel. Řídicí systémy kotelen, ekvitermní regulace, dotace Nová zelená úsporám. Písek, Protivín, Blatná, Šumava, Praha.",
+      "Výměna starých kotlů na tuhá paliva za tepelné čerpadlo, peletový nebo zplynovací kotel. Řídicí systémy kotelen, ekvitermní regulace, dotace Nová zelená úsporám. Sídlo u Písku, kotelny stavíme i daleko.",
     lead: "Nahrazujeme staré nevyhovující kotle na tuhá paliva efektivním zdrojem a doděláme k němu i regulaci, která z něj skutečně dostane maximum.",
     tagline: "Tepelná čerpadla, peletové kotle a regulace, která z nich dostane maximum.",
     updated: "2026-09-13",
@@ -172,8 +172,8 @@ export const SERVICES: Service[] = [
         a: "U běžného čerpadla vzduch-voda k rodinnému domu většinou ne. Jiná situace je u vrtů pro země-voda nebo studní pro voda-voda, kde jsou potřeba průzkumy a povolení. Co přesně je nutné ve vašem případě, ověříme předem.",
       },
       {
-        q: "V jakém okolí kotelny stavíte?",
-        a: "Na Písecku a v jižních Čechách jsme každý týden. Kotelna je práce na několik dní, takže za ní vyjedeme i podstatně dál - řekněte, kde jste, a domluvíme se.",
+        q: "Přijedete i k nám?",
+        a: "Nejspíš ano. Sídlo máme u Písku, ale kotelna je práce na několik dní, takže vzdálenost u ní nerozhoduje. Řekněte, kde jste, a domluvíme se.",
       },
     ],
     product: {
@@ -203,12 +203,12 @@ export const SERVICES: Service[] = [
     reach: "local",
     navLabel: "Elektroinstalace a hromosvody",
     title: "Elektroinstalace a hromosvody",
-    metaTitle: "Elektrikář Písek, Protivín, Blatná | Elektroinstalace a hromosvody | OKelectric",
+    metaTitle: "Elektrikář Písek | Elektroinstalace a hromosvody | OKelectric",
     metaDescription:
-      "Kompletní elektroinstalace novostaveb i rekonstrukce, montáž hromosvodů, úpravy elektroměrových rozvaděčů, osvětlení a pohony vrat. Písek, Protivín, Blatná, Šumava, Praha.",
+      "Kompletní elektroinstalace novostaveb i rekonstrukce, montáž hromosvodů, úpravy elektroměrových rozvaděčů, osvětlení a pohony vrat. Sídlo u Písku.",
     lead: "Elektroinstalace je nervovou soustavou domu. Rozhoduje o tom, jak pohodlně se v něm bude bydlet dalších třicet let, a předělává se hůř než cokoliv jiného.",
     tagline: "Novostavby, rekonstrukce, hromosvody i příprava na wallbox.",
-    updated: "2026-09-01",
+    updated: "2026-09-13",
     ctaLabel: "Potřebuji elektrikáře",
     ctaNote: "Řekneme, co to obnáší, ideálně dřív, než se začne bourat.",
     body: [
@@ -284,7 +284,7 @@ export const SERVICES: Service[] = [
       },
       {
         q: "Jak daleko jezdíte?",
-        a: "Domovská oblast je Písecko, běžně jsme po celých jižních Čechách. U větších akcí jezdíme i dál.",
+        a: "Sídlo máme u Písku. Na drobné opravy a servis jezdíme po okolí, za kompletní elektroinstalací nebo rozvaděči i daleko, například do Uničova nebo na dálnici D4.",
       },
     ],
     projectCategories: ["elektroinstalace", "hromosvody"],
@@ -297,9 +297,9 @@ export const SERVICES: Service[] = [
     reach: "local",
     navLabel: "Kamery a zabezpečení",
     title: "Kamery, alarmy a chytrá domácnost",
-    metaTitle: "Kamery a zabezpečení Písek, Protivín, Blatná | Alarmy Jablotron | OKelectric",
+    metaTitle: "Kamerové systémy a alarmy Písek | Jablotron | OKelectric",
     metaDescription:
-      "Certifikovaný montážní partner Jablotron. Alarmy, kamery, přístupové systémy a chytrá domácnost pro byty, domy i firmy. Montáž zpravidla za jeden den. Písek, Protivín, Blatná, Šumava, Praha.",
+      "Certifikovaný montážní partner Jablotron. Alarmy, kamery, přístupové systémy a chytrá domácnost pro byty, domy i firmy. Montáž zpravidla za jeden den. Sídlo u Písku.",
     lead: "Ochráníme, co je pro vás cenné, na nejvyšší dostupné technické úrovni. Jsme certifikovaným montážním partnerem firmy Jablotron.",
     tagline: "Kamery a alarmy Jablotron na míru objektu, montáž zpravidla za jeden den.",
     updated: "2026-09-13",
@@ -309,7 +309,7 @@ export const SERVICES: Service[] = [
       {
         heading: "Bezpečí na prvním místě",
         paragraphs: [
-          "Zabezpečení má smysl tehdy, když je navržené na konkrétní objekt. Jinak se chrání byt v panelovém domě, jinak samostatně stojící dům na okraji obce a úplně jinak dílna nebo sklad. Navrhujeme a instalujeme systémy na míru, od alarmů přes kamerový dohled po přístupové systémy, a to na Písecku i po jižních Čechách.",
+          "Zabezpečení má smysl tehdy, když je navržené na konkrétní objekt. Jinak se chrání byt v panelovém domě, jinak samostatně stojící dům na okraji obce a úplně jinak dílna nebo sklad. Navrhujeme a instalujeme systémy na míru, od alarmů přes kamerový dohled po přístupové systémy.",
           "Připojení na pult centralizované ochrany bezpečnostní agentury je jen otázkou vašeho přání. Doporučujeme tříměsíční dohled bezpečnostní služby zdarma, abyste si vyzkoušeli, jestli ho chcete provozovat trvale.",
         ],
       },
@@ -391,12 +391,12 @@ export const SERVICES: Service[] = [
     reach: "national",
     navLabel: "Fotovoltaika",
     title: "Fotovoltaické systémy",
-    metaTitle: "Fotovoltaika Písek, Protivín, Blatná | FVE, ohřev vody, dotace | OKelectric",
+    metaTitle: "Fotovoltaika Písek | Návrh a montáž FVE, ohřev vody | OKelectric",
     metaDescription:
-      "Návrh a instalace fotovoltaických elektráren pro domácnosti i firmy, fotovoltaický ohřev vody a analýza starších elektráren termokamerou. Písek, Protivín, Blatná, Šumava, Praha.",
+      "Návrh a instalace fotovoltaických elektráren pro domácnosti i firmy, fotovoltaický ohřev vody a analýza starších elektráren termokamerou. Sídlo u Písku, elektrárny stavíme i daleko.",
     lead: "Proměňte sluneční paprsky v energii, která pohání váš dům nebo firmu. S energií slunce to umíme na jedničku.",
     tagline: "Elektrárny, ohřev vody i prověření starší instalace termokamerou.",
-    updated: "2026-09-01",
+    updated: "2026-09-13",
     ctaLabel: "Chci fotovoltaiku",
     ctaNote: "Velikost elektrárny spočítáme z vaší roční spotřeby, ne z plochy střechy.",
     body: [
@@ -404,7 +404,7 @@ export const SERVICES: Service[] = [
         heading: "Elektrárna, která se počítá",
         paragraphs: [
           "Navrhujeme a instalujeme fotovoltaické elektrárny pro rodinné domy i firmy. Přebytky se dají ukládat do baterií, do elektromobilu nebo do akumulační nádrže s vodou, případně sdílet s blízkými. Právě způsob, jakým naložíte s přebytky, rozhoduje o návratnosti víc než samotný počet panelů na střeše.",
-          "Držíme profesní kvalifikaci 26-014-H pro montáž fotovoltaických systémů. Elektrárnu vám tedy nejen namontujeme, ale i připojíme, zrevidujeme a vyřídíme podklady pro distributora. Realizace najdete po celém Písecku a Strakonicku: Zvíkovské Podhradí, Smetanova Lhota, Zadní Zborovice, Kozlov, Dmýštice, Doksy, Rakovice, Mutěnice.",
+          "Držíme profesní kvalifikaci 26-014-H pro montáž fotovoltaických systémů. Elektrárnu vám tedy nejen namontujeme, ale i připojíme, zrevidujeme a vyřídíme podklady pro distributora. Mezi našimi realizacemi jsou třeba elektrárny ve Zvíkovském Podhradí, Smetanově Lhotě, Zadních Zborovicích, Kozlově, Dmýšticích, Doksech, Rakovicích nebo Mutěnicích.",
         ],
       },
       {
@@ -419,7 +419,7 @@ export const SERVICES: Service[] = [
         heading: "Elektrikáři, ne montážní parta",
         paragraphs: [
           "Fotovoltaika je z poloviny práce na střeše a z poloviny práce v rozvaděči. Protože děláme běžné elektroinstalace a hromosvody, řešíme rovnou i přepěťovou ochranu, koordinaci s jímací soustavou a přípravu na wallbox. Instalujeme mimo jiné střídače a baterie SolaX a umíme nastavit řízení přetoků do bojleru, jak jsme dělali v Čimelicích.",
-          "Domovská oblast je Písecko a jižní Čechy, jednotlivé elektrárny ale máme i daleko za jejich hranicí.",
+          "Sídlo máme u Písku, ale fotovoltaika je plánovaná práce na několik dní, takže za ní jezdíme i daleko.",
         ],
       },
     ],
@@ -486,12 +486,12 @@ export const SERVICES: Service[] = [
     reach: "national",
     navLabel: "Rekuperace",
     title: "Rekuperace",
-    metaTitle: "Rekuperace Písek, Protivín, Blatná | Zehnder ComfoAir | OKelectric",
+    metaTitle: "Rekuperace Písek | Zehnder ComfoAir a ComfoSpot | OKelectric",
     metaDescription:
-      "Centrální i decentrální rekuperační jednotky Zehnder ComfoAir a ComfoSpot pro novostavby i starší domy. Bezplatný návrh, montáž, servis. Písek, Protivín, Blatná, Šumava, Praha.",
+      "Centrální i decentrální rekuperační jednotky Zehnder ComfoAir a ComfoSpot pro novostavby i starší domy. Bezplatný návrh, montáž, servis. Sídlo u Písku, rekuperace instalujeme i daleko.",
     lead: "Zbavíme vás vlhkosti a budete dýchat čistší vzduch díky rekuperačním systémům od švýcarského výrobce Zehnder.",
     tagline: "Zehnder ComfoAir do novostaveb, ComfoSpot do starších domů.",
-    updated: "2026-09-01",
+    updated: "2026-09-13",
     ctaLabel: "Potřebuji větrat",
     ctaNote: "Návrh projektu i cenovou nabídku děláme bezplatně.",
     body: [
@@ -499,7 +499,7 @@ export const SERVICES: Service[] = [
         heading: "Větrat a přitom netopit ven",
         paragraphs: [
           "Rekuperace zajišťuje nepřetržitou výměnu vzduchu, aniž byste ztráceli teplo. Odcházející vzduch předá svou energii vzduchu přiváděnému, takže dům dýchá a přitom se nevytápí ulice. Vedle úspory to řeší i vlhkost a alergeny, tedy věci, které se v dobře utěsněné novostavbě dřív nebo později projeví.",
-          "Moderní jednotky jsou tiché, nenápadné a účinné. Pracujeme se systémy švýcarského výrobce Zehnder, konkrétně s centrálními jednotkami ComfoAir a decentrálními ComfoSpot. Instalujeme je na Písecku i mimo jižní Čechy.",
+          "Moderní jednotky jsou tiché, nenápadné a účinné. Pracujeme se systémy švýcarského výrobce Zehnder, konkrétně s centrálními jednotkami ComfoAir a decentrálními ComfoSpot.",
         ],
       },
       {
@@ -579,9 +579,9 @@ export const SERVICES: Service[] = [
     reach: "local",
     navLabel: "Revize a projektování",
     title: "Revize a projektování",
-    metaTitle: "Elektrorevize a projekty Písek, Protivín, Blatná | Hromosvody, FVE | OKelectric",
+    metaTitle: "Elektrorevize Písek | Revize hromosvodů, FVE a projekty | OKelectric",
     metaDescription:
-      "Výchozí i periodické revize elektroinstalací, hromosvodů a fotovoltaik, revize přípojek pro ČEZ a EG.D. Projekty hromosvodů a elektroinstalací, zaměření skutečného stavu, 2D i 3D. Písek, Protivín, Blatná.",
+      "Výchozí i periodické revize elektroinstalací, hromosvodů a fotovoltaik, revize přípojek pro ČEZ a EG.D. Projekty hromosvodů a elektroinstalací, zaměření skutečného stavu, 2D i 3D. Sídlo u Písku.",
     lead: "Ujistěte se o bezpečnosti a spolehlivosti vaší elektroinstalace. Revizní technik je součástí našeho týmu.",
     tagline: "Revize elektroinstalací, hromosvodů a fotovoltaik, projekty a výkresy.",
     updated: "2026-09-13",
@@ -592,7 +592,7 @@ export const SERVICES: Service[] = [
         heading: "Revize není razítko, ale kontrola",
         paragraphs: [
           "Revizní zpráva má smysl jen tehdy, když za ní stojí skutečné měření a prohlídka. Provádíme revize vyhrazených elektrických zařízení na základě platného oprávnění a měříme moderními přístroji, ne odhadem podle stáří instalace.",
-          "Revidujeme na Písecku a po jižních Čechách. Většina zakázek jsou výchozí revize po naší vlastní montáži, děláme ale i revize po jiných firmách a periodické kontroly stávajících objektů.",
+          "Většina zakázek jsou výchozí revize po naší vlastní montáži, děláme ale i revize po jiných firmách a periodické kontroly stávajících objektů.",
         ],
       },
       {
@@ -690,19 +690,19 @@ export const SERVICES: Service[] = [
     reach: "local",
     navLabel: "Instalatérské a topenářské práce",
     title: "Instalatérské a topenářské práce",
-    metaTitle: "Instalatér a topenář Písek, Protivín, Blatná | OKelectric",
+    metaTitle: "Instalatér a topenář Písek | Rozvody vody a topení | OKelectric",
     metaDescription:
-      "Rozvody vody a topení, podlahové vytápění, výměny radiátorů, oběhová čerpadla a izolace. Domácnosti, rodinné domy i menší firmy. Písek, Protivín, Blatná, Šumava, Praha.",
+      "Rozvody vody a topení, podlahové vytápění, výměny radiátorů, oběhová čerpadla a izolace. Domácnosti, rodinné domy i menší firmy. Sídlo u Písku.",
     lead: "Kompletní služby v oblasti vodoinstalací a topenářských prací na jednom místě. Postaráme se o domácnosti, rodinné domy i menší firmy.",
     tagline: "Rozvody vody a topení, podlahové vytápění i havárie.",
-    updated: "2026-09-01",
+    updated: "2026-09-13",
     ctaLabel: "Potřebuji instalatéra",
     ctaNote: "U havárie voláme zpět, jakmile to jde, i o víkendu.",
     body: [
       {
         heading: "Voda a topení bez shánění dalších firem",
         paragraphs: [
-          "Běžné rozvody vody, topení a podlahového vytápění jsou u nás samozřejmostí. Montujeme plastové, měděné i ocelové rozvody podle toho, co dává v konkrétním objektu smysl, a děláme to jak v rodinných domech, tak v průmyslových provozech po celých jižních Čechách.",
+          "Běžné rozvody vody, topení a podlahového vytápění jsou u nás samozřejmostí. Montujeme plastové, měděné i ocelové rozvody podle toho, co dává v konkrétním objektu smysl, a děláme to jak v rodinných domech, tak v průmyslových provozech.",
           "Výhoda spolupráce s námi je v tom, že instalatér a elektrikář jsou jedna firma. U tepelných čerpadel, elektrokotlů a řízených soustav se voda a elektřina protínají v každém druhém kroku a právě na tom rozhraní vzniká většina problémů, když se na stavbě potkají dvě nezávislé party.",
         ],
       },
@@ -783,9 +783,9 @@ export const SERVICES: Service[] = [
     reach: "local",
     navLabel: "Klimatizace a chlazení",
     title: "Klimatizace a chlazení",
-    metaTitle: "Klimatizace Písek, Protivín, Blatná | Montáž a servis, Daikin | OKelectric",
+    metaTitle: "Klimatizace Písek | Montáž a servis klimatizací | OKelectric",
     metaDescription:
-      "Montáž klimatizací do bytů, domů i kanceláří, multisplit pro více místností, chlazení pro menší firmy a provozy. Návrh, montáž, elektrická přípojka i servis. Písek, Protivín, Blatná.",
+      "Montáž klimatizací do bytů, domů i kanceláří, multisplit pro více místností, chlazení pro menší firmy a provozy. Návrh, montáž, elektrická přípojka i servis. Sídlo u Písku.",
     lead: "Příjemný chlad v létě a levné přitápění na jaře i na podzim. Navrhneme, namontujeme a zapojíme klimatizaci včetně elektrické části.",
     tagline: "Klimatizace do bytů, domů i kanceláří, multisplit a chlazení pro provozy.",
     updated: "2026-09-13",

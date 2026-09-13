@@ -10,7 +10,7 @@ import { ServiceLinkGrid } from "@/components/ServiceLinkGrid";
 import { TeamMemberCard } from "@/components/TeamMemberCard";
 
 export const metadata = pageMetadata({
-  title: "O nás, tým a kvalifikace | OKelectric Písek, Protivín, Blatná",
+  title: "O nás a kvalifikace | Elektrikáři od Písku | OKelectric",
   description:
     "Čtyři lidi, osm oborů. Oprávnění dle §6, §7 a §8 NV č. 194/2022, kvalifikace pro fotovoltaiku 26-014-H a tepelná čerpadla 26-074-M, revize vyhrazených elektrických zařízení.",
   path: "/o-nas",
@@ -49,7 +49,7 @@ export default function AboutPage() {
                   pojďme tedy tyhle lidi dát dohromady a ušetřit všem čas a starosti.
                 </p>
                 <p>
-                  Základnu máme v Písku, ale spousta zákazníků nás povolává i do Prahy, Plzně
+                  Sídlo máme u Písku, ale spousta zákazníků nás povolává i do Prahy, Plzně
                   a na Moravu.
                 </p>
               </div>

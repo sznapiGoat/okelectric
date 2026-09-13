@@ -119,7 +119,7 @@ export function ServicePageTemplate({ service }: { service: Service }) {
               {/* Tichá zmínka o dojezdu. U velkých oborů říká, že vzdálenost neřešíme,
                   ale drobným písmem na konci - ne jako slib na půl obrazovky. */}
               <p className="mt-6 text-[0.875rem] leading-relaxed text-ink-faint">
-                {coverageLine(service.reach)}.
+                {coverageLine(service.reach)}
               </p>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import { Mail, Phone } from "lucide-react";
-import { NAP, REGION_LINE, TEAM } from "@/content/site";
+import { NAP, REACH_LINE, TEAM } from "@/content/site";
 import { ButtonAnchor } from "@/components/ui/Button";
 
 type Props = {
@@ -25,7 +25,7 @@ export function CTASection({ heading, text, ctaLabel, owner }: Props) {
           </h2>
           <p className="mt-5 max-w-lg text-[1.0625rem] leading-relaxed text-paper/70">
             {text ??
-              `Zavolejte nebo napište. Ozveme se, domluvíme prohlídku a pošleme nabídku, se kterou se dá počítat. Pracujeme v oblasti ${REGION_LINE}.`}
+              `Zavolejte nebo napište. Ozveme se, domluvíme prohlídku a pošleme nabídku, se kterou se dá počítat. ${REACH_LINE}`}
           </p>
 
         </div>

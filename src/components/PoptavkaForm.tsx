@@ -131,7 +131,7 @@ export function PoptavkaForm({ endpoint }: { endpoint: string }) {
         <input
           id={`${id}-obec`}
           name="obec"
-          placeholder="Písek, Protivín, Blatná…"
+          placeholder="Kde je zakázka"
           className={FIELD}
         />
       </div>

@@ -6,12 +6,11 @@ const BRAND = "#60B23A";
 const TIERS = [COVERAGE.core, COVERAGE.extended, COVERAGE.nationwide] as const;
 
 /**
- * Působnost jako okruhy kolem Písecka, ne jako výčet obcí.
+ * Dojezd jako okruhy kolem sídla, ne jako výčet obcí ani jako region.
  *
- * Seznam měst tady byl původně a byl to problém: kdo v něm nenajde svoji ves,
- * usoudí, že se na něj nejezdí. Okruhy tenhle pocit nevyvolají a vnější z nich
- * schválně mizí za okrajem rámu, takže působnost nikde nekončí ostrou hranicí,
- * aniž bychom museli napsat "celá ČR".
+ * Okruhy jsou rozdělené podle druhu práce, ne podle kilometrů: čím větší zakázka,
+ * tím dál. Vnější okruh schválně mizí za okrajem rámu, takže působnost nikde
+ * nekončí hranicí, a přitom nikde nestojí "celá ČR".
  */
 export function CoverageSection() {
   return (
@@ -19,11 +18,11 @@ export function CoverageSection() {
       <div className="shell grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
           <h2 id="pusobnost" className="scroll-mt-24 font-display text-display-lg text-balance">
-            Kam jezdíme
+            Odkud k&nbsp;vám jedeme
           </h2>
           <p className="mt-5 text-[1.0625rem] leading-relaxed text-ink-soft">
-            Základnu máme na Písecku. Čím blíž jste, tím drobnější věc se vyplatí řešit
-            &ndash; a čím větší zakázka, tím dál za ní vyrazíme.
+            Sídlo máme u Písku. Jak daleko za prací vyrazíme, neurčuje mapa, ale zakázka:
+            na drobnou opravu jezdíme po okolí, za kotelnou nebo rozvodnou i přes půl republiky.
           </p>
 
           <dl className="mt-9 space-y-6">
@@ -56,9 +55,8 @@ export function CoverageSection() {
 }
 
 /**
- * Okruhy. Poloměry v SVG neodpovídají kilometrům lineárně - reálný poměr 30:90:220
- * by z vnitřního okruhu udělal tečku. Jde o čitelnost, ne o kartografii, proto je
- * měřítko stlačené a mapka nemá měřítko ani severku, aby se nevydávala za mapu.
+ * Okruhy. Schéma, ne mapa: poloměry nevyjadřují kilometry, proto nemá měřítko
+ * ani severku, aby se za mapu nevydávalo.
  */
 function CoverageRings() {
   return (
@@ -67,7 +65,7 @@ function CoverageRings() {
         viewBox="0 0 400 300"
         className="h-auto w-full overflow-hidden rounded-xl border border-line bg-paper"
         role="img"
-        aria-label="Schéma dojezdu: nejhustší kolem Písecka, směrem ven řidnoucí a bez ostré hranice."
+        aria-label="Schéma dojezdu: sídlo u Písku uprostřed, okruhy podle velikosti zakázky bez ostré hranice."
       >
         <defs>
           {/* Vnější okruh se vytrácí, aby působnost nekončila čárou. */}
@@ -103,11 +101,11 @@ function CoverageRings() {
           className="fill-ink font-semibold"
           style={{ fontSize: "13px" }}
         >
-          Písecko
+          Sídlo u Písku
         </text>
       </svg>
       <figcaption className="mt-3 text-center text-[0.8125rem] text-ink-faint">
-        Nevidíte se v okruhu? Zavolejte a domluvíme se.
+        Nevíte, jestli k vám dojedeme? Zavolejte, většinou ano.
       </figcaption>
     </figure>
   );
