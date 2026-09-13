@@ -28,12 +28,6 @@ export function CTASection({ heading, text, ctaLabel, owner }: Props) {
               `Zavolejte nebo napište. Ozveme se, domluvíme prohlídku a pošleme nabídku, se kterou se dá počítat. Pracujeme v oblasti ${REGION_LINE}.`}
           </p>
 
-          {person && (
-            <p className="mt-6 text-[0.9375rem] text-paper/60">
-              Tuhle část u nás vede{" "}
-              <span className="font-semibold text-paper">{person.name}</span>, {person.town}.
-            </p>
-          )}
         </div>
 
         <div className="flex flex-col gap-3 lg:col-span-5 lg:items-end">

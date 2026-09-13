@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
 import { SERVICES } from "@/content/services";
@@ -7,6 +6,7 @@ import { NAP, REGION_LINE, TEAM } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 import { CoverageSection } from "@/components/CoverageSection";
 import { CTASection } from "@/components/CTASection";
+import { HeroCarousel } from "@/components/HeroCarousel";
 import { HeroProof } from "@/components/HeroProof";
 import { ProjectGrid } from "@/components/ProjectGrid";
 import { ServiceCard } from "@/components/ServiceCard";
@@ -20,8 +20,12 @@ export const metadata = pageMetadata({
   path: "/",
 });
 
-// Fotka do hero se vybírá podle id, aby se nezměnila při přeřazení referencí.
-const heroProject = PROJECTS_SORTED.find((p) => p.id === "p02") ?? PROJECTS_SORTED[0];
+// Fotky do hero se vybírají podle id, aby se nezměnily při přeřazení referencí.
+// Záměrně z různých oborů, karusel má ukázat šíři, ne šest fotovoltaik za sebou.
+const HERO_IDS = ["p02", "p03", "p14", "p04", "p06", "p05"];
+const heroProjects = HERO_IDS.map((id) => PROJECTS_SORTED.find((p) => p.id === id)).filter(
+  (p): p is (typeof PROJECTS_SORTED)[number] => Boolean(p)
+);
 const latest = PROJECTS_SORTED.slice(0, 6);
 
 export default function HomePage() {
@@ -37,14 +41,14 @@ export default function HomePage() {
         <div className="shell relative grid gap-12 pb-16 pt-14 sm:pt-20 lg:grid-cols-12 lg:gap-14 lg:pb-24 lg:pt-24">
           <div className="lg:col-span-6 xl:col-span-6">
             <h1 className="font-display text-display-xl text-balance">
-              Elektrikáři,
+              Energie. Teplo.
               <br />
-              kteří umí i topit.
+              Jeden tým.
             </h1>
 
             <p className="mt-7 max-w-lg text-[1.15rem] leading-[1.6] text-ink-soft text-pretty sm:text-[1.25rem]">
               Elektroinstalace, hromosvody, kotelny a tepelná čerpadla, fotovoltaika, rekuperace i
-              alarmy. Vše pod jednou firmou, včetně revize, kterou vystavíme sami.
+              alarmy. Vše pod jednou firmou, včetně projektu i revize.
             </p>
 
             <p className="mt-4 text-[0.9375rem] font-medium text-ink-soft">
@@ -65,25 +69,7 @@ export default function HomePage() {
           </div>
 
           <div className="lg:col-span-6">
-            <figure className="relative">
-              <div className="relative aspect-[4/3] overflow-hidden bg-mist lg:aspect-[4/3.5]">
-                <Image
-                  src={heroProject.image}
-                  alt={heroProject.alt}
-                  fill
-                  priority
-                  fetchPriority="high"
-                  sizes="(min-width: 1024px) 46vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
-              <figcaption className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-line py-3.5 text-[0.8125rem]">
-                <span className="font-semibold text-ink">{heroProject.title}</span>
-                <span className="text-ink-faint">
-                  {heroProject.place}, {heroProject.dateLabel}
-                </span>
-              </figcaption>
-            </figure>
+            <HeroCarousel projects={heroProjects} />
           </div>
         </div>
 
@@ -96,8 +82,9 @@ export default function HomePage() {
             Osm oborů, jedno telefonní číslo.
           </h2>
           <p className="mt-5 text-[1.0625rem] leading-relaxed text-ink-soft">
-            Většina zakázek u nás začíná jednou věcí a skončí u tří. Právě proto děláme elektriku i
-            topení pod jednou střechou, aby se na stavbě nedohadovaly dvě party nad jedním rozvaděčem.
+            Často to začne jednou drobností a skončí u kompletního řešení. Děláme elektriku, topení
+            a další související práce proto, abyste nemuseli koordinovat více dodavatelů. O návaznost
+            prací se postaráme my.
           </p>
         </div>
 

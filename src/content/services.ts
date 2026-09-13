@@ -27,7 +27,17 @@ export type Service = {
   /** Jak spolupráce probíhá. */
   process: { title: string; text: string }[];
   faq: FaqItem[];
-  related: string[];
+  /**
+   * Konkrétní výrobek, který k službě montujeme, s parametry a odkazem na web výrobce.
+   * Vykresluje se jen tam, kde je vyplněný.
+   */
+  product?: {
+    name: string;
+    maker: string;
+    url: string;
+    intro: string;
+    specs: { label: string; value: string }[];
+  };
   projectCategories: ProjectCategory[];
   /** Slug člena týmu, který službu vede. */
   owner: string;
@@ -45,16 +55,16 @@ export const SERVICES: Service[] = [
   {
     slug: "kotelny-tepelna-cerpadla",
     reach: "national",
-    navLabel: "Kotelny a tepelná čerpadla",
-    title: "Kotelny a tepelná čerpadla",
-    metaTitle: "Kotelny a tepelná čerpadla Písek, Protivín, Blatná | OKelectric",
+    navLabel: "Tepelná čerpadla",
+    title: "Tepelná čerpadla",
+    metaTitle: "Tepelná čerpadla a kotelny Písek, Protivín, Blatná | OKelectric",
     metaDescription:
       "Výměna starých kotlů na tuhá paliva za tepelné čerpadlo, peletový nebo zplynovací kotel. Řídicí systémy kotelen, ekvitermní regulace, dotace Nová zelená úsporám. Písek, Protivín, Blatná, Šumava, Praha.",
-    lead: "Nahrazujeme staré nevyhovující kotle na tuhá paliva efektivním zdrojem a doděláme k němu i regulaci, která z něj skutečně dostane, co umí.",
+    lead: "Nahrazujeme staré nevyhovující kotle na tuhá paliva efektivním zdrojem a doděláme k němu i regulaci, která z něj skutečně dostane maximum.",
     tagline: "Tepelná čerpadla, peletové kotle a regulace, která z nich dostane maximum.",
-    updated: "2026-09-01",
-    ctaLabel: "Chci moderní kotelnu",
-    ctaNote: "Přijedeme se podívat na kotelnu a otopnou soustavu, pak pošleme nabídku.",
+    updated: "2026-09-13",
+    ctaLabel: "Chci tepelné čerpadlo",
+    ctaNote: "Přijedeme se podívat na dům, kotelnu a otopnou soustavu, pak pošleme nabídku.",
     body: [
       {
         heading: "Moderní vytápění bez kompromisů",
@@ -74,7 +84,7 @@ export const SERVICES: Service[] = [
         heading: "Dotace Nová zelená úsporám Light",
         paragraphs: [
           "Pomůžeme vám s vyřízením dotace z programu Nová zelená úsporám Light, od podkladů po doložení realizace. Jedno omezení je dobré vědět dopředu: podpořit nelze opakovanou výměnu zdroje, pokud předchozí podpořená výměna proběhla po 1. lednu 2009.",
-          "Držíme profesní kvalifikaci 26-074-M pro instalatéry soustav s tepelnými čerpadly a mělkých geotermálních systémů a jsme autorizovaným partnerem pro tepelná čerpadla NIBE.",
+          "Držíme profesní kvalifikaci 26-074-M pro instalatéry soustav s tepelnými čerpadly a mělkých geotermálních systémů. Nejčastěji montujeme tepelná čerpadla českého výrobce Hotjet.",
         ],
       },
     ],
@@ -130,11 +140,59 @@ export const SERVICES: Service[] = [
         a: "Instalujeme záložní zdroje pro oběhová čerpadla, takže se teplo z akumulace i z krbu dál rozvádí do domu a soustava se nepřehřeje. U kotelen s tuhými palivy to není luxus, ale bezpečnostní prvek.",
       },
       {
+        q: "Jaký typ tepelného čerpadla si vybrat?",
+        a: "U rodinných domů je v naprosté většině případů nejrozumnější vzduch-voda. Nepotřebuje vrty ani zemní práce a instaluje se nejrychleji. Země-voda má stabilnější výkon i v mrazu a nižší provozní náklady, ale vrt nebo plošný kolektor investici výrazně navýší. Voda-voda je nejúčinnější, jenže potřebuje vydatnou studnu a povolení. Co dává smysl u vás, probereme při prohlídce.",
+      },
+      {
+        q: "Jak velké čerpadlo potřebuju?",
+        a: "Rozhoduje tepelná ztráta domu, ne jeho plocha. Pokud ji máte v projektové dokumentaci nebo v energetickém štítku, vycházíme z ní. Orientačně potřebuje zateplený dům kolem 50 až 70 W na metr čtvereční a starší nezateplený 100 až 150 W. Poddimenzované čerpadlo často spíná drahý elektrokotel, předimenzované zbytečně stojí víc peněz.",
+      },
+      {
+        q: "Bude čerpadlo topit i v silných mrazech?",
+        a: "Ano. Kvalitní čerpadla vzduch-voda pracují do minus 20 až minus 25 stupňů, jen s nižší účinností. Na několik nejmrazivějších dnů v roce pomáhá vestavěný elektrokotel nebo druhý zdroj, třeba stávající krb či kotel. Komfort se nezmění, jen se ty dny mírně zvednou náklady.",
+      },
+      {
+        q: "Neobtěžuje venkovní jednotka hlukem sousedy?",
+        a: "Při správném umístění ne. Moderní invertorová čerpadla jsou tichá, hluk ale výrazně ovlivní, kam jednotka přijde. Doporučujeme alespoň dva až tři metry od hranice pozemku a směrem od oken sousedů. Místo vybíráme už při prohlídce, ne až v den montáže.",
+      },
+      {
+        q: "Umí tepelné čerpadlo v létě chladit?",
+        a: "Většina čerpadel vzduch-voda umí aktivní chlazení obráceným chodem. Nejlépe funguje s podlahovým systémem nebo fancoily. Pokud chcete chladit jednotlivé místnosti rychle a výrazně, bývá lepší doplnit klimatizaci, kterou také montujeme.",
+      },
+      {
+        q: "Vyplatí se kombinace s fotovoltaikou?",
+        a: "Je to jedna z nejlepších kombinací. Přes den fotovoltaika pohání čerpadlo, které ohřeje teplou vodu a nabije akumulační nádrž, a teplo se využije večer. Protože děláme obojí, navrhneme řízení tak, aby spolu systémy opravdu komunikovaly.",
+      },
+      {
+        q: "Jakou údržbu čerpadlo potřebuje?",
+        a: "Minimální. Jednou za rok nebo dva kontrola tlaku, čidel a funkce, průběžně čištění výparníku venkovní jednotky od listí a prachu. Při správné údržbě vydrží čerpadlo 15 až 25 let.",
+      },
+      {
+        q: "Potřebuji k tepelnému čerpadlu stavební povolení?",
+        a: "U běžného čerpadla vzduch-voda k rodinnému domu většinou ne. Jiná situace je u vrtů pro země-voda nebo studní pro voda-voda, kde jsou potřeba průzkumy a povolení. Co přesně je nutné ve vašem případě, ověříme předem.",
+      },
+      {
         q: "V jakém okolí kotelny stavíte?",
         a: "Na Písecku a v jižních Čechách jsme každý týden. Kotelna je práce na několik dní, takže za ní vyjedeme i podstatně dál - řekněte, kde jste, a domluvíme se.",
       },
     ],
-    related: ["instalaterske-topenarske-prace", "fotovoltaika", "rekuperace"],
+    product: {
+      name: "Hotjet ZETXe",
+      maker: "Hotjet",
+      url: "https://www.hotjet.cz/tepelne-cerpadlo-zetxe/",
+      intro:
+        "Invertorové tepelné čerpadlo vzduch-voda českého výrobce, venkovní monoblok. S domem ho spojí dvě trubky a kabel, výkon reguluje plynule podle potřeby a v základu řídí až tři topné nebo chladicí okruhy, ohřev vody i spolupráci s fotovoltaikou.",
+      specs: [
+        { label: "Typ", value: "Vzduch-voda" },
+        { label: "Instalace", value: "Venkovní monoblok" },
+        { label: "Tepelná ztráta domu", value: "Do 20 kW" },
+        { label: "Výkonové varianty", value: "7, 10 a 15 kW" },
+        { label: "Regulace", value: "Plná, kompresor, ventilátor i oběhové čerpadlo" },
+        { label: "Řízení", value: "Siemens, 3 okruhy topení a chlazení" },
+        { label: "Kaskáda", value: "Ano" },
+        { label: "Odmrazování", value: "Reverzním chodem" },
+      ],
+    },
     projectCategories: ["kotelny", "rekuperace"],
     owner: "ondrej-krejci",
     accent: "green",
@@ -229,7 +287,6 @@ export const SERVICES: Service[] = [
         a: "Domovská oblast je Písecko, běžně jsme po celých jižních Čechách. U větších akcí jezdíme i dál.",
       },
     ],
-    related: ["elektrorevize", "alarmy-zabezpeceni", "fotovoltaika"],
     projectCategories: ["elektroinstalace", "hromosvody"],
     owner: "martin-vones",
     accent: "green",
@@ -238,15 +295,15 @@ export const SERVICES: Service[] = [
   {
     slug: "alarmy-zabezpeceni",
     reach: "local",
-    navLabel: "Alarmy a zabezpečení",
-    title: "Zabezpečení majetku, vozidel a chytrá domácnost",
-    metaTitle: "Alarmy a zabezpečení Písek, Protivín, Blatná | Jablotron | OKelectric",
+    navLabel: "Kamery a zabezpečení",
+    title: "Kamery, alarmy a chytrá domácnost",
+    metaTitle: "Kamery a zabezpečení Písek, Protivín, Blatná | Alarmy Jablotron | OKelectric",
     metaDescription:
       "Certifikovaný montážní partner Jablotron. Alarmy, kamery, přístupové systémy a chytrá domácnost pro byty, domy i firmy. Montáž zpravidla za jeden den. Písek, Protivín, Blatná, Šumava, Praha.",
     lead: "Ochráníme, co je pro vás cenné, na nejvyšší dostupné technické úrovni. Jsme certifikovaným montážním partnerem firmy Jablotron.",
-    tagline: "Jablotron na míru objektu, montáž zpravidla za jeden den.",
-    updated: "2026-09-01",
-    ctaLabel: "Chci alarm",
+    tagline: "Kamery a alarmy Jablotron na míru objektu, montáž zpravidla za jeden den.",
+    updated: "2026-09-13",
+    ctaLabel: "Chci zabezpečení",
     ctaNote: "Projdeme objekt a navrhneme sestavu podle rizika, ne podle ceníku.",
     body: [
       {
@@ -324,7 +381,6 @@ export const SERVICES: Service[] = [
         a: "Ano, a bez výměny ústředny. Postupně se dá doplnit ovládání spotřebičů, vrat, monitoring teploty i hlášení havárií, například zaplavení.",
       },
     ],
-    related: ["elektroinstalace", "vykresova-dokumentace", "elektrorevize"],
     projectCategories: ["elektroinstalace"],
     owner: "ondrej-lesak",
     accent: "blue",
@@ -420,7 +476,6 @@ export const SERVICES: Service[] = [
         a: "Ano, s dotačními podklady pomáháme, stejně jako u tepelných čerpadel. Podmínky programů se mění, aktuální stav proberme telefonicky.",
       },
     ],
-    related: ["elektroinstalace", "kotelny-tepelna-cerpadla", "elektrorevize"],
     projectCategories: ["fotovoltaika", "revize"],
     owner: "ondrej-krejci",
     accent: "green",
@@ -514,7 +569,6 @@ export const SERVICES: Service[] = [
         a: "Nic. Návrh projektu i cenovou nabídku děláme bezplatně.",
       },
     ],
-    related: ["kotelny-tepelna-cerpadla", "instalaterske-topenarske-prace", "elektroinstalace"],
     projectCategories: ["rekuperace", "klimatizace"],
     owner: "ondrej-krejci",
     accent: "blue",
@@ -523,16 +577,16 @@ export const SERVICES: Service[] = [
   {
     slug: "elektrorevize",
     reach: "local",
-    navLabel: "Elektrorevize",
-    title: "Revize elektrických zařízení",
-    metaTitle: "Elektrorevize Písek, Protivín, Blatná | Revize hromosvodů a FVE | OKelectric",
+    navLabel: "Revize a projektování",
+    title: "Revize a projektování",
+    metaTitle: "Elektrorevize a projekty Písek, Protivín, Blatná | Hromosvody, FVE | OKelectric",
     metaDescription:
-      "Výchozí i periodické revize elektroinstalací, hromosvodů a fotovoltaických elektráren. Revize přípojek pro ČEZ a EG.D. Písek, Protivín, Blatná, Šumava, Praha.",
-    lead: "Ujistěte se o bezpečnosti a spolehlivosti své instalace. Revizi si děláme sami, takže na ni nečekáte.",
-    tagline: "Výchozí i periodické revize elektroinstalací, hromosvodů a fotovoltaik.",
-    updated: "2026-09-01",
-    ctaLabel: "Chci revizi",
-    ctaNote: "Řekněte, co a proč potřebujete zrevidovat. Rozsah i cenu odhadneme rovnou.",
+      "Výchozí i periodické revize elektroinstalací, hromosvodů a fotovoltaik, revize přípojek pro ČEZ a EG.D. Projekty hromosvodů a elektroinstalací, zaměření skutečného stavu, 2D i 3D. Písek, Protivín, Blatná.",
+    lead: "Ujistěte se o bezpečnosti a spolehlivosti vaší elektroinstalace. Revizní technik je součástí našeho týmu.",
+    tagline: "Revize elektroinstalací, hromosvodů a fotovoltaik, projekty a výkresy.",
+    updated: "2026-09-13",
+    ctaLabel: "Chci revizi nebo projekt",
+    ctaNote: "Řekněte, co a proč potřebujete zrevidovat nebo nakreslit. Rozsah i cenu odhadneme rovnou.",
     body: [
       {
         heading: "Revize není razítko, ale kontrola",
@@ -550,6 +604,13 @@ export const SERVICES: Service[] = [
         ],
       },
       {
+        heading: "Projekty a výkresová dokumentace",
+        paragraphs: [
+          "K revizím patří i papíry, ze kterých se dá pracovat. Kreslíme projekty hromosvodů a elektroinstalací pro domy a provozovny, ve 2D i ve 3D, k vlastním realizacím i samostatně jako službu. Výkres má sloužit tomu, kdo podle něj bude pracovat, proto kreslíme čitelně a s popisem, který dává smysl i za pět let.",
+          "Velká část starších objektů použitelnou dokumentaci nemá, nebo neodpovídá tomu, co je ve zdi. Zaměříme skutečný stav a překreslíme ho, ať už kvůli rekonstrukci, revizi, nebo prodeji. Bez schématu se každý další zásah do elektroinstalace dělá metodou pokus a omyl. Navrhujeme a kreslíme také strojní díly a přípravky včetně 3D modelů pro výrobu.",
+        ],
+      },
+      {
         heading: "Držená oprávnění",
         paragraphs: [
           "Jsme držiteli platných oprávnění pro práci na elektrických zařízeních ve smyslu §6, §7 a §8 nařízení vlády č. 194/2022, obor 26-51-H, a oprávnění k provádění revizí vyhrazených elektrických zařízení. Spolehněte se na moderní diagnostické metody.",
@@ -557,7 +618,7 @@ export const SERVICES: Service[] = [
       },
     ],
     scope: {
-      heading: "Druhy revizí",
+      heading: "Revize a projekty",
       items: [
         "Výchozí revize elektroinstalací v domech, bytech i komerčních objektech",
         "Periodické revize elektroinstalací",
@@ -566,6 +627,9 @@ export const SERVICES: Service[] = [
         "Revize fotovoltaických elektráren",
         "Dílčí revize pro tepelná čerpadla, bazény a další zařízení",
         "Analýza fotovoltaických polí termokamerou",
+        "Projekty hromosvodů a elektroinstalací",
+        "Zaměření a překreslení skutečného stavu",
+        "2D výkresy a 3D modely, i strojní díly a přípravky",
       ],
     },
     process: [
@@ -604,11 +668,18 @@ export const SERVICES: Service[] = [
         a: "Protože běžné měření neodhalí přehřáté články ani zhoršené spoje uvnitř pole. Ty se projeví teplotou, ne poruchou, a ubírají výrobu roky, než si jich někdo všimne.",
       },
       {
+        q: "Uděláte projekt nebo výkresy, i když realizaci objednám jinde?",
+        a: "Ano, dokumentaci děláme i samostatně jako službu. Není podmínkou, aby u nás zakázka pokračovala montáží.",
+      },
+      {
+        q: "Nemám k domu žádné výkresy. Dá se to řešit?",
+        a: "Dá. Zaměříme skutečný stav na místě a překreslíme ho do použitelné dokumentace. U starších objektů je to nejčastější zadání.",
+      },
+      {
         q: "Co když revize dopadne špatně?",
         a: "Zpráva popíše konkrétní závady a jejich závažnost. Většinu z nich umíme odstranit na místě nebo v krátkém termínu, protože elektroinstalace je naše hlavní činnost.",
       },
     ],
-    related: ["elektroinstalace", "fotovoltaika", "alarmy-zabezpeceni"],
     projectCategories: ["revize", "hromosvody"],
     owner: "martin-vones",
     accent: "blue",
@@ -621,8 +692,8 @@ export const SERVICES: Service[] = [
     title: "Instalatérské a topenářské práce",
     metaTitle: "Instalatér a topenář Písek, Protivín, Blatná | OKelectric",
     metaDescription:
-      "Rozvody vody a topení, podlahové vytápění, výměny radiátorů, oběhová čerpadla a izolace. Domácnosti, rodinné domy i průmyslové objekty. Písek, Protivín, Blatná, Šumava, Praha.",
-    lead: "Kompletní služby v oblasti vodoinstalací a topenářských prací na jednom místě. Postaráme se o domácnosti, rodinné domy i průmyslové objekty.",
+      "Rozvody vody a topení, podlahové vytápění, výměny radiátorů, oběhová čerpadla a izolace. Domácnosti, rodinné domy i menší firmy. Písek, Protivín, Blatná, Šumava, Praha.",
+    lead: "Kompletní služby v oblasti vodoinstalací a topenářských prací na jednom místě. Postaráme se o domácnosti, rodinné domy i menší firmy.",
     tagline: "Rozvody vody a topení, podlahové vytápění i havárie.",
     updated: "2026-09-01",
     ctaLabel: "Potřebuji instalatéra",
@@ -702,103 +773,102 @@ export const SERVICES: Service[] = [
         a: "Plastové, měděné i ocelové. Volba se řídí typem objektu, provozní teplotou a tím, co se v domě už používá, ne tím, co má firma zrovna na skladě.",
       },
     ],
-    related: ["kotelny-tepelna-cerpadla", "rekuperace", "elektroinstalace"],
     projectCategories: ["kotelny", "klimatizace"],
     owner: "ondrej-krejci",
     accent: "green",
   },
 
   {
-    slug: "vykresova-dokumentace",
-    reach: "national",
-    navLabel: "Výkresová dokumentace",
-    title: "Výkresová dokumentace",
-    metaTitle: "Výkresová dokumentace 2D a 3D, projekty hromosvodů | OKelectric Písek",
+    slug: "klimatizace",
+    reach: "local",
+    navLabel: "Klimatizace a chlazení",
+    title: "Klimatizace a chlazení",
+    metaTitle: "Klimatizace Písek, Protivín, Blatná | Montáž a servis, Daikin | OKelectric",
     metaDescription:
-      "Profesionální výkresová dokumentace ve 2D i 3D. Projekty hromosvodů, zaměření skutečného stavu, návrhy strojních dílů a přípravků. Písek, Protivín, Blatná, Šumava, Praha.",
-    lead: "Nakreslíme všechno, co je potřeba, od projektů hromosvodů po výkresy, které by obstály i před profesorem technického kreslení.",
-    tagline: "Projekty hromosvodů, zaměření skutečného stavu, 2D i 3D.",
-    updated: "2026-09-01",
-    ctaLabel: "Potřebuji nakreslit",
-    ctaNote: "Řekneme, jaké podklady k tomu potřebujeme a v jakém formátu dodáme.",
+      "Montáž klimatizací do bytů, domů i kanceláří, multisplit pro více místností, chlazení pro menší firmy a provozy. Návrh, montáž, elektrická přípojka i servis. Písek, Protivín, Blatná.",
+    lead: "Příjemný chlad v létě a levné přitápění na jaře i na podzim. Navrhneme, namontujeme a zapojíme klimatizaci včetně elektrické části.",
+    tagline: "Klimatizace do bytů, domů i kanceláří, multisplit a chlazení pro provozy.",
+    updated: "2026-09-13",
+    ctaLabel: "Chci klimatizaci",
+    ctaNote: "Podíváme se, kam jednotky umístit a kudy povede potrubí, pak pošleme nabídku.",
     body: [
       {
-        heading: "Dokumentace, která se dá číst",
+        heading: "Chlad tam, kde ho potřebujete",
         paragraphs: [
-          "Vytváříme profesionální dokumentaci ve 2D formátech i ve 3D, přesně podle vašich požadavků. Vycházíme z toho, že výkres má sloužit tomu, kdo podle něj bude pracovat, ne archivu. Proto kreslíme čitelně, s popisem, který dává smysl i za pět let, až se k dokumentaci někdo vrátí kvůli rekonstrukci.",
-          "Nejčastěji jde o projekty hromosvodů a elektroinstalací pro domy a provozovny. Dokumentaci kreslíme bez ohledu na to, kde stavba stojí. Dokumentaci děláme jak k vlastním realizacím, tak samostatně jako službu.",
+          "Montujeme klimatizace do bytů, rodinných domů, kanceláří i menších provozoven. Nejčastěji jde o dělené systémy split, kde venkovní jednotka stojí na fasádě nebo na zemi a uvnitř je tichá nástěnná jednotka. Pro více místností navrhujeme multisplit, tedy jednu venkovní jednotku pro několik vnitřních, jak jsme dělali například v Blatné.",
+          "Pracujeme mimo jiné s jednotkami Daikin. Značku a výkon ale volíme podle místnosti, orientace oken a toho, jak se prostor používá, ne podle toho, co je zrovna v akci.",
         ],
       },
       {
-        heading: "Zaměření skutečného stavu",
+        heading: "Montáž, kterou není vidět ani slyšet",
         paragraphs: [
-          "Velká část starších objektů žádnou použitelnou dokumentaci nemá, nebo ta stávající neodpovídá tomu, co je ve zdi. Zaměříme skutečný stav a překreslíme ho do podoby, se kterou se dá dál pracovat, ať už kvůli plánované rekonstrukci, kvůli revizi, nebo kvůli prodeji objektu.",
-          "U elektroinstalací je to obzvlášť užitečné. Bez schématu se každý další zásah dělá metodou pokus a omyl a platí se to hodinami práce navíc.",
+          "O tom, jestli vás klimatizace bude těšit, rozhoduje hlavně montáž. Vnitřní jednotku umisťujeme tak, aby nefoukala přímo na postel ani na pracovní stůl, potrubí a odvod kondenzátu vedeme co nejkratší a nejčistší cestou a venkovní jednotku stavíme tam, kde nebude rušit vás ani sousedy.",
+          "Protože jsme elektrikáři, uděláme i samostatný jištěný okruh a napojení do rozvaděče. Nemusíte kvůli klimatizaci shánět další firmu a nevznikne provizorní kabel přes půl domu.",
         ],
       },
       {
-        heading: "Nejen elektro",
+        heading: "Topí levněji, než si myslíte",
         paragraphs: [
-          "Naše práce nekončí u elektrotechnických výkresů. Navrhujeme a kreslíme také strojní díly a přípravky, včetně 3D modelů pro výrobu. Pokud potřebujete nakreslit součástku, přípravek nebo úpravu stávajícího zařízení, ozvěte se, obvykle to jde.",
-          "Dokumentaci u nás vede pan Lesák z Čimelic, telefon 776 229 279.",
+          "Moderní klimatizace je vlastně malé tepelné čerpadlo vzduch-vzduch. V přechodném období, kdy se ještě nevyplatí zatápět v kotli, vytopí místnost za zlomek ceny přímotopu. V domě s fotovoltaikou může přes den běžet prakticky z vlastní výroby.",
+          "Kromě domácností řešíme i chlazení pro menší firmy a provozy, například chladicí jednotky v průmyslovém areálu na Horažďovicku.",
         ],
       },
     ],
     scope: {
-      heading: "Co kreslíme",
+      heading: "Co pro vás uděláme",
       items: [
-        "Projekty hromosvodů a jímacích soustav",
-        "Projekty elektroinstalací domů a provozoven",
-        "Zaměření a překreslení skutečného stavu",
-        "Dokumentace skutečného provedení stavby",
-        "2D výkresová dokumentace",
-        "3D modely pro výrobu",
-        "Návrhy strojních dílů a přípravků",
+        "Návrh výkonu a umístění jednotek",
+        "Klimatizace split do bytů, domů a kanceláří",
+        "Multisplit pro více místností s jednou venkovní jednotkou",
+        "Konzole na fasádu, na zem i na plochou střechu",
+        "Vedení potrubí a odvodu kondenzátu",
+        "Samostatný elektrický okruh a napojení do rozvaděče",
+        "Chlazení pro menší firmy a provozy",
+        "Pravidelný servis a čištění jednotek",
       ],
     },
     process: [
       {
-        title: "Zadání",
-        text: "Popíšete, co potřebujete a k čemu to bude sloužit. Podle účelu se liší podrobnost výkresu.",
+        title: "Prohlídka",
+        text: "Projdeme místnosti, vybereme místo pro vnitřní i venkovní jednotky a trasu potrubí.",
       },
       {
-        title: "Podklady nebo zaměření",
-        text: "Pracujeme z vašich podkladů, nebo přijedeme zaměřit skutečný stav na místě.",
+        title: "Návrh a nabídka",
+        text: "Spočítáme výkon podle velikosti a orientace místností a pošleme nabídku s konkrétními jednotkami.",
       },
       {
-        title: "Zpracování",
-        text: "Zpracujeme dokumentaci ve 2D nebo ve 3D podle domluvy a pošleme k připomínkám.",
+        title: "Montáž",
+        text: "Jednotky, potrubí, odvod kondenzátu i elektrická přípojka. Běžnou montáž zvládneme za den.",
       },
       {
-        title: "Předání",
-        text: "Předáme finální výkresy v požadovaných formátech, včetně tiskových podkladů.",
+        title: "Zprovoznění a servis",
+        text: "Uvedeme do provozu, ukážeme ovládání a domluvíme pravidelné čištění.",
       },
     ],
     faq: [
       {
-        q: "Uděláte dokumentaci, i když u vás nebudu objednávat realizaci?",
-        a: "Ano, dokumentaci děláme i samostatně jako službu. Není podmínkou, aby u nás zakázka pokračovala montáží.",
+        q: "Jak velkou klimatizaci potřebuju?",
+        a: "Záleží na velikosti místnosti, orientaci oken, zateplení a počtu lidí nebo spotřebičů v ní. Podkrovní ložnice na jih potřebuje víc než stejně velký pokoj na sever. Výkon proto navrhujeme až po prohlídce.",
       },
       {
-        q: "Nemám k domu žádné výkresy. Dá se to řešit?",
-        a: "Dá. Zaměříme skutečný stav na místě a překreslíme ho do použitelné dokumentace. U starších objektů je to nejčastější zadání, se kterým se setkáváme.",
+        q: "Dá se klimatizací i topit?",
+        a: "Ano. Klimatizace pracuje jako tepelné čerpadlo vzduch-vzduch a v přechodném období vytopí místnost výrazně levněji než přímotop. Jako hlavní zdroj tepla pro celý dům ji ale nedoporučujeme, na to je lepší tepelné čerpadlo do topné vody.",
       },
       {
-        q: "V jakých formátech dokumentaci dodáváte?",
-        a: "Standardně ve 2D formátech k tisku i pro další zpracování, podle potřeby doplněné o 3D model. Konkrétní formáty domluvíme podle toho, kdo s výkresem bude dál pracovat.",
+        q: "Kolik místností zvládne jedna venkovní jednotka?",
+        a: "Systém multisplit připojí k jedné venkovní jednotce obvykle dvě až pět vnitřních. Na fasádě tak visí jedna jednotka místo několika, což ocení hlavně bytové domy a řadovky.",
       },
       {
-        q: "Kreslíte i něco jiného než elektro?",
-        a: "Ano. Navrhujeme a kreslíme také strojní díly a přípravky včetně 3D modelů pro výrobu.",
+        q: "Bude klimatizace hlučná?",
+        a: "Vnitřní jednotky jsou v tichém režimu slyšet sotva víc než šum ledničky. U venkovní jednotky rozhoduje umístění, proto ho vybíráme s ohledem na vaše okna i na sousedy.",
       },
       {
-        q: "Na koho se mám obrátit?",
-        a: "Na pana Lesáka z Čimelic, telefon 776 229 279, e-mail lesak@okelectric.cz.",
+        q: "Jak často se klimatizace čistí?",
+        a: "Filtry vnitřní jednotky je dobré propláchnout jednou za pár týdnů provozu, zvládnete to sami. Důkladné čištění výměníku a kontrolu jednotky doporučujeme jednou ročně, ideálně před sezónou.",
       },
     ],
-    related: ["elektroinstalace", "alarmy-zabezpeceni", "elektrorevize"],
-    projectCategories: ["elektroinstalace", "hromosvody"],
-    owner: "ondrej-lesak",
+    projectCategories: ["klimatizace"],
+    owner: "ondrej-krejci",
     accent: "blue",
   },
 ];

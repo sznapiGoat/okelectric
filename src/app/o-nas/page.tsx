@@ -1,12 +1,12 @@
-import { PARTNERS, QUALIFICATIONS, REGIONS_EXTENDED, REGION_LINE, TEAM } from "@/content/site";
+import { QUALIFICATIONS, REGIONS_EXTENDED, TEAM } from "@/content/site";
 import { SERVICES } from "@/content/services";
 import { PROJECTS_SORTED } from "@/content/projects";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
 import { JsonLd } from "@/components/JsonLd";
+import { PartnerLogos } from "@/components/PartnerLogos";
 import { ServiceLinkGrid } from "@/components/ServiceLinkGrid";
-import { TeamMatrix } from "@/components/TeamMatrix";
 import { TeamMemberCard } from "@/components/TeamMemberCard";
 
 export const metadata = pageMetadata({
@@ -45,14 +45,12 @@ export default function AboutPage() {
                   se dá dělat řemeslo v regionu, kde se lidé znají.
                 </p>
                 <p>
-                  OKelectric vzniklo z jednoduché úvahy. Na většině zakázek se elektrika a topení
-                  potkávají a právě na tom rozhraní vzniká nejvíc problémů, když se na stavbě sejdou
-                  dvě nezávislé party. Tepelné čerpadlo potřebuje rozvaděč, fotovoltaika hromosvod,
-                  alarm připravenou kabeláž. Děláme obojí, takže se nemáme s kým dohadovat.
+                  OKelectric vzniklo z jednoduché úvahy: na většině akcí se potkává více profesí,
+                  pojďme tedy tyhle lidi dát dohromady a ušetřit všem čas a starosti.
                 </p>
                 <p>
-                  Pracujeme v oblasti {REGION_LINE}. Základnu máme v Protivíně, Písku, Blatné a
-                  Čimelicích, jednotlivé zakázky nás ale zavedly i na Vysočinu a do Uničova.
+                  Základnu máme v Písku, ale spousta zákazníků nás povolává i do Prahy, Plzně
+                  a na Moravu.
                 </p>
               </div>
             </div>
@@ -94,7 +92,8 @@ export default function AboutPage() {
             Kdo k vám přijede
           </h2>
           <p className="mt-5 text-[1.0625rem] leading-relaxed text-ink-soft">
-            Volejte rovnou tomu, kdo má obor na starosti. Ušetříte si jedno přepojení a my čas.
+            Volejte rovnou tomu, kdo má obor na starosti. U každého jsou podsvícené obory, které
+            dělá.
           </p>
         </div>
 
@@ -105,18 +104,6 @@ export default function AboutPage() {
           ))}
         </div>
 
-        <div className="mt-16 max-w-3xl">
-          <h3 className="font-display text-[1.4rem] font-semibold tracking-tight text-ink">
-            Kdo dělá co
-          </h3>
-          <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-soft">
-            Elektroinstalaci dělá celá parta, u specializovaných oborů má každý svoje.
-            Volejte rovnou tomu, koho se to týká.
-          </p>
-          <div className="mt-6">
-            <TeamMatrix />
-          </div>
-        </div>
       </section>
 
       {/* Kvalifikace */}
@@ -145,28 +132,10 @@ export default function AboutPage() {
               ))}
             </dl>
 
-            {PARTNERS.length > 0 && (
-              <>
-                <h3 className="mt-12 font-display text-display-sm">Značky, se kterými pracujeme</h3>
-                <dl className="mt-6 grid grid-cols-1 border-l border-t border-line sm:grid-cols-3">
-                  {PARTNERS.map((p) => (
-                    <div key={p.name} className="border-b border-r border-line p-5">
-                      <dt className="font-display text-[1.15rem] font-semibold text-ink">
-                        <a
-                          href={p.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-ink hover:text-brand-deep"
-                        >
-                          {p.name}
-                        </a>
-                      </dt>
-                      <dd className="mt-1 text-[0.9375rem] text-ink-soft">{p.detail}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </>
-            )}
+            <div className="mt-12">
+              <h3 className="font-display text-display-sm">Značky, se kterými pracujeme</h3>
+              <PartnerLogos className="mt-6" />
+            </div>
             <p className="mt-5 max-w-xl text-[0.875rem] leading-relaxed text-ink-faint">
               Pro montáž zabezpečovací techniky držíme koncesovanou živnost.
             </p>

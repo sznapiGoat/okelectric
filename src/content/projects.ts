@@ -11,7 +11,7 @@ export const CATEGORY_LABELS: Record<ProjectCategory, string> = {
   fotovoltaika: "Fotovoltaika",
   elektroinstalace: "Elektroinstalace",
   hromosvody: "Hromosvody",
-  kotelny: "Kotelny a tepelná čerpadla",
+  kotelny: "Tepelná čerpadla a kotelny",
   rekuperace: "Rekuperace",
   klimatizace: "Klimatizace a chlazení",
   revize: "Revize a diagnostika",

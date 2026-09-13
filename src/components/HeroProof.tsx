@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { PROJECTS_SORTED } from "@/content/projects";
 import { cn } from "@/lib/utils";
 
 type Proof = {
@@ -14,6 +13,7 @@ type Proof = {
  * „5 lidí v týmu" nejsou argumenty, u malé firmy spíš vybízejí ke srovnávání.
  * Místo toho odpovídáme na to, co zákazník opravdu řeší: nemusí shánět dvě
  * party, nečeká na revizního technika a může si práci prohlédnout.
+ * „Stovky realizací" je číslo firmy, na webu je z nich nafocený jen výběr.
  *
  * Záměrně jako dl, ne jako nadpisy. Jsou to dvojice tvrzení a vysvětlení,
  * do osnovy nadpisů stránky nepatří.
@@ -30,7 +30,7 @@ const PROOFS: Proof[] = [
     accent: "tech",
   },
   {
-    claim: `${PROJECTS_SORTED.length} realizací s fotkou`,
+    claim: "Stovky realizací s fotkou",
     detail: "Od bytového rozvaděče po most na D4.",
     accent: "brand",
   },

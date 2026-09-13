@@ -98,14 +98,14 @@ export function ServiceIcon({ slug, className }: Props) {
         </svg>
       );
 
-    // Výkres s ohnutým rohem, kótou a narýsovaným tvarem.
-    case "vykresova-dokumentace":
+    // Nástěnná jednotka klimatizace s lamelou a proudem chladného vzduchu.
+    case "klimatizace":
       return (
         <svg {...common}>
-          <path d="M8 4h16l8 8v24H8z" />
-          <path d="M24 4v8h8" />
-          <path d="M13 17.5l5.5 6 4-4.5 4.5 5" />
-          <path d="M13 31h14M13 28.5v5M27 28.5v5" />
+          <rect x="4" y="7" width="32" height="13" rx="2.5" />
+          <path d="M9 16h22" />
+          <circle cx="30.5" cy="11.5" r="1" fill="currentColor" stroke="none" />
+          <path d="M13 24c-1.5 2-1.5 4 0 6s1.5 4 0 6M20 24c-1.5 2-1.5 4 0 6s1.5 4 0 6M27 24c-1.5 2-1.5 4 0 6s1.5 4 0 6" />
         </svg>
       );
 

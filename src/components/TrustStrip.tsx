@@ -1,8 +1,8 @@
-import { PARTNERS, QUALIFICATIONS } from "@/content/site";
+import { QUALIFICATIONS } from "@/content/site";
+import { PartnerLogos } from "@/components/PartnerLogos";
 
 /**
- * Pás s oprávněními a autorizacemi. Bez log třetích stran, jen fakta,
- * aby nevznikal dojem partnerství, které firma nemá doložené.
+ * Pás s oprávněními a pod nimi loga značek, se kterými firma pracuje.
  */
 export function TrustStrip() {
   return (
@@ -31,23 +31,10 @@ export function TrustStrip() {
               ))}
             </dl>
 
-            {PARTNERS.length > 0 && (
-              <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2">
-                <span className="text-[0.8125rem] font-medium text-ink-faint">Pracujeme se systémy</span>
-                {PARTNERS.map((p) => (
-                  <a
-                    key={p.name}
-                    href={p.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title={p.detail}
-                    className="border border-line-strong bg-paper px-3 py-1.5 text-[0.8125rem] font-semibold text-ink transition-colors hover:border-ink"
-                  >
-                    {p.name}
-                  </a>
-                ))}
-              </div>
-            )}
+            <div className="mt-10">
+              <p className="text-[0.8125rem] font-medium text-ink-faint">Pracujeme se systémy</p>
+              <PartnerLogos className="mt-4" />
+            </div>
           </div>
         </div>
       </div>

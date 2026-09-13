@@ -16,8 +16,9 @@ npm run build   # produkční build, všech 20 tras je statických
 
 Veškerý text a data jsou oddělené od komponent:
 
-- `src/content/site.ts` NAP, tým, kvalifikace, obsluhované obce
-- `src/content/services.ts` osm služeb včetně vlastního textu, procesu a FAQ
+- `src/content/site.ts` NAP, tým, kvalifikace, obsluhované obce, značky partnerů
+- `src/content/services.ts` osm služeb včetně vlastního textu, procesu, FAQ a případného
+  výrobku s parametry (u tepelných čerpadel Hotjet ZETXe s odkazem na web výrobce)
 - `src/content/projects.ts` 27 realizací s popisky fotografií
 
 Přidání služby znamená přidat položku do `SERVICES` a založit `src/app/<slug>/page.tsx`, který jen
@@ -83,6 +84,8 @@ zpracování.
   `openingHoursSpecification`.
 - **Fotografie týmu.** `TeamMemberCard` je zatím bez portrétů.
 - **Kontaktní formulář.** Web záměrně tlačí na telefon, formulář v tomto průchodu není.
+- **Texty klimatizace** jsou návrh. Potvrdit s firmou značky, se kterými pracují, a kdo obor vede
+  (zatím Krejčí). U práce s chladivem uvést certifikaci pro F-plyny, pokud ji mají.
 
 ## Značka a favicon
 
@@ -102,6 +105,24 @@ Pozor, tohle je **návrh, ne schválené logo**. Původní rastrové logo klient
 nedotčené v `public/brand/logo-original.png`. Nová značka z něj přebírá dům, solární
 panely a obě firemní barvy, ale vypouští sirénu, klimatizaci, list a zástrčku, protože
 šest prvků v 16 px splyne v skvrnu.
+
+## Značky partnerů
+
+Loga v `public/partners` jsou stažená z webů výrobců (Hotjet, GoodWe, SolaX, Daikin,
+SolarEdge, Victron Energy, DEHN) a vedou na jejich weby. Vykreslují se jednobarevně přes
+CSS filtr, protože SolaX a Victron mají na webu jen bílou variantu pro tmavou hlavičku.
+U Hotjetu je bílý text v PNG převedený na průhlednost, jinak by z filtru vyšel černý obdélník.
+Opticky rozdílné proporce vyrovnává `logoHeight` v `PARTNERS`.
+
+## Sloučené a přejmenované obory
+
+Podle revize obsahu (září 2026) se Výkresová dokumentace sloučila s revizemi do oboru
+Revize a projektování a na její místo přišla Klimatizace a chlazení. Adresy služeb
+zůstaly beze změny kvůli SEO (`/elektrorevize`, `/alarmy-zabezpeceni`,
+`/kotelny-tepelna-cerpadla`), mění se jen názvy. Stará `/vykresova-dokumentace`
+trvale přesměrovává na `/elektrorevize` (`next.config.mjs`).
+
+OG obrázky čtyř změněných služeb jsou vygenerované znovu ve stejném stylu jako ostatní.
 
 ## Fotografie
 
