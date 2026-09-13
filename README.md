@@ -108,10 +108,11 @@ panely a obě firemní barvy, ale vypouští sirénu, klimatizaci, list a zástr
 
 ## Značky partnerů
 
-Loga v `public/partners` jsou stažená z webů výrobců (Hotjet, GoodWe, SolaX, Daikin,
-SolarEdge, Victron Energy, DEHN) a vedou na jejich weby. Vykreslují se jednobarevně přes
+Loga v `public/partners` jsou stažená z webů výrobců (NIBE, Zehnder, Jablotron, Hotjet,
+GoodWe, SolaX, Daikin, SolarEdge, Victron Energy, DEHN) a vedou na jejich weby. Vykreslují se jednobarevně přes
 CSS filtr, protože SolaX a Victron mají na webu jen bílou variantu pro tmavou hlavičku.
-U Hotjetu je bílý text v PNG převedený na průhlednost, jinak by z filtru vyšel černý obdélník.
+U Hotjetu (PNG) a Zehnderu (SVG maska) je bílý text převedený na průhlednost, jinak by
+z filtru vyšel plný černý obdélník.
 Opticky rozdílné proporce vyrovnává `logoHeight` v `PARTNERS`.
 
 ## Sloučené a přejmenované obory
