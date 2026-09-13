@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
 import { SERVICES } from "@/content/services";
-import { COVERAGE, NAP, REGION_LINE, TEAM } from "@/content/site";
+import { NAP, TEAM } from "@/content/site";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
@@ -9,9 +9,9 @@ import { PoptavkaForm } from "@/components/PoptavkaForm";
 import { TeamMemberCard } from "@/components/TeamMemberCard";
 
 export const metadata = pageMetadata({
-  title: "Kontakt | Elektrikář a topenář Písek, Protivín, Blatná | OKelectric",
+  title: "Kontakt | Elektrikáři a topenáři od Písku | OKelectric",
   description:
-    "Telefonní čísla a e-maily na jednotlivé členy týmu OKelectric. Písek, Protivín, Blatná, Čimelice, Šumava a Praha. Havárie řešíme dle možností i o víkendech.",
+    "Telefonní čísla a e-maily na jednotlivé členy týmu OKelectric. Sídlo máme u Písku, pracovní dny 7 až 18 hodin. Havárie řešíme dle možností i o víkendech.",
   path: "/kontakt",
 });
 
@@ -37,8 +37,7 @@ export default function ContactPage() {
                 Zavolejte. Zvedneme to my, ne dispečink.
               </h1>
               <p className="mt-6 max-w-xl text-[1.15rem] leading-[1.6] text-ink-soft text-pretty">
-                Nejrychlejší cesta k nabídce je telefon. Řekněte, o co jde, a domluvíme prohlídku.
-                Pracujeme v oblasti {REGION_LINE}.
+                Nejrychlejší cesta k nabídce je telefon. Řekněte, o co jde a kde, a domluvíme prohlídku.
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3">
@@ -69,10 +68,26 @@ export default function ContactPage() {
               </div>
 
               <div className="mt-8 border-t border-line pt-6">
-                <h2 className="font-display text-[1.0625rem] font-semibold">Kam jezdíme</h2>
+                <h2 className="font-display text-[1.0625rem] font-semibold">Kdy nás zastihnete</h2>
                 <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-soft">
-                  {COVERAGE.core.label} na cokoli, běžně po celých jižních Čechách.
-                  Za většími zakázkami vyjedeme i dál &ndash; napište, kde jste.
+                  {NAP.openingHours.days} {NAP.openingHours.opens.replace(/^0/, "")} až{" "}
+                  {NAP.openingHours.closes} hodin.{" "}
+                  <a
+                    href={NAP.googleMaps}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-tech underline underline-offset-4 hover:text-tech-deep"
+                  >
+                    Najdete nás na Mapách Google
+                  </a>
+                </p>
+              </div>
+
+              <div className="mt-8 border-t border-line pt-6">
+                <h2 className="font-display text-[1.0625rem] font-semibold">Odkud k vám jedeme</h2>
+                <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-soft">
+                  Sídlo máme u Písku. Na servis jezdíme po okolí, za montáží nebo rekonstrukcí
+                  i daleko. Řekněte, kde jste, a domluvíme se.
                 </p>
               </div>
 

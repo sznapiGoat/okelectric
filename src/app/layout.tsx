@@ -24,11 +24,11 @@ const text = Wix_Madefor_Text({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "OKelectric | Elektrikáři a topenáři, Písek, Protivín, Blatná",
+    default: "OKelectric | Elektrikáři a topenáři od Písku",
     template: "%s | OKelectric",
   },
   description:
-    "Elektroinstalace a hromosvody, kotelny a tepelná čerpadla, fotovoltaika, rekuperace, alarmy a revize. Písek, Protivín, Blatná, Šumava a Praha.",
+    "Elektroinstalace a hromosvody, tepelná čerpadla, fotovoltaika, rekuperace, klimatizace, kamery a revize pod jednou firmou. Sídlo u Písku, za prací jezdíme i daleko.",
   applicationName: "OKelectric",
   authors: [{ name: "OKelectric" }],
   robots: { index: true, follow: true, "max-image-preview": "large" },

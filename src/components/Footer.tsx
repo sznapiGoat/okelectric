@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { BrandLogo } from "@/components/BrandLogo";
 import { SERVICES } from "@/content/services";
-import { COVERAGE, NAP, TEAM } from "@/content/site";
+import { NAP, TEAM } from "@/content/site";
 
 export function Footer() {
   return (
@@ -94,10 +94,9 @@ export function Footer() {
             </li>
           </ul>
 
-          <h2 className="eyebrow mt-8">Kam jezdíme</h2>
+          <h2 className="eyebrow mt-8">Odkud jsme</h2>
           <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-soft">
-            {COVERAGE.core.label}, běžně po celých jižních Čechách. Za většími zakázkami
-            i dál, stačí se ozvat.
+            Sídlo máme u Písku. Za prací jezdíme tam, kde je potřeba, stačí se ozvat.
           </p>
         </div>
       </div>

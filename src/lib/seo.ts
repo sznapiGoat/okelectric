@@ -21,7 +21,8 @@ export function pageMetadata(opts: {
   const url = `${SITE_URL}${opts.path}`;
   const image = opts.image ?? ogImageForPath(opts.path);
   return {
-    title: opts.title,
+    // Titulky stránek už značku obsahují, šablona "%s | OKelectric" z layoutu by ji zdvojila.
+    title: { absolute: opts.title },
     description: opts.description,
     alternates: { canonical: url },
     openGraph: {
@@ -63,6 +64,7 @@ const serviceRadius = {
 
 const postalAddress = {
   "@type": "PostalAddress",
+  streetAddress: NAP.streetAddress,
   addressLocality: NAP.addressLocality,
   addressRegion: NAP.addressRegion,
   postalCode: NAP.postalCode,
@@ -78,7 +80,7 @@ export function localBusinessSchema() {
     name: NAP.name,
     legalName: NAP.legalName,
     description:
-      "Elektroinstalace, hromosvody, revize a zabezpečení na Písecku a v jižních Čechách. Fotovoltaiku, kotelny s tepelným čerpadlem a rekuperace realizujeme po celé ČR.",
+      "Elektrikáři a topenáři se sídlem ve Smetanově Lhotě u Písku. Elektroinstalace a hromosvody, tepelná čerpadla, fotovoltaika, rekuperace, klimatizace, kamery a zabezpečení, revize a projekty.",
     url: SITE_URL,
     telephone: NAP.phone,
     email: NAP.email,
@@ -91,7 +93,14 @@ export function localBusinessSchema() {
       longitude: NAP.geo.longitude,
     },
     areaServed: [...localAreaServed, serviceRadius, czechRepublic],
-    sameAs: [NAP.facebook, NAP.instagram],
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: NAP.openingHours.opens,
+      closes: NAP.openingHours.closes,
+    },
+    hasMap: NAP.googleMaps,
+    sameAs: [NAP.facebook, NAP.instagram, NAP.googleMaps],
     employee: TEAM.map((m) => ({
       "@type": "Person",
       name: m.name,
