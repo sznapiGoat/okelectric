@@ -2,10 +2,14 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { SERVICES } from "@/content/services";
 import type { TeamMember } from "@/content/site";
+import { cn } from "@/lib/utils";
 
+/**
+ * Karta člena týmu. Pod kontaktem jsou všechny obory firmy a podsvícené jsou ty,
+ * které dělá. Při pohledu na kartu vedle karty je tak vidět, kdo se v čem překrývá,
+ * bez samostatné tabulky.
+ */
 export function TeamMemberCard({ member }: { member: TeamMember }) {
-  const handled = SERVICES.filter((s) => member.handles.includes(s.slug));
-
   return (
     <article className="flex h-full flex-col border-b border-r border-line p-6 sm:p-8">
       <h3 className="font-display text-[1.3rem] font-semibold tracking-tight text-ink">{member.name}</h3>
@@ -33,20 +37,27 @@ export function TeamMemberCard({ member }: { member: TeamMember }) {
         </a>
       </div>
 
-      {handled.length > 0 && (
-        <ul className="mt-auto flex flex-wrap gap-1.5 pt-6">
-          {handled.map((s) => (
+      <ul className="mt-auto flex flex-wrap gap-1.5 pt-6" aria-label={`Obory, které dělá ${member.name}`}>
+        {SERVICES.map((s) => {
+          const does = member.handles.includes(s.slug);
+          return (
             <li key={s.slug}>
               <Link
                 href={`/${s.slug}`}
-                className="inline-block border border-line px-2.5 py-1 text-[0.75rem] font-medium text-ink-soft transition-colors hover:border-ink hover:text-ink"
+                className={cn(
+                  "inline-block border px-2.5 py-1 text-[0.75rem] font-medium transition-colors",
+                  does
+                    ? "border-tech bg-tech text-paper hover:border-ink hover:bg-ink"
+                    : "border-transparent bg-mist text-ink-faint hover:text-ink"
+                )}
               >
                 {s.navLabel}
+                {!does && <span className="sr-only"> (nedělá)</span>}
               </Link>
             </li>
-          ))}
-        </ul>
-      )}
+          );
+        })}
+      </ul>
     </article>
   );
 }

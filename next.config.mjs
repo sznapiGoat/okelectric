@@ -6,6 +6,10 @@ const nextConfig = {
     // zůstane WebP.
     formats: ["image/avif", "image/webp"],
   },
+  // Výkresová dokumentace se sloučila s revizemi do jednoho oboru.
+  async redirects() {
+    return [{ source: "/vykresova-dokumentace", destination: "/elektrorevize", permanent: true }];
+  },
 };
 
 export default nextConfig;

@@ -96,7 +96,7 @@ export type TeamMember = {
   phoneDisplay: string;
   email: string;
   town: string;
-  /** Služby, které má na starosti - pro prolinkování z detailu služby. */
+  /** Obory, které dělá. Na kartě člena týmu se podsvítí mezi všemi obory firmy. */
   handles: string[];
 };
 
@@ -115,6 +115,7 @@ export const TEAM: TeamMember[] = [
       "rekuperace",
       "elektroinstalace",
       "instalaterske-topenarske-prace",
+      "klimatizace",
     ],
   },
   {
@@ -125,7 +126,7 @@ export const TEAM: TeamMember[] = [
     phoneDisplay: "+420 776 229 279",
     email: "lesak@okelectric.cz",
     town: "Čimelice",
-    handles: ["alarmy-zabezpeceni", "vykresova-dokumentace", "elektroinstalace"],
+    handles: ["alarmy-zabezpeceni", "elektrorevize", "elektroinstalace"],
   },
   {
     slug: "martin-vones",
@@ -175,11 +176,67 @@ export const QUALIFICATIONS: Qualification[] = [
 ];
 
 /**
- * Značky, se kterými firma pracuje. Zatím prázdné - původní trojice
- * (NIBE, Zehnder, Jablotron) byla odebrána a finální seznam se teprve potvrzuje.
- * Až přijde, stačí doplnit sem; obě místa, kde se vykresluje, prázdný seznam
- * samy přeskočí. Pole `url` vede na web výrobce, `logo` na soubor v public/partners.
+ * Značky, se kterými firma pracuje. Loga jsou stažená z webů výrobců a na webu se
+ * vykreslují jednobarevně, aby pás nepůsobil jako reklamní plocha. Logo vždy vede
+ * na web výrobce. Pokud se seznam vyprázdní, obě místa, kde se vykresluje, ho přeskočí.
+ * `logoHeight` vyrovnává opticky rozdílné proporce log, v pixelech při výšce řádku.
  */
-export type Partner = { name: string; detail: string; url: string; logo?: string };
+export type Partner = {
+  name: string;
+  detail: string;
+  url: string;
+  logo: string;
+  logoHeight: number;
+};
 
-export const PARTNERS: Partner[] = [];
+export const PARTNERS: Partner[] = [
+  {
+    name: "Hotjet",
+    detail: "Tepelná čerpadla",
+    url: "https://www.hotjet.cz/",
+    logo: "/partners/hotjet.png",
+    logoHeight: 26,
+  },
+  {
+    name: "GoodWe",
+    detail: "Střídače pro fotovoltaiku",
+    url: "https://www.goodwe.com/",
+    logo: "/partners/goodwe.svg",
+    logoHeight: 18,
+  },
+  {
+    name: "SolaX",
+    detail: "Střídače a baterie",
+    url: "https://www.solaxpower.com/",
+    logo: "/partners/solax.png",
+    logoHeight: 22,
+  },
+  {
+    name: "Daikin",
+    detail: "Klimatizace",
+    url: "https://www.daikin.cz/",
+    logo: "/partners/daikin.svg",
+    logoHeight: 20,
+  },
+  {
+    name: "SolarEdge",
+    detail: "Optimizéry a střídače",
+    url: "https://www.solaredge.com/",
+    logo: "/partners/solaredge.svg",
+    logoHeight: 20,
+  },
+  {
+    name: "Victron Energy",
+    detail: "Bateriové systémy a měniče",
+    url: "https://www.victronenergy.com/",
+    logo: "/partners/victron.svg",
+    logoHeight: 30,
+  },
+  {
+    name: "DEHN",
+    detail: "Ochrana před bleskem a přepětím",
+    url: "https://www.dehn.cz/",
+    logo: "/partners/dehn.svg",
+    logoHeight: 24,
+  },
+];

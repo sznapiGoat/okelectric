@@ -10,8 +10,8 @@ import { SITE_URL } from "@/content/site";
  * Při editaci textu je potřeba datum ručně posunout.
  */
 const STATIC_UPDATED: Record<string, string> = {
-  "/": "2026-09-01",
-  "/o-nas": "2026-09-01",
+  "/": "2026-09-13",
+  "/o-nas": "2026-09-13",
   "/kontakt": "2026-09-01",
 };
 
