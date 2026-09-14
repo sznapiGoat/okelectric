@@ -7,7 +7,7 @@ import { CTASection } from "@/components/CTASection";
 import { JsonLd } from "@/components/JsonLd";
 import { PartnerLogos } from "@/components/PartnerLogos";
 import { ServiceLinkGrid } from "@/components/ServiceLinkGrid";
-import { TeamMemberCard } from "@/components/TeamMemberCard";
+import { TeamGrid } from "@/components/TeamGrid";
 
 export const metadata = pageMetadata({
   title: "O nás a kvalifikace | Elektrikáři od Písku | OKelectric",
@@ -97,12 +97,7 @@ export default function AboutPage() {
           </p>
         </div>
 
-        {/* Čtyři lidi padnou beze zbytku do dvou i do čtyř sloupců, doplňky mřížky nejsou potřeba. */}
-        <div className="reveal-group mt-12 grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 xl:grid-cols-4">
-          {TEAM.map((m) => (
-            <TeamMemberCard key={m.slug} member={m} />
-          ))}
-        </div>
+        <TeamGrid className="mt-12" />
 
       </section>
 
