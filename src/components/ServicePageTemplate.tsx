@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Check, Phone } from "lucide-react";
+import { ArrowRight, Check, Phone } from "lucide-react";
 import type { Service } from "@/content/services";
 import { projectsByCategory } from "@/content/projects";
 import { coverageLine, TEAM } from "@/content/site";
@@ -125,46 +125,6 @@ export function ServicePageTemplate({ service }: { service: Service }) {
           </div>
         </div>
       </section>
-
-      {/* Výrobek, který k službě montujeme. Parametry přebírá z webu výrobce a na něj i odkazuje. */}
-      {service.product && (
-        <section className="border-t border-line">
-          <div className="shell grid gap-10 py-16 sm:py-20 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-5">
-              <p className={cn("text-[0.8125rem] font-semibold uppercase tracking-[0.08em]", accentText)}>
-                Co montujeme
-              </p>
-              <h2 className="mt-3 font-display text-display-md text-balance">{service.product.name}</h2>
-              <p className="mt-5 max-w-md text-[1.0625rem] leading-relaxed text-ink-soft">
-                {service.product.intro}
-              </p>
-              <a
-                href={service.product.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group mt-7 inline-flex items-center gap-2 text-[0.9375rem] font-semibold text-ink hover:text-brand-deep"
-              >
-                Detail na webu výrobce {service.product.maker}
-                <ArrowUpRight
-                  className="h-4 w-4 transition-transform duration-200 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                  aria-hidden
-                />
-              </a>
-            </div>
-            <dl className="reveal border-t border-line lg:col-span-7">
-              {service.product.specs.map((spec) => (
-                <div
-                  key={spec.label}
-                  className="grid grid-cols-1 gap-1 border-b border-line py-3.5 sm:grid-cols-[12rem_1fr] sm:gap-6"
-                >
-                  <dt className="text-[0.9375rem] font-semibold text-ink">{spec.label}</dt>
-                  <dd className="text-[0.9375rem] text-ink-soft">{spec.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </section>
-      )}
 
       {/* Reference k této službě */}
       {projects.length > 0 && (

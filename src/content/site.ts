@@ -35,7 +35,7 @@ export const NAP = {
  *
  * Firma nechce působit jako celostátní, ale nechce se ani uzavřít do jednoho regionu.
  * Viditelný text proto jmenuje jen sídlo ("u Písku") a dosah dokládá konkrétními
- * zakázkami (Uničov, dálnice D4), ne hranicí. Výčty obcí zůstávají jen ve
+ * zakázkami, ne hranicí. Výčty obcí zůstávají jen ve
  * strukturovaných datech, titulcích a meta popiscích, kde pomáhají vyhledávačům
  * a návštěvník je jako hranici nevnímá.
  */
@@ -68,7 +68,7 @@ export const COVERAGE = {
   nationwide: {
     label: "Velké a specializované zakázky",
     promise:
-      "Rozvodna distribučního centra v Uničově nebo osvětlení mostu na dálnici D4. Vzdálenost řešíme až u nabídky.",
+      "Velké zakázky realizujeme po celé ČR. Vzdálenost řešíme až u nabídky.",
   },
 } as const;
 
@@ -136,6 +136,7 @@ export const TEAM: TeamMember[] = [
       "elektroinstalace",
       "instalaterske-topenarske-prace",
       "klimatizace",
+      "elektrorevize",
     ],
   },
   {
@@ -146,7 +147,13 @@ export const TEAM: TeamMember[] = [
     phoneDisplay: "+420 776 229 279",
     email: "lesak@okelectric.cz",
     town: "Čimelice",
-    handles: ["alarmy-zabezpeceni", "elektrorevize", "elektroinstalace"],
+    handles: [
+      "alarmy-zabezpeceni",
+      "elektrorevize",
+      "elektroinstalace",
+      "fotovoltaika",
+      "rekuperace",
+    ],
   },
   {
     slug: "martin-vones",
@@ -156,7 +163,7 @@ export const TEAM: TeamMember[] = [
     phoneDisplay: "+420 739 764 282",
     email: "vones@okelectric.cz",
     town: "Blatná",
-    handles: ["elektroinstalace", "elektrorevize"],
+    handles: ["elektroinstalace", "fotovoltaika", "rekuperace"],
   },
   {
     slug: "milan-stecha",
@@ -166,7 +173,7 @@ export const TEAM: TeamMember[] = [
     phoneDisplay: "+420 775 338 093",
     email: "milan.stecha@outlook.com",
     town: "Písek",
-    handles: ["elektroinstalace"],
+    handles: ["elektroinstalace", "rekuperace"],
   },
 ];
 
@@ -175,7 +182,8 @@ export type Qualification = { label: string; detail: string };
 export const QUALIFICATIONS: Qualification[] = [
   {
     label: "§6, §7 a §8 NV č. 194/2022",
-    detail: "Platná oprávnění pro práci na elektrických zařízeních, obor 26-51-H.",
+    detail:
+      "Platná oprávnění pro práci na elektrických zařízeních, obor 26-51-H, podle zákona č. 250/2021 Sb.",
   },
   {
     label: "Profesní kvalifikace 26-014-H",
@@ -187,7 +195,8 @@ export const QUALIFICATIONS: Qualification[] = [
   },
   {
     label: "Revize vyhrazených elektrických zařízení",
-    detail: "Výchozí i periodické revize elektroinstalací, hromosvodů a fotovoltaik.",
+    detail:
+      "Oprávnění TIČR podle zákona č. 250/2021 Sb. Výchozí i periodické revize elektroinstalací, hromosvodů a fotovoltaik.",
   },
   {
     label: "Koncesovaná živnost",

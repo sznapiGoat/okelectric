@@ -13,8 +13,6 @@ export function TeamMemberCard({ member }: { member: TeamMember }) {
   return (
     <article className="flex h-full flex-col border-b border-r border-line p-6 sm:p-8">
       <h3 className="font-display text-[1.3rem] font-semibold tracking-tight text-ink">{member.name}</h3>
-      <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-soft">{member.role}</p>
-
       <p className="mt-3 flex items-center gap-2 text-[0.875rem] text-ink-faint">
         <MapPin className="h-4 w-4 text-brand" aria-hidden />
         {member.town}
