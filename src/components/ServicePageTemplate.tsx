@@ -87,7 +87,7 @@ export function ServicePageTemplate({ service }: { service: Service }) {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="prose-body lg:col-span-8">
             {service.body.map((block, i) => (
-              <Reveal key={block.heading} delay={i * 0.05} className={i > 0 ? "mt-14" : undefined}>
+              <Reveal key={block.heading} className={i > 0 ? "mt-14" : undefined}>
                 <h2 className="font-display text-display-md text-balance">{block.heading}</h2>
                 <div className="mt-5 max-w-prose">
                   {block.paragraphs.map((p, j) => (
@@ -151,7 +151,7 @@ export function ServicePageTemplate({ service }: { service: Service }) {
                 />
               </a>
             </div>
-            <dl className="border-t border-line lg:col-span-7">
+            <dl className="reveal border-t border-line lg:col-span-7">
               {service.product.specs.map((spec) => (
                 <div
                   key={spec.label}
@@ -183,7 +183,7 @@ export function ServicePageTemplate({ service }: { service: Service }) {
               </Link>
             </div>
 
-            <ProjectGrid projects={projects} className="mt-10" />
+            <ProjectGrid projects={projects} className="reveal-group mt-10" />
           </div>
         </section>
       )}
@@ -197,7 +197,7 @@ export function ServicePageTemplate({ service }: { service: Service }) {
               Nenašli jste to své? Zavolejte, odpovíme rovnou.
             </p>
           </div>
-          <div className="lg:col-span-8">
+          <div className="reveal lg:col-span-8">
             <FAQAccordion items={service.faq} />
           </div>
         </div>

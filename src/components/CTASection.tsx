@@ -19,7 +19,7 @@ export function CTASection({ heading, text, ctaLabel, owner }: Props) {
   return (
     <section className="bg-ink text-paper">
       <div className="shell grid gap-10 py-16 sm:py-20 lg:grid-cols-12 lg:items-end">
-        <div className="lg:col-span-7">
+        <div className="reveal lg:col-span-7">
           <h2 className="font-display text-display-lg text-balance">
             {heading ?? "Řekněte nám, co potřebujete."}
           </h2>
@@ -30,7 +30,7 @@ export function CTASection({ heading, text, ctaLabel, owner }: Props) {
 
         </div>
 
-        <div className="flex flex-col gap-3 lg:col-span-5 lg:items-end">
+        <div className="reveal flex flex-col gap-3 lg:col-span-5 lg:items-end">
           <ButtonAnchor
             href={`tel:${phone}`}
             variant="brand"

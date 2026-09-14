@@ -85,7 +85,7 @@
 
 @layer components {
   /* Náhled fotografie se jen prolne, žádná animační knihovna kvůli tomu
-     není potřeba a udrží to domovskou stránku bez framer-motion. */
+     není potřeba. */
   .lightbox {
     animation: lightbox-in 200ms cubic-bezier(0.22, 1, 0.36, 1);
   }
@@ -241,6 +241,157 @@
   @media (prefers-reduced-motion: reduce) {
     .hero-current {
       display: none;
+    }
+  }
+
+  /* ---------------------------------------------------------------------
+     Náběh obsahu při scrollu. Scroll-driven animace v CSS, bez JavaScriptu:
+     prvek se vysune a prolne podle toho, jak vjíždí do okna. Prohlížeč, který
+     animation-timeline neumí, obsah zobrazí rovnou, nic tedy nezůstane skryté.
+
+     .reveal        jeden blok
+     .reveal-group  mřížka nebo seznam, náběh dostane každé dítě a sloupce
+                    se lehce zpozdí za sebou, takže řada nenaskočí naráz */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal,
+      .reveal-group > * {
+        animation: reveal-up linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 40%;
+      }
+
+      .reveal-group > :nth-child(4n + 2) {
+        animation-range: entry 6% entry 46%;
+      }
+
+      .reveal-group > :nth-child(4n + 3) {
+        animation-range: entry 12% entry 52%;
+      }
+
+      .reveal-group > :nth-child(4n + 4) {
+        animation-range: entry 18% entry 58%;
+      }
+    }
+  }
+
+  @keyframes reveal-up {
+    from {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* ---------------------------------------------------------------------
+     Ikona oboru se při najetí na kartu nakreslí tahem. Tvary v ServiceIcon
+     mají pathLength="1", takže délka čáry je vždy 1 bez ohledu na tvar. */
+  .icon-draw {
+    transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .group:hover .icon-draw,
+    .group:focus-visible .icon-draw {
+      transform: scale(1.08);
+    }
+
+    .group:hover .icon-draw > *,
+    .group:focus-visible .icon-draw > * {
+      animation: icon-draw 800ms cubic-bezier(0.65, 0, 0.35, 1) both;
+    }
+
+    .group:hover .icon-draw > :nth-child(2),
+    .group:focus-visible .icon-draw > :nth-child(2) {
+      animation-delay: 70ms;
+    }
+
+    .group:hover .icon-draw > :nth-child(3),
+    .group:focus-visible .icon-draw > :nth-child(3) {
+      animation-delay: 140ms;
+    }
+
+    .group:hover .icon-draw > :nth-child(n + 4),
+    .group:focus-visible .icon-draw > :nth-child(n + 4) {
+      animation-delay: 210ms;
+    }
+  }
+
+  @keyframes icon-draw {
+    from {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+    }
+    to {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* ---------------------------------------------------------------------
+     Argumenty pod tlačítky v hero. Po načtení se postupně vysunou a jejich
+     barevný proužek se "nabije" zleva doprava, na konci jím projde odlesk.
+     Nadpis hero se neanimuje, je to LCP prvek. */
+  .hero-proof__bar {
+    position: relative;
+    overflow: hidden;
+    transform-origin: left;
+  }
+
+  .hero-proof__bar::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.85), transparent);
+    transform: translateX(-100%);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-proof {
+      animation: hero-proof-in 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-delay: var(--proof-delay, 0ms);
+    }
+
+    .hero-proof__bar {
+      animation: bar-charge 900ms cubic-bezier(0.65, 0, 0.35, 1) both;
+      animation-delay: calc(var(--proof-delay, 0ms) + 250ms);
+    }
+
+    .hero-proof__bar::after {
+      animation: bar-glint 700ms ease-out both;
+      animation-delay: calc(var(--proof-delay, 0ms) + 1150ms);
+    }
+  }
+
+  @keyframes hero-proof-in {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes bar-charge {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes bar-glint {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(100%);
     }
   }
 }

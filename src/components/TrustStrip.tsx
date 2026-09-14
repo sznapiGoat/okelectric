@@ -9,7 +9,7 @@ export function TrustStrip() {
     <section className="border-y border-line bg-mist">
       <div className="shell py-14 sm:py-16">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
-          <div className="lg:col-span-4">
+          <div className="reveal lg:col-span-4">
             <h2 className="font-display text-display-md text-balance">
               Papíry na to máme.
               <br />
@@ -22,7 +22,7 @@ export function TrustStrip() {
           </div>
 
           <div className="lg:col-span-8">
-            <dl className="grid grid-cols-1 border-t border-line sm:grid-cols-2">
+            <dl className="reveal-group grid grid-cols-1 border-t border-line sm:grid-cols-2">
               {QUALIFICATIONS.map((q) => (
                 <div key={q.label} className="border-b border-line py-5 pr-6 sm:odd:border-r sm:odd:pr-8">
                   <dt className="font-display text-[1.0625rem] font-semibold text-ink">{q.label}</dt>
@@ -31,7 +31,7 @@ export function TrustStrip() {
               ))}
             </dl>
 
-            <div className="mt-10">
+            <div className="reveal mt-10">
               <p className="text-[0.8125rem] font-medium text-ink-faint">Značky, které montujeme</p>
               <PartnerLogos className="mt-4" />
             </div>

@@ -26,7 +26,7 @@ export function ServiceCard({ service }: { service: Service }) {
         <ServiceIcon
           slug={service.slug}
           className={cn(
-            "h-9 w-9",
+            "icon-draw h-9 w-9",
             service.accent === "green" ? "text-brand" : "text-tech"
           )}
         />

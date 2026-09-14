@@ -80,7 +80,7 @@ export default function HomePage() {
 
       {/* Služby */}
       <section className="shell py-16 sm:py-24" aria-labelledby="sluzby">
-        <div className="max-w-2xl">
+        <div className="reveal max-w-2xl">
           <h2 id="sluzby" className="font-display text-display-lg text-balance">
             Osm oborů, jedno telefonní číslo.
           </h2>
@@ -91,7 +91,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 lg:grid-cols-4">
+        <div className="reveal-group mt-12 grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES.map((service) => (
             <ServiceCard key={service.slug} service={service} />
           ))}
@@ -102,7 +102,7 @@ export default function HomePage() {
 
       {/* Reference */}
       <section className="shell py-16 sm:py-24" aria-labelledby="reference">
-        <div className="flex flex-wrap items-end justify-between gap-4">
+        <div className="reveal flex flex-wrap items-end justify-between gap-4">
           <div className="max-w-2xl">
             <h2 id="reference" className="font-display text-display-lg text-balance">
               Poslední realizace
@@ -121,13 +121,13 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <ProjectGrid projects={latest} className="mt-12" />
+        <ProjectGrid projects={latest} className="reveal-group mt-12" />
       </section>
 
       {/* Tým */}
       <section className="border-t border-line bg-mist py-16 sm:py-24" aria-labelledby="tym">
         <div className="shell grid gap-10 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-4">
+          <div className="reveal lg:col-span-4">
             <h2 id="tym" className="font-display text-display-lg text-balance">
               Volejte rovnou tomu, kdo to dělá.
             </h2>
@@ -141,7 +141,7 @@ export default function HomePage() {
           </div>
 
           <div className="lg:col-span-8">
-            <ul className="border-t border-line">
+            <ul className="reveal-group border-t border-line">
               {TEAM.map((m) => (
                 <li
                   key={m.slug}

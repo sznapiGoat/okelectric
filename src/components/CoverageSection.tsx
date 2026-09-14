@@ -15,7 +15,7 @@ export function CoverageSection() {
   return (
     <section className="border-t border-line bg-mist py-16 sm:py-24" aria-labelledby="pusobnost">
       <div className="shell grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-        <div className="lg:col-span-5">
+        <div className="reveal lg:col-span-5">
           <h2 id="pusobnost" className="scroll-mt-24 font-display text-display-lg text-balance">
             Odkud k&nbsp;vám jedeme
           </h2>
@@ -41,7 +41,7 @@ export function CoverageSection() {
           </dl>
         </div>
 
-        <div className="lg:col-span-7">
+        <div className="reveal lg:col-span-7">
           <ProjectDotMap />
         </div>
       </div>
