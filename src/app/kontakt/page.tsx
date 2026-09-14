@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
 import { SERVICES } from "@/content/services";
-import { NAP, TEAM } from "@/content/site";
+import { NAP } from "@/content/site";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { PoptavkaForm } from "@/components/PoptavkaForm";
-import { TeamMemberCard } from "@/components/TeamMemberCard";
+import { TeamGrid } from "@/components/TeamGrid";
 
 export const metadata = pageMetadata({
   title: "Kontakt | Elektrikáři a topenáři od Písku | OKelectric",
@@ -147,14 +147,7 @@ export default function ContactPage() {
           k vám nejblíž.
         </p>
 
-        <div className="mt-10 grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
-          {TEAM.map((m) => (
-            <TeamMemberCard key={m.slug} member={m} />
-          ))}
-          {/* Doplněk mřížky, aby spodní linka lícovala i při lichém počtu karet. */}
-          <div className="hidden border-b border-r border-line sm:block lg:hidden" aria-hidden />
-          <div className="hidden border-b border-r border-line lg:block" aria-hidden />
-        </div>
+        <TeamGrid className="mt-10" />
       </section>
 
       <section className="border-t border-line bg-mist py-14">
