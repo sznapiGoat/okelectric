@@ -192,10 +192,14 @@ Budějovicích.
 
 Všechny animace jsou v `globals.css`, bez animační knihovny a bez JavaScriptu. Při
 `prefers-reduced-motion` se vypnou. Nadpis ani fotka v hero se neanimují, jsou to LCP prvky.
+Jediný JavaScript je stav tlačítka pozastavení u pásu realizací.
 
-- **Proud v mřížce** (`HeroCurrent`) světelné impulzy po čarách mřížky v pozadí hero.
-- **Argumenty v hero** (`HeroProof`) se po načtení postupně vysunou, barevný proužek se nabije
-  a projde jím odlesk. Zpoždění řídí proměnná `--proof-delay`.
+- **Běžící pás realizací** (`RealizationsStrip`) pod hero: náhledy všech referencí s místem a
+  oborem, smyčka bez švu (stopa dvakrát, posun o polovinu). Zastaví se tlačítkem, najetím
+  myší i fokusem (WCAG 2.2.2). Při omezení pohybu neběží a dá se posouvat do strany.
+- **Počítadlo realizací** (`CountUp`) v argumentech hero, napočítá se čistě v CSS přes
+  `@property --count`. Číslo je `REALIZATIONS_COUNT` v `site.ts` (350). Při `null` se místo
+  něj zobrazí text "Stovky realizací s fotkou".
 - **Náběh při scrollu** třídy `.reveal` (jeden blok) a `.reveal-group` (každé dítě mřížky,
   sloupce se lehce zpozdí). Scroll-driven animace (`animation-timeline: view()`), prohlížeč
   bez podpory zobrazí obsah rovnou. Komponenta `Reveal` je jen obal s touto třídou.
@@ -204,7 +208,7 @@ Všechny animace jsou v `globals.css`, bez animační knihovny a bez JavaScriptu
 - **Pulz sídla** v tečkové mapě (`.coverage-pulse`).
 
 Tailwind z `@layer components` vyhodí třídy, které v kódu nenajde jako celý řetězec, proto
-se názvy animačních tříd nesmí skládat přes šablonu (viz `CLASSES` v `HeroCurrent`).
+se názvy animačních tříd nesmí skládat přes šablonu.
 
 ## Blog
 
