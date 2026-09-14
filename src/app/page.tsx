@@ -7,6 +7,7 @@ import { pageMetadata } from "@/lib/seo";
 import { CoverageSection } from "@/components/CoverageSection";
 import { CTASection } from "@/components/CTASection";
 import { HeroCarousel } from "@/components/HeroCarousel";
+import { HeroCurrent } from "@/components/HeroCurrent";
 import { HeroProof } from "@/components/HeroProof";
 import { ProjectGrid } from "@/components/ProjectGrid";
 import { ServiceCard } from "@/components/ServiceCard";
@@ -37,6 +38,7 @@ export default function HomePage() {
           className="schematic pointer-events-none absolute inset-0 opacity-60 [mask-image:radial-gradient(120%_90%_at_15%_0%,black,transparent)]"
           aria-hidden
         />
+        <HeroCurrent />
 
         <div className="shell relative grid gap-12 pb-16 pt-14 sm:pt-20 lg:grid-cols-12 lg:gap-14 lg:pb-24 lg:pt-24">
           <div className="lg:col-span-6 xl:col-span-6">

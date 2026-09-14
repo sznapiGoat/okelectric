@@ -30,6 +30,37 @@ export type Project = {
   alt: string;
 };
 
+/**
+ * Souřadnice [šířka, délka] míst z referencí, pro tečkovou mapu na homepage.
+ * Dohledané přes OpenStreetMap Nominatim, u víceznačných názvů nejbližší obec k sídlu.
+ * Doksy a Kozlov chybí záměrně: v Česku je víc obcí téhož jména a z podkladů nejde
+ * poznat, o kterou jde. Místo bez souřadnic se na mapě prostě nevykreslí.
+ */
+export const PLACE_COORDS: Record<string, [number, number]> = {
+  "Blatná": [49.424, 13.8841],
+  "Bílsko": [49.1723, 14.0277],
+  "Dmýštice": [49.4881, 14.3229],
+  "Horažďovice": [49.321, 13.7004],
+  "Klínovice": [49.313, 13.8823],
+  "Mutěnice": [49.2413, 13.8915],
+  "Nerestce": [49.4975, 14.0683],
+  "Oldřichov u Písku": [49.3171, 14.1076],
+  "Písek": [49.309, 14.1478],
+  "Rakovice": [49.4712, 14.0546],
+  "Smetanova Lhota": [49.4476, 14.0872],
+  "Strakonice": [49.2613, 13.9025],
+  "Střelské Hoštice": [49.2976, 13.756],
+  "Topělec": [49.3412, 14.143],
+  "Uničov": [49.7712, 17.1214],
+  "Vimperk": [49.0527, 13.7742],
+  "Vodňany": [49.1479, 14.1755],
+  "Zadní Zborovice": [49.331, 13.8444],
+  "Zvíkovské Podhradí": [49.4266, 14.2006],
+  "České Budějovice": [48.9747, 14.4743],
+  "Čimelice": [49.4656, 14.0692],
+  "Číčenice": [49.1533, 14.2306],
+};
+
 export const PROJECTS: Project[] = [
   {
     id: "p01",

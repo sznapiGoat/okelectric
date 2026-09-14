@@ -32,7 +32,7 @@ export function TrustStrip() {
             </dl>
 
             <div className="mt-10">
-              <p className="text-[0.8125rem] font-medium text-ink-faint">Pracujeme se systémy</p>
+              <p className="text-[0.8125rem] font-medium text-ink-faint">Značky, které montujeme</p>
               <PartnerLogos className="mt-4" />
             </div>
           </div>

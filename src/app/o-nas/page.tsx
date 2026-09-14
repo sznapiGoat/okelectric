@@ -133,7 +133,7 @@ export default function AboutPage() {
             </dl>
 
             <div className="mt-12">
-              <h3 className="font-display text-display-sm">Značky, se kterými pracujeme</h3>
+              <h3 className="font-display text-display-sm">Značky, které montujeme</h3>
               <PartnerLogos className="mt-6" />
             </div>
             <p className="mt-5 max-w-xl text-[0.875rem] leading-relaxed text-ink-faint">
