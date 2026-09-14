@@ -55,8 +55,15 @@ export function CountUp({
     // a smazal by ji, kdyby vedle ní stála třeba text-ink.
     <span ref={ref} className={`tabular-nums ${className ?? ""}`}>
       <span
-        className={cn("count-up", phase === "armed" && "count-up--armed", phase === "run" && "count-up--run")}
-        style={{ "--count-target": value } as CSSProperties}
+        className={cn(
+          "count-up inline-block text-right",
+          phase === "armed" && "count-up--armed",
+          phase === "run" && "count-up--run"
+        )}
+        // Místo na všechny číslice cílového čísla. Číslo tak při počítání roste
+        // doleva uvnitř rezervovaného prostoru a text vedle se neposouvá (CLS).
+        // Jednotka ch odpovídá šířce nuly, s tabular-nums mají všechny číslice stejnou.
+        style={{ "--count-target": value, minWidth: `${String(value).length}ch` } as CSSProperties}
         aria-hidden
       />
       <span aria-hidden>{suffix}</span>
