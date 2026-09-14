@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Pause, Play } from "lucide-react";
 import { CATEGORY_LABELS, PROJECTS_SORTED } from "@/content/projects";
+import { REALIZATIONS_COUNT } from "@/content/site";
+import { CountUp } from "@/components/CountUp";
 import { cn } from "@/lib/utils";
 
 /**
@@ -22,10 +24,19 @@ export function RealizationsStrip() {
   const [paused, setPaused] = useState(false);
 
   return (
-    <section className="border-b border-line bg-paper py-8 sm:py-10" aria-labelledby="pas-realizaci">
-      <div className="shell flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
-        <h2 id="pas-realizaci" className="eyebrow">
-          Z našich realizací
+    <section className="border-b border-line bg-paper py-10 sm:py-14" aria-labelledby="pas-realizaci">
+      <div className="shell flex flex-wrap items-end justify-between gap-x-6 gap-y-4">
+        <h2 id="pas-realizaci" className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+          {REALIZATIONS_COUNT !== null && (
+            <CountUp
+              value={REALIZATIONS_COUNT}
+              suffix="+"
+              className="font-display text-display-lg font-semibold leading-none text-ink"
+            />
+          )}
+          <span className="text-[1.0625rem] font-medium leading-snug text-ink-soft">
+            {REALIZATIONS_COUNT !== null ? "realizací za námi. Tady je výběr z nich." : "Z našich realizací"}
+          </span>
         </h2>
         <div className="flex items-center gap-5">
           <button

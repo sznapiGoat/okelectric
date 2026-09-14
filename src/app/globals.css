@@ -251,9 +251,10 @@
   }
 
   /* ---------------------------------------------------------------------
-     Počítadlo v argumentech hero (CountUp). Číslo se napočítá čistě v CSS
-     přes registrovanou vlastnost --count a counter(), bez JavaScriptu a bez
-     probliknutí po hydrataci. Prohlížeč bez @property ukáže rovnou cílové číslo. */
+     Počítadlo realizací (CountUp). Číslo se napočítá přes registrovanou
+     vlastnost --count a counter(). Kdy začít, řídí komponenta třídami podle
+     toho, jestli je prvek v okně. Bez JavaScriptu i bez @property se ukáže
+     rovnou cílové číslo. */
   .count-up {
     counter-reset: count var(--count-target);
   }
@@ -263,9 +264,13 @@
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    .count-up {
+    .count-up--armed {
+      counter-reset: count 0;
+    }
+
+    .count-up--run {
       counter-reset: count var(--count);
-      animation: count-up 1800ms cubic-bezier(0.16, 1, 0.3, 1) 300ms both;
+      animation: count-up 2200ms cubic-bezier(0.16, 1, 0.3, 1) both;
     }
   }
 

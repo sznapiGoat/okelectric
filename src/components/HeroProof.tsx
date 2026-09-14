@@ -1,12 +1,10 @@
-import type { ReactNode } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { REALIZATIONS_COUNT } from "@/content/site";
-import { CountUp } from "@/components/CountUp";
 import { cn } from "@/lib/utils";
 
 type Proof = {
-  claim: ReactNode;
+  claim: string;
   detail: string;
   accent: "brand" | "tech";
 };
@@ -35,13 +33,7 @@ const PROOFS: Proof[] = [
   },
   {
     claim:
-      REALIZATIONS_COUNT === null ? (
-        "Stovky realizací s fotkou"
-      ) : (
-        <>
-          <CountUp value={REALIZATIONS_COUNT} suffix="+" /> realizací
-        </>
-      ),
+      REALIZATIONS_COUNT === null ? "Stovky realizací s fotkou" : `${REALIZATIONS_COUNT}+ realizací`,
     detail: "Od bytového rozvaděče po most na D4.",
     accent: "brand",
   },
