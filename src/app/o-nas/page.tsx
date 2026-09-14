@@ -1,6 +1,5 @@
-import { QUALIFICATIONS, REGIONS_EXTENDED, TEAM } from "@/content/site";
+import { QUALIFICATIONS, TEAM } from "@/content/site";
 import { SERVICES } from "@/content/services";
-import { PROJECTS_SORTED } from "@/content/projects";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
@@ -12,7 +11,7 @@ import { TeamGrid } from "@/components/TeamGrid";
 export const metadata = pageMetadata({
   title: "O nás a kvalifikace | Elektrikáři od Písku | OKelectric",
   description:
-    "Čtyři lidi, osm oborů. Oprávnění dle §6, §7 a §8 NV č. 194/2022, kvalifikace pro fotovoltaiku 26-014-H a tepelná čerpadla 26-074-M, revize vyhrazených elektrických zařízení.",
+    "Čtyři lidi, osm oborů. Oprávnění dle §6, §7 a §8 NV č. 194/2022, obor 26-51-H, oprávnění TIČR podle zákona č. 250/2021 Sb., kvalifikace pro fotovoltaiku 26-014-H a tepelná čerpadla 26-074-M.",
   path: "/o-nas",
 });
 
@@ -59,9 +58,7 @@ export default function AboutPage() {
               <dl className="grid grid-cols-2 border-t border-line">
                 <div className="border-b border-r border-line py-5 pr-5">
                   <dt className="text-[0.8125rem] text-ink-faint">Doložených realizací</dt>
-                  <dd className="mt-1 font-display text-[2rem] font-bold tabular-nums">
-                    {PROJECTS_SORTED.length}
-                  </dd>
+                  <dd className="mt-1 font-display text-[2rem] font-bold tabular-nums">100+</dd>
                 </div>
                 <div className="border-b border-line py-5 pl-5">
                   <dt className="text-[0.8125rem] text-ink-faint">Oborů</dt>
@@ -76,7 +73,7 @@ export default function AboutPage() {
                 <div className="border-b border-line py-5 pl-5">
                   <dt className="text-[0.8125rem] text-ink-faint">Obcí a měst</dt>
                   <dd className="mt-1 font-display text-[2rem] font-bold tabular-nums">
-                    {REGIONS_EXTENDED.length}+
+                    100+
                   </dd>
                 </div>
               </dl>
@@ -110,8 +107,8 @@ export default function AboutPage() {
             </h2>
             <p className="mt-5 text-[1.0625rem] leading-relaxed text-ink-soft">
               Jsme držiteli platných oprávnění pro práci na elektrických zařízeních ve smyslu §6, §7 a
-              §8 nařízení vlády č. 194/2022, obor 26-51-H, a pro provádění revizí vyhrazených
-              elektrických zařízení.
+              §8 nařízení vlády č. 194/2022, obor 26-51-H, včetně oprávnění TIČR k revizím
+              vyhrazených elektrických zařízení podle zákona č. 250/2021 Sb.
             </p>
           </div>
 

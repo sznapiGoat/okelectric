@@ -27,17 +27,6 @@ export type Service = {
   /** Jak spolupráce probíhá. */
   process: { title: string; text: string }[];
   faq: FaqItem[];
-  /**
-   * Konkrétní výrobek, který k službě montujeme, s parametry a odkazem na web výrobce.
-   * Vykresluje se jen tam, kde je vyplněný.
-   */
-  product?: {
-    name: string;
-    maker: string;
-    url: string;
-    intro: string;
-    specs: { label: string; value: string }[];
-  };
   projectCategories: ProjectCategory[];
   /** Slug člena týmu, který službu vede. */
   owner: string;
@@ -59,7 +48,7 @@ export const SERVICES: Service[] = [
     title: "Tepelná čerpadla",
     metaTitle: "Tepelná čerpadla Písek | Montáž, kotelny a dotace | OKelectric",
     metaDescription:
-      "Výměna starých kotlů na tuhá paliva za tepelné čerpadlo, peletový nebo zplynovací kotel. Řídicí systémy kotelen, ekvitermní regulace, dotace Nová zelená úsporám. Sídlo u Písku, kotelny stavíme i daleko.",
+      "Výměna starých kotlů na tuhá paliva za tepelné čerpadlo, peletový nebo zplynovací kotel. Řídicí systémy kotelen, ekvitermní regulace, pomoc s aktuálními dotačními programy. Sídlo u Písku, kotelny stavíme i daleko.",
     lead: "Nahrazujeme staré nevyhovující kotle na tuhá paliva efektivním zdrojem a doděláme k němu i regulaci, která z něj skutečně dostane maximum.",
     tagline: "Tepelná čerpadla, peletové kotle a regulace, která z nich dostane maximum.",
     updated: "2026-09-13",
@@ -81,9 +70,9 @@ export const SERVICES: Service[] = [
         ],
       },
       {
-        heading: "Dotace Nová zelená úsporám Light",
+        heading: "Dotační programy",
         paragraphs: [
-          "Pomůžeme vám s vyřízením dotace z programu Nová zelená úsporám Light, od podkladů po doložení realizace. Jedno omezení je dobré vědět dopředu: podpořit nelze opakovanou výměnu zdroje, pokud předchozí podpořená výměna proběhla po 1. lednu 2009.",
+          "Pomůžeme vám s aktuálními dotačními programy, od výběru toho vhodného po podklady k žádosti a doložení realizace. Podmínky programů se často mění, proto je vždy ověříme pro váš konkrétní dům a zdroj tepla.",
           "Držíme profesní kvalifikaci 26-074-M pro instalatéry soustav s tepelnými čerpadly a mělkých geotermálních systémů. Nejčastěji montujeme tepelná čerpadla českého výrobce Hotjet.",
         ],
       },
@@ -132,8 +121,8 @@ export const SERVICES: Service[] = [
         a: "Zvládneme obojí. Jsme primárně elektrikáři, kteří dělají topení, takže úprava rozvaděče, jištění, přepěťová ochrana i výchozí revize jsou součástí dodávky.",
       },
       {
-        q: "Pomůžete s dotací Nová zelená úsporám Light?",
-        a: "Ano, s vyřízením dotace pomáháme. Upozorníme také na případy, kdy na ni nárok nevznikne, typicky při opakované výměně zdroje, pokud předchozí podpořená výměna proběhla po 1. lednu 2009.",
+        q: "Pomůžete s dotací?",
+        a: "Ano. Pomůžeme vám s aktuálními dotačními programy, od výběru toho vhodného po podklady k žádosti. Podmínky se často mění, proto je vždy ověříme pro váš konkrétní případ a včas upozorníme, pokud by na dotaci nárok nevznikl.",
       },
       {
         q: "Co když vypadne elektřina uprostřed topné sezóny?",
@@ -176,23 +165,6 @@ export const SERVICES: Service[] = [
         a: "Nejspíš ano. Sídlo máme u Písku, ale kotelna je práce na několik dní, takže vzdálenost u ní nerozhoduje. Řekněte, kde jste, a domluvíme se.",
       },
     ],
-    product: {
-      name: "Hotjet ZETXe",
-      maker: "Hotjet",
-      url: "https://www.hotjet.cz/tepelne-cerpadlo-zetxe/",
-      intro:
-        "Invertorové tepelné čerpadlo vzduch-voda českého výrobce, venkovní monoblok. S domem ho spojí dvě trubky a kabel, výkon reguluje plynule podle potřeby a v základu řídí až tři topné nebo chladicí okruhy, ohřev vody i spolupráci s fotovoltaikou.",
-      specs: [
-        { label: "Typ", value: "Vzduch-voda" },
-        { label: "Instalace", value: "Venkovní monoblok" },
-        { label: "Tepelná ztráta domu", value: "Do 20 kW" },
-        { label: "Výkonové varianty", value: "7, 10 a 15 kW" },
-        { label: "Regulace", value: "Plná, kompresor, ventilátor i oběhové čerpadlo" },
-        { label: "Řízení", value: "Siemens, 3 okruhy topení a chlazení" },
-        { label: "Kaskáda", value: "Ano" },
-        { label: "Odmrazování", value: "Reverzním chodem" },
-      ],
-    },
     projectCategories: ["kotelny", "rekuperace"],
     owner: "ondrej-krejci",
     accent: "green",
@@ -223,7 +195,7 @@ export const SERVICES: Service[] = [
         heading: "Novostavby, rekonstrukce i průmysl",
         paragraphs: [
           "Děláme kompletní elektroinstalace rodinných domů a bytů včetně návrhu rozmístění a dokumentace. Stejně tak řešíme dílčí zásahy: rekonstrukci bytového rozvaděče, úpravu elektroměrového rozvaděče pro nový odběr, přípravu na nabíjecí stanici nebo dotažení okruhů, které v domě chybí.",
-          "Kromě rezidenčních zakázek pracujeme i na větších celcích. Realizovali jsme rozvodnu distribučního centra Billa v Uničově, výměnu rozvaděčů v průmyslovém areálu ve Strakonicích, úpravu výrobní haly v Českých Budějovicích a instalaci osvětlení uvnitř mostní konstrukce dálnice D4.",
+          "Kromě rezidenčních zakázek pracujeme i na větších celcích. Rozvaděče realizujeme po celé ČR, od rozvodny distribučního centra přes výměnu rozvaděčů v průmyslovém areálu ve Strakonicích a úpravu výrobní haly v Českých Budějovicích po osvětlení uvnitř mostní konstrukce dálnice D4.",
         ],
       },
       {
@@ -276,7 +248,7 @@ export const SERVICES: Service[] = [
       },
       {
         q: "Kdo ke mně přijede?",
-        a: "Podle lokality. Písek a okolí bere pan Krejčí, Čimelicko pan Lesák, Blatnou pan Voneš. Kontakty na všechny najdete na stránce O nás.",
+        a: "Někdo z našeho týmu, nikdo cizí. Zakázky nepřeprodáváme ani nepředáváme subdodavatelům, všechno od prohlídky po revizi řešíme sami. Kontakty na všechny najdete na stránce Kontakt.",
       },
       {
         q: "Děláte i zakázky pro firmy a průmysl?",
@@ -284,7 +256,7 @@ export const SERVICES: Service[] = [
       },
       {
         q: "Jak daleko jezdíte?",
-        a: "Sídlo máme u Písku. Na drobné opravy a servis jezdíme po okolí, za kompletní elektroinstalací nebo rozvaděči i daleko, například až do Uničova na Olomoucku.",
+        a: "Sídlo máme u Písku. Na drobné opravy a servis jezdíme po okolí, velké zakázky realizujeme po celé ČR.",
       },
     ],
     projectCategories: ["elektroinstalace", "hromosvody"],
@@ -412,7 +384,7 @@ export const SERVICES: Service[] = [
         paragraphs: [
           "Plnohodnotná fotovoltaika je celý systém: panely, střídač, baterie a řízení spotřeby. Dává smysl tam, kde dům spotřebovává elektřinu celoročně, typicky u tepelného čerpadla nebo elektromobilu.",
           "Fotovoltaický ohřev vody je levnější vstupní varianta. Panely pracují jen na ohřev bojleru a odpadá složitá elektronika. Pro dům, který jinak topí dřevem nebo plynem, to bývá rozumnější první krok než plná elektrárna.",
-          "Starší elektrárnu umíme prověřit. Analýza termokamerou odhalí přehřáté články, špatné spoje a ztracený výkon dřív, než se z nich stane porucha. Snímek z takové analýzy v Číčenicích máme mezi referencemi, teplotní špička na poli tam vyšla na 65,3 stupně Celsia.",
+          "Starší elektrárnu umíme prověřit. Analýza termokamerou odhalí přehřáté články, špatné spoje a ztracený výkon dřív, než se z nich stane porucha.",
         ],
       },
       {
@@ -469,7 +441,7 @@ export const SERVICES: Service[] = [
       },
       {
         q: "Musí se kvůli fotovoltaice měnit hromosvod?",
-        a: "Často ano, alespoň v části. Panely na střeše mění koncepci ochrany před bleskem a je potřeba dodržet odstupové vzdálenosti a doplnit přepěťovou ochranu. Protože děláme i hromosvody, řešíme obojí najednou.",
+        a: "Původní hromosvod je důležité ověřit. Panely na střeše mění koncepci ochrany před bleskem a je potřeba dodržet odstupové vzdálenosti a doplnit přepěťovou ochranu. Protože děláme i hromosvody, řešíme obojí najednou.",
       },
       {
         q: "Pomůžete s dotací?",
@@ -505,7 +477,7 @@ export const SERVICES: Service[] = [
       {
         heading: "Centrální jednotky pro novostavby",
         paragraphs: [
-          "Centrální rekuperace ComfoAir se plánuje během výstavby, protože potřebuje prostor pro vzduchotechnické rozvody. Za to nabízí nejvyšší energetickou účinnost a jednu jednotku pro celý dům. Rozvody vedeme v podhledech nebo v krovu, jak jsme dělali v novostavbě v Oldřichově u Písku.",
+          "Centrální rekuperace ComfoAir se plánuje během výstavby, protože potřebuje prostor pro vzduchotechnické rozvody. Za to nabízí nejvyšší energetickou účinnost a jednu jednotku pro celý dům. Rozvody vedeme vždy v tepelné obálce budovy.",
           "Pokud stavíte, je rekuperace jedna z věcí, které se musí rozhodnout brzy. Dodatečné vedení potrubí hotovým domem je vždycky kompromis.",
         ],
       },
@@ -563,6 +535,10 @@ export const SERVICES: Service[] = [
       {
         q: "Vyřeší rekuperace vlhkost a plíseň?",
         a: "Ve většině případů ano, protože trvale odvádí vlhkost vzniklou vařením, sprchováním a dýcháním. Pokud je ale příčinou vzlínající vlhkost ze zdiva, musí se řešit stavebně, rekuperace ji sama nespraví.",
+      },
+      {
+        q: "Montujete i jednotky jiných výrobců než Zehnder?",
+        a: "Ano. Se Zehnderem máme nejvíc zkušeností, ale pokud máte vybranou jinou značku nebo projekt s konkrétní jednotkou, rádi ho probereme. Posoudíme, jestli jednotka sedí na váš dům, a namontujeme ji se stejnou péčí.",
       },
       {
         q: "Kolik stojí návrh?",
@@ -681,7 +657,7 @@ export const SERVICES: Service[] = [
       },
     ],
     projectCategories: ["revize", "hromosvody"],
-    owner: "martin-vones",
+    owner: "ondrej-krejci",
     accent: "blue",
   },
 
@@ -795,7 +771,7 @@ export const SERVICES: Service[] = [
       {
         heading: "Chlad tam, kde ho potřebujete",
         paragraphs: [
-          "Montujeme klimatizace do bytů, rodinných domů, kanceláří i menších provozoven. Nejčastěji jde o dělené systémy split, kde venkovní jednotka stojí na fasádě nebo na zemi a uvnitř je tichá nástěnná jednotka. Pro více místností navrhujeme multisplit, tedy jednu venkovní jednotku pro několik vnitřních, jak jsme dělali například v Blatné.",
+          "Montujeme klimatizace do bytů, rodinných domů, kanceláří i menších provozoven. Nejčastěji jde o dělené systémy split: venkovní jednotku osadíme na konzoli na fasádu, na plochou střechu nebo na zem u domu a v místnosti pak pracuje tichá vnitřní jednotka. Pro více místností navrhujeme multisplit, tedy jednu venkovní jednotku pro několik vnitřních.",
           "Pracujeme mimo jiné s jednotkami Daikin. Značku a výkon ale volíme podle místnosti, orientace oken a toho, jak se prostor používá, ne podle toho, co je zrovna v akci.",
         ],
       },
@@ -841,8 +817,8 @@ export const SERVICES: Service[] = [
         text: "Jednotky, potrubí, odvod kondenzátu i elektrická přípojka. Běžnou montáž zvládneme za den.",
       },
       {
-        title: "Zprovoznění a servis",
-        text: "Uvedeme do provozu, ukážeme ovládání a domluvíme pravidelné čištění.",
+        title: "Zprovoznění a předání",
+        text: "Uvedeme klimatizaci do provozu a ukážeme vám, jak ji ovládat.",
       },
     ],
     faq: [

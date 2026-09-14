@@ -10,7 +10,7 @@ import { ReferenceGallery } from "@/components/ReferenceGallery";
 export const metadata = pageMetadata({
   title: "Reference | Fotovoltaika, tepelná čerpadla, elektro | OKelectric",
   description:
-    "Fotogalerie dokončených zakázek: fotovoltaika, elektroinstalace, hromosvody, tepelná čerpadla, rekuperace a klimatizace. Od Písku, Blatné a Strakonic po Uničov a dálnici D4.",
+    "Fotogalerie dokončených zakázek: fotovoltaika, elektroinstalace, hromosvody, tepelná čerpadla, rekuperace a klimatizace. Od Písku, Blatné a Strakonic po velké zakázky po celé ČR.",
   path: "/reference",
 });
 
