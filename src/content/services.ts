@@ -284,7 +284,7 @@ export const SERVICES: Service[] = [
       },
       {
         q: "Jak daleko jezdíte?",
-        a: "Sídlo máme u Písku. Na drobné opravy a servis jezdíme po okolí, za kompletní elektroinstalací nebo rozvaděči i daleko, například do Uničova nebo na dálnici D4.",
+        a: "Sídlo máme u Písku. Na drobné opravy a servis jezdíme po okolí, za kompletní elektroinstalací nebo rozvaděči i daleko, například až do Uničova na Olomoucku.",
       },
     ],
     projectCategories: ["elektroinstalace", "hromosvody"],

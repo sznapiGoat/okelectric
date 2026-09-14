@@ -105,11 +105,28 @@ odpovídají tokenům webu (`#60B23A`, `#005AA5`, `#0073C6`, `#E31E24`).
 - `logo.png` (512x512) čtvercový lockup na bílém poli pro JSON-LD. Google chce u loga
   čtvercový nebo blízký formát.
 
-**Favicon** se generuje z `public/brand/mark.svg` a `mark-solid.svg`, zjednodušeného domu
-se solárním polem (`BrandMark`, podklady ve Figmě:
-https://www.figma.com/design/PHzaINhJNNbsgA9MMdy05o). Je to **návrh, ne schválená
-značka**: celé logo se sirénou, klimatizací, listem a zástrčkou se v 16 px slije ve skvrnu.
-Stejná zjednodušená značka je v rohu OG obrázků.
+**Favicon a ikony** jsou dům z loga klienta, bez nápisu, listu, zástrčky a uzemnění:
+
+- `public/brand/znak.svg` celý dům se solárními panely, sirénou a klimatizací. Z něj jsou
+  `src/app/icon.png` (512 px) a `apple-icon.png` (180 px) a znak v rohu OG obrázků, vždy
+  na bílém poli, protože vnitřek domu je průhledný.
+- `public/brand/znak-maly.svg` jen obrys domu a panely, se zesíleným tahem. Z něj je 16px
+  varianta ve `favicon.ico`, kde by siréna a klimatizace splynuly. 32 a 48 px jsou
+  z obrysu a panelů v původní tloušťce.
+
+## Mapa zakázek
+
+Sekce "Odkud k vám jedeme" na homepage je tečková mapa Česka (`CoverageSection`). Tečky
+se zelenají podle blízkosti zakázek z `projects.ts`, sídlo je z `NAP.geo` a místa dál než
+zhruba 90 km od sídla se pojmenují. Všechno se počítá při buildu, do prohlížeče jde hotové
+SVG bez JavaScriptu.
+
+- Obrys je z Natural Earth 1:50m (`src/content/czechOutline.ts`).
+- Souřadnice míst jsou v `PLACE_COORDS` v `projects.ts`. U nové reference v novém místě
+  je potřeba doplnit souřadnice, jinak se na mapě nevykreslí. Doksy a Kozlov chybí,
+  protože z podkladů nejde poznat, o kterou obec toho jména jde.
+- Tečky každého odstínu jsou jedna cesta z čar nulové délky se zakulaceným koncem.
+  Samostatné circle by homepage zvětšily zhruba o 80 kB.
 
 ## Značky partnerů
 
