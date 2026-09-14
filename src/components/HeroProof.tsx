@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -42,8 +43,9 @@ export function HeroProof() {
       {PROOFS.map((p, i) => (
         <div
           key={p.claim}
+          style={{ "--proof-delay": `${250 + i * 160}ms` } as CSSProperties}
           className={cn(
-            "border-b border-line py-5 sm:border-b-0",
+            "hero-proof border-b border-line py-5 sm:border-b-0",
             i < 2 && "sm:border-r",
             i === 0 && "sm:pr-5",
             i === 1 && "sm:px-5",
@@ -51,7 +53,7 @@ export function HeroProof() {
           )}
         >
           <span
-            className={cn("block h-1.5 w-6", p.accent === "brand" ? "bg-brand" : "bg-tech")}
+            className={cn("hero-proof__bar block h-1.5 w-6", p.accent === "brand" ? "bg-brand" : "bg-tech")}
             aria-hidden
           />
           <dt className="mt-3 font-display text-[1.0625rem] font-semibold leading-snug text-ink">

@@ -98,7 +98,7 @@ export default function AboutPage() {
         </div>
 
         {/* Čtyři lidi padnou beze zbytku do dvou i do čtyř sloupců, doplňky mřížky nejsou potřeba. */}
-        <div className="mt-12 grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 xl:grid-cols-4">
+        <div className="reveal-group mt-12 grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 xl:grid-cols-4">
           {TEAM.map((m) => (
             <TeamMemberCard key={m.slug} member={m} />
           ))}
@@ -121,7 +121,7 @@ export default function AboutPage() {
           </div>
 
           <div className="lg:col-span-8">
-            <dl className="border-t border-line">
+            <dl className="reveal-group border-t border-line">
               {QUALIFICATIONS.map((q) => (
                 <div key={q.label} className="border-b border-line py-5">
                   <dt className="font-display text-[1.15rem] font-semibold text-ink">{q.label}</dt>
@@ -146,7 +146,7 @@ export default function AboutPage() {
       {/* Co děláme */}
       <section className="shell py-16 sm:py-20">
         <h2 className="font-display text-display-sm">Čemu se věnujeme</h2>
-        <ServiceLinkGrid services={SERVICES} columns={4} className="mt-8" />
+        <ServiceLinkGrid services={SERVICES} columns={4} className="reveal-group mt-8" />
       </section>
 
       <CTASection />

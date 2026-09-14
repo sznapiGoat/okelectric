@@ -46,7 +46,7 @@ export function ServiceLinkGrid({
             <ServiceIcon
               slug={s.slug}
               className={cn(
-                "mt-0.5 h-7 w-7 shrink-0",
+                "icon-draw mt-0.5 h-7 w-7 shrink-0",
                 s.accent === "green" ? "text-brand" : "text-tech"
               )}
             />

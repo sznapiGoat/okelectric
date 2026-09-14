@@ -1,7 +1,7 @@
 # OKelectric
 
 Demo web pro OKelectric, elektrikáře a topenáře se sídlem u Písku. Next.js 14 (App Router), TypeScript,
-Tailwind, framer-motion. Bez CMS, obsah je natvrdo v `src/content/` a je strukturovaný tak, aby se
+Tailwind, animace čistě v CSS. Bez CMS, obsah je natvrdo v `src/content/` a je strukturovaný tak, aby se
 dal později přenést do Sanity beze změny komponent.
 
 ## Spuštění
@@ -187,6 +187,24 @@ snímek z Číčenic 320x240, což je nativní rozlišení čipu termokamery, ne
 Popisky (`alt`) v `projects.ts` popisují, co je na snímku skutečně vidět, ne co říká název souboru.
 Několik názvů je zavádějících, například `PCO.jpg` je ve skutečnosti výrobní hala v Českých
 Budějovicích.
+
+## Animace
+
+Všechny animace jsou v `globals.css`, bez animační knihovny a bez JavaScriptu. Při
+`prefers-reduced-motion` se vypnou. Nadpis ani fotka v hero se neanimují, jsou to LCP prvky.
+
+- **Proud v mřížce** (`HeroCurrent`) světelné impulzy po čarách mřížky v pozadí hero.
+- **Argumenty v hero** (`HeroProof`) se po načtení postupně vysunou, barevný proužek se nabije
+  a projde jím odlesk. Zpoždění řídí proměnná `--proof-delay`.
+- **Náběh při scrollu** třídy `.reveal` (jeden blok) a `.reveal-group` (každé dítě mřížky,
+  sloupce se lehce zpozdí). Scroll-driven animace (`animation-timeline: view()`), prohlížeč
+  bez podpory zobrazí obsah rovnou. Komponenta `Reveal` je jen obal s touto třídou.
+- **Kreslení ikony** (`.icon-draw`) při najetí na kartu oboru. Tvary v `ServiceIcon` mají
+  `pathLength={1}`, u nové ikony ho nezapomeňte doplnit.
+- **Pulz sídla** v tečkové mapě (`.coverage-pulse`).
+
+Tailwind z `@layer components` vyhodí třídy, které v kódu nenajde jako celý řetězec, proto
+se názvy animačních tříd nesmí skládat přes šablonu (viz `CLASSES` v `HeroCurrent`).
 
 ## Blog
 
