@@ -48,6 +48,13 @@ export const REACH_LINE = "Sídlo máme u Písku a za prací jezdíme tam, kde j
  * Tři úrovně dojezdu podle druhu práce, ne podle zeměpisu. Vykreslují se
  * u schématu okruhů na homepage.
  */
+/**
+ * Celkový počet realizací firmy (350, potvrzeno 14. 9. 2026). Na webu je nafocený
+ * jen zlomek, proto se číslo nepočítá z referencí. V hero se napočítá
+ * "{číslo}+ realizací". Při null by tam stál text "Stovky realizací s fotkou".
+ */
+export const REALIZATIONS_COUNT: number | null = 350;
+
 export const COVERAGE = {
   core: {
     label: "Servis a drobné opravy",

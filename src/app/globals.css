@@ -130,119 +130,6 @@
     }
   }
 
-  /* Proud v mřížce hero (HeroCurrent). Impulz je 2px čára v barvě firmy, která
-     od ocasu sílí k zářící jiskře na čele. Jede přes celou šířku nebo výšku
-     sekce po čáře mřížky a na koncích se ztrácí. */
-  .hero-current__pulse {
-    position: absolute;
-    opacity: 0;
-    animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
-    animation-iteration-count: infinite;
-    will-change: transform, opacity;
-  }
-
-  /* Jiskra na čele impulzu. */
-  .hero-current__pulse::after {
-    content: "";
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    border-radius: 9999px;
-    background: #fff;
-  }
-
-  .hero-current__pulse--x {
-    left: 0;
-    height: 2px;
-    width: 220px;
-    margin-top: -0.5px;
-    animation-name: hero-current-x;
-  }
-
-  .hero-current__pulse--y {
-    top: 0;
-    width: 2px;
-    height: 220px;
-    margin-left: -0.5px;
-    animation-name: hero-current-y;
-  }
-
-  .hero-current__pulse--x::after {
-    right: -3px;
-    top: -2px;
-  }
-
-  .hero-current__pulse--y::after {
-    bottom: -3px;
-    left: -2px;
-  }
-
-  .hero-current__pulse--x.hero-current__pulse--brand {
-    background: linear-gradient(90deg, rgba(96, 178, 58, 0), #60b23a);
-  }
-
-  .hero-current__pulse--x.hero-current__pulse--tech {
-    background: linear-gradient(90deg, rgba(0, 90, 165, 0), #005aa5);
-  }
-
-  .hero-current__pulse--y.hero-current__pulse--brand {
-    background: linear-gradient(180deg, rgba(96, 178, 58, 0), #60b23a);
-  }
-
-  .hero-current__pulse--y.hero-current__pulse--tech {
-    background: linear-gradient(180deg, rgba(0, 90, 165, 0), #005aa5);
-  }
-
-  .hero-current__pulse--brand::after {
-    box-shadow: 0 0 0 2px #60b23a, 0 0 14px 5px rgba(96, 178, 58, 0.75);
-  }
-
-  .hero-current__pulse--tech::after {
-    box-shadow: 0 0 0 2px #005aa5, 0 0 14px 5px rgba(0, 90, 165, 0.6);
-  }
-
-  /* Impulz projede během první poloviny cyklu, druhou půlku je čára v klidu. */
-  @keyframes hero-current-x {
-    0% {
-      transform: translateX(-240px);
-      opacity: 0;
-    }
-    5% {
-      opacity: 1;
-    }
-    45% {
-      opacity: 1;
-    }
-    52%,
-    100% {
-      transform: translateX(min(1600px, 100vw));
-      opacity: 0;
-    }
-  }
-
-  @keyframes hero-current-y {
-    0% {
-      transform: translateY(-240px);
-      opacity: 0;
-    }
-    5% {
-      opacity: 1;
-    }
-    45% {
-      opacity: 1;
-    }
-    52%,
-    100% {
-      transform: translateY(1000px);
-      opacity: 0;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hero-current {
-      display: none;
-    }
-  }
 
   /* ---------------------------------------------------------------------
      Náběh obsahu při scrollu. Scroll-driven animace v CSS, bez JavaScriptu:
@@ -332,66 +219,68 @@
   }
 
   /* ---------------------------------------------------------------------
-     Argumenty pod tlačítky v hero. Po načtení se postupně vysunou a jejich
-     barevný proužek se "nabije" zleva doprava, na konci jím projde odlesk.
-     Nadpis hero se neanimuje, je to LCP prvek. */
-  .hero-proof__bar {
-    position: relative;
-    overflow: hidden;
-    transform-origin: left;
-  }
-
-  .hero-proof__bar::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.85), transparent);
-    transform: translateX(-100%);
+     Běžící pás realizací pod hero (RealizationsStrip). Stopa je dvakrát
+     za sebou a jede o polovinu šířky, smyčka tak nemá šev. */
+  .realizations-viewport {
+    mask-image: linear-gradient(90deg, transparent, black 3%, black 97%, transparent);
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    .hero-proof {
-      animation: hero-proof-in 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
-      animation-delay: var(--proof-delay, 0ms);
+    .realizations-viewport {
+      overflow: hidden;
     }
 
-    .hero-proof__bar {
-      animation: bar-charge 900ms cubic-bezier(0.65, 0, 0.35, 1) both;
-      animation-delay: calc(var(--proof-delay, 0ms) + 250ms);
+    .realizations-track {
+      animation: realizations-marquee 140s linear infinite;
     }
 
-    .hero-proof__bar::after {
-      animation: bar-glint 700ms ease-out both;
-      animation-delay: calc(var(--proof-delay, 0ms) + 1150ms);
+    .realizations-track:hover,
+    .realizations-track:focus-within,
+    .realizations-track--paused {
+      animation-play-state: paused;
     }
   }
 
-  @keyframes hero-proof-in {
+  @keyframes realizations-marquee {
     from {
-      opacity: 0;
-      transform: translateY(14px);
+      transform: translateX(0);
     }
     to {
-      opacity: 1;
-      transform: none;
+      transform: translateX(-50%);
     }
   }
 
-  @keyframes bar-charge {
-    from {
-      transform: scaleX(0);
-    }
-    to {
-      transform: scaleX(1);
+  /* ---------------------------------------------------------------------
+     Počítadlo v argumentech hero (CountUp). Číslo se napočítá čistě v CSS
+     přes registrovanou vlastnost --count a counter(), bez JavaScriptu a bez
+     probliknutí po hydrataci. Prohlížeč bez @property ukáže rovnou cílové číslo. */
+  .count-up {
+    counter-reset: count var(--count-target);
+  }
+
+  .count-up::after {
+    content: counter(count);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .count-up {
+      counter-reset: count var(--count);
+      animation: count-up 1800ms cubic-bezier(0.16, 1, 0.3, 1) 300ms both;
     }
   }
 
-  @keyframes bar-glint {
+  @keyframes count-up {
     from {
-      transform: translateX(-100%);
+      --count: 0;
     }
     to {
-      transform: translateX(100%);
+      --count: var(--count-target);
     }
   }
+}
+
+@property --count {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
 }

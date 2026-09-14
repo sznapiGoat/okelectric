@@ -1,10 +1,12 @@
-import type { CSSProperties } from "react";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { REALIZATIONS_COUNT } from "@/content/site";
+import { CountUp } from "@/components/CountUp";
 import { cn } from "@/lib/utils";
 
 type Proof = {
-  claim: string;
+  claim: ReactNode;
   detail: string;
   accent: "brand" | "tech";
 };
@@ -14,7 +16,8 @@ type Proof = {
  * „5 lidí v týmu" nejsou argumenty, u malé firmy spíš vybízejí ke srovnávání.
  * Místo toho odpovídáme na to, co zákazník opravdu řeší: nemusí shánět dvě
  * party, nečeká na revizního technika a může si práci prohlédnout.
- * „Stovky realizací" je číslo firmy, na webu je z nich nafocený jen výběr.
+ * Počet realizací je číslo firmy (REALIZATIONS_COUNT), na webu je nafocený jen
+ * výběr. Dokud číslo není potvrzené, stojí tu "Stovky realizací s fotkou".
  *
  * Záměrně jako dl, ne jako nadpisy. Jsou to dvojice tvrzení a vysvětlení,
  * do osnovy nadpisů stránky nepatří.
@@ -31,7 +34,14 @@ const PROOFS: Proof[] = [
     accent: "tech",
   },
   {
-    claim: "Stovky realizací s fotkou",
+    claim:
+      REALIZATIONS_COUNT === null ? (
+        "Stovky realizací s fotkou"
+      ) : (
+        <>
+          <CountUp value={REALIZATIONS_COUNT} suffix="+" /> realizací
+        </>
+      ),
     detail: "Od bytového rozvaděče po most na D4.",
     accent: "brand",
   },
@@ -42,10 +52,9 @@ export function HeroProof() {
     <dl className="mt-12 grid grid-cols-1 border-t border-line sm:grid-cols-3">
       {PROOFS.map((p, i) => (
         <div
-          key={p.claim}
-          style={{ "--proof-delay": `${250 + i * 160}ms` } as CSSProperties}
+          key={i}
           className={cn(
-            "hero-proof border-b border-line py-5 sm:border-b-0",
+            "border-b border-line py-5 sm:border-b-0",
             i < 2 && "sm:border-r",
             i === 0 && "sm:pr-5",
             i === 1 && "sm:px-5",
@@ -53,7 +62,7 @@ export function HeroProof() {
           )}
         >
           <span
-            className={cn("hero-proof__bar block h-1.5 w-6", p.accent === "brand" ? "bg-brand" : "bg-tech")}
+            className={cn("block h-1.5 w-6", p.accent === "brand" ? "bg-brand" : "bg-tech")}
             aria-hidden
           />
           <dt className="mt-3 font-display text-[1.0625rem] font-semibold leading-snug text-ink">
