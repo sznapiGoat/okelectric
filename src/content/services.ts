@@ -176,7 +176,7 @@ export const SERVICES: Service[] = [
     metaTitle: "Elektrikář Písek | Elektroinstalace a hromosvody | OKelectric",
     metaDescription:
       "Kompletní elektroinstalace novostaveb i rekonstrukce, montáž hromosvodů, úpravy elektroměrových rozvaděčů, osvětlení a pohony vrat. Sídlo u Písku.",
-    lead: "Elektroinstalace je nervovou soustavou domu. Rozhoduje o tom, jak pohodlně se v něm bude bydlet dalších třicet let, a předělává se hůř než cokoliv jiného.",
+    lead: "Elektroinstalace rozhoduje o tom, jak pohodlně se v domě bude bydlet dalších třicet let, a předělává se hůř než cokoliv jiného.",
     tagline: "Novostavby, rekonstrukce, hromosvody i příprava na wallbox.",
     updated: "2026-09-13",
     ctaLabel: "Potřebuji elektrikáře",
@@ -269,7 +269,7 @@ export const SERVICES: Service[] = [
     metaTitle: "Kamerové systémy a alarmy Písek | Jablotron | OKelectric",
     metaDescription:
       "Certifikovaný montážní partner Jablotron. Alarmy, kamery, přístupové systémy a chytrá domácnost pro byty, domy i firmy. Montáž zpravidla za jeden den. Sídlo u Písku.",
-    lead: "Ochráníme, co je pro vás cenné, na nejvyšší dostupné technické úrovni. Jsme certifikovaným montážním partnerem firmy Jablotron.",
+    lead: "Alarmy Jablotron, kamery a chytrá domácnost navržené podle objektu. Jsme certifikovaný montážní partner Jablotronu a běžný dům zabezpečíme zpravidla za jeden den.",
     tagline: "Kamery a alarmy Jablotron na míru objektu, montáž zpravidla za jeden den.",
     updated: "2026-09-13",
     ctaLabel: "Chci zabezpečení",
@@ -350,7 +350,9 @@ export const SERVICES: Service[] = [
         a: "Ano, a bez výměny ústředny. Postupně se dá doplnit ovládání spotřebičů, vrat, monitoring teploty i hlášení havárií, například zaplavení.",
       },
     ],
-    projectCategories: ["elektroinstalace"],
+    // Fotky alarmů a kamer zatím nemáme. Rozvaděče z elektroinstalací by
+    // pod "Takhle to u nás vypadá hotové" mátly, sekce se proto neukáže.
+    projectCategories: [],
     owner: "ondrej-lesak",
   },
 
@@ -362,7 +364,7 @@ export const SERVICES: Service[] = [
     metaTitle: "Fotovoltaika Písek | Návrh a montáž FVE, ohřev vody | OKelectric",
     metaDescription:
       "Návrh a instalace fotovoltaických elektráren pro domácnosti i firmy, fotovoltaický ohřev vody a analýza starších elektráren termokamerou. Sídlo u Písku, elektrárny stavíme i daleko.",
-    lead: "Proměňte sluneční paprsky v energii, která pohání váš dům nebo firmu. S energií slunce to umíme na jedničku.",
+    lead: "Elektrárny pro rodinné domy i firmy. Velikost spočítáme z vaší spotřeby, namontujeme, zapojíme a vyřídíme revizi i papíry pro distributora.",
     tagline: "Elektrárny, ohřev vody i prověření starší instalace termokamerou.",
     updated: "2026-09-13",
     ctaLabel: "Chci fotovoltaiku",
@@ -456,7 +458,7 @@ export const SERVICES: Service[] = [
     metaTitle: "Rekuperace Písek | Zehnder ComfoAir a ComfoSpot | OKelectric",
     metaDescription:
       "Centrální i decentrální rekuperační jednotky Zehnder ComfoAir a ComfoSpot pro novostavby i starší domy. Bezplatný návrh, montáž, servis. Sídlo u Písku, rekuperace instalujeme i daleko.",
-    lead: "Zbavíme vás vlhkosti a budete dýchat čistší vzduch díky rekuperačním systémům od švýcarského výrobce Zehnder.",
+    lead: "Čerstvý vzduch bez vlhka a bez větrání okny. Montujeme jednotky Zehnder: centrální do novostaveb, decentrální do starších domů.",
     tagline: "Zehnder ComfoAir do novostaveb, ComfoSpot do starších domů.",
     updated: "2026-09-13",
     ctaLabel: "Potřebuji větrat",
@@ -552,7 +554,7 @@ export const SERVICES: Service[] = [
     metaTitle: "Elektrorevize Písek | Revize hromosvodů, FVE a projekty | OKelectric",
     metaDescription:
       "Výchozí i periodické revize elektroinstalací, hromosvodů a fotovoltaik, revize přípojek pro ČEZ a EG.D. Projekty hromosvodů a elektroinstalací, zaměření skutečného stavu, 2D i 3D. Sídlo u Písku.",
-    lead: "Ujistěte se o bezpečnosti a spolehlivosti vaší elektroinstalace. Revizní technik je součástí našeho týmu.",
+    lead: "Výchozí i periodické revize elektroinstalací, hromosvodů a fotovoltaik, k tomu projekty a výkresy. Revizního technika máme ve vlastním týmu.",
     tagline: "Revize elektroinstalací, hromosvodů a fotovoltaik, projekty a výkresy.",
     updated: "2026-09-13",
     ctaLabel: "Chci revizi nebo projekt",
@@ -662,7 +664,7 @@ export const SERVICES: Service[] = [
     metaTitle: "Instalatér a topenář Písek | Rozvody vody a topení | OKelectric",
     metaDescription:
       "Rozvody vody a topení, podlahové vytápění, výměny radiátorů, oběhová čerpadla a izolace. Domácnosti, rodinné domy i menší firmy. Sídlo u Písku.",
-    lead: "Kompletní služby v oblasti vodoinstalací a topenářských prací na jednom místě. Postaráme se o domácnosti, rodinné domy i menší firmy.",
+    lead: "Rozvody vody a topení, podlahové vytápění a radiátory pro domácnosti i menší firmy. Instalatér a elektrikář jsou u nás jedna parta.",
     tagline: "Rozvody vody a topení, podlahové vytápění i havárie.",
     updated: "2026-09-13",
     ctaLabel: "Potřebuji instalatéra",

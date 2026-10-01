@@ -141,7 +141,7 @@ export function Header() {
         <div className="ml-auto flex items-center gap-2 lg:ml-4">
           <a
             href={`tel:${NAP.phone}`}
-            className="inline-flex h-11 items-center gap-2 bg-brand px-4 font-semibold text-ink transition-colors hover:bg-brand-deep hover:text-paper"
+            className="inline-flex h-11 items-center gap-2 bg-brand px-4 font-semibold text-ink transition-[color,background-color,transform] hover:bg-brand-deep hover:text-paper active:translate-y-px"
           >
             <PhoneIcon className="h-4 w-4" aria-hidden />
             <span className="hidden text-[0.9375rem] sm:inline">{NAP.phoneDisplay}</span>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Maximize2 } from "lucide-react";
 import { CATEGORY_LABELS, type Project } from "@/content/projects";
+import { cn } from "@/lib/utils";
 
 type Props = {
   project: Project;
@@ -11,6 +12,11 @@ type Props = {
   headingLevel?: 2 | 3;
   /** Když je předáno, překryje dlaždici tlačítko otevírající náhled. */
   onOpen?: () => void;
+  /**
+   * Velká dlaždice: na desktopu přes dva sloupce a dva řádky, fotka vyplní
+   * výšku, kterou určí sousední dlaždice. Na tabletu jen přes dva sloupce.
+   */
+  featured?: boolean;
 };
 
 export function ProjectGalleryItem({
@@ -19,12 +25,23 @@ export function ProjectGalleryItem({
   sizes = "(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 92vw",
   headingLevel = 3,
   onOpen,
+  featured = false,
 }: Props) {
   const Heading = (headingLevel === 2 ? "h2" : "h3") as "h2" | "h3";
 
   return (
-    <figure className="group relative border-b border-r border-line">
-      <div className="relative aspect-[5/4] overflow-hidden bg-mist">
+    <figure
+      className={cn(
+        "group relative border-b border-r border-line",
+        featured && "flex flex-col sm:col-span-2 lg:row-span-2"
+      )}
+    >
+      <div
+        className={cn(
+          "relative overflow-hidden bg-mist",
+          featured ? "aspect-[5/4] sm:aspect-[2/1] lg:aspect-auto lg:min-h-0 lg:flex-1" : "aspect-[5/4]"
+        )}
+      >
         <Image
           src={project.image}
           alt={project.alt}
@@ -49,7 +66,12 @@ export function ProjectGalleryItem({
         <p className="text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-brand-deep">
           {CATEGORY_LABELS[project.category]}
         </p>
-        <Heading className="mt-2 font-display text-[1.0625rem] font-semibold leading-snug text-ink">
+        <Heading
+          className={cn(
+            "mt-2 font-display font-semibold leading-snug text-ink",
+            featured ? "text-[1.0625rem] lg:text-[1.35rem]" : "text-[1.0625rem]"
+          )}
+        >
           {project.title}
         </Heading>
         <p className="mt-1.5 text-[0.875rem] text-ink-faint">

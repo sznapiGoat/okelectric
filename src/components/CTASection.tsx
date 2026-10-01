@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { NAP, REACH_LINE, TEAM } from "@/content/site";
 import { ButtonAnchor } from "@/components/ui/Button";
 import { MailIcon, PhoneIcon } from "@/components/BrandIcons";
@@ -17,8 +18,22 @@ export function CTASection({ heading, text, ctaLabel, owner }: Props) {
   const email = person?.email ?? NAP.email;
 
   return (
-    <section className="bg-ink text-paper">
-      <div className="shell grid gap-10 py-16 sm:py-20 lg:grid-cols-12 lg:items-end">
+    <section className="relative isolate overflow-hidden bg-ink text-paper">
+      {/* Fotka z práce v pozadí, silně ztmavená: blok tak není prázdná tmavá
+          plocha a navazuje na fotky v hlavičkách. */}
+      <div className="absolute inset-0 -z-10" aria-hidden>
+        <Image
+          src="/hero/full/s4.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+          style={{ objectPosition: "45% 55%" }}
+        />
+        <div className="absolute inset-0 bg-ink/80 lg:bg-gradient-to-r lg:from-ink/90 lg:via-ink/70 lg:to-ink/35" />
+      </div>
+
+      <div className="shell grid gap-10 py-16 sm:py-24 lg:grid-cols-12 lg:items-end">
         <div className="reveal lg:col-span-7">
           <h2 className="font-display text-display-lg text-balance">
             {heading ?? "Řekněte nám, co potřebujete."}
@@ -42,7 +57,7 @@ export function CTASection({ heading, text, ctaLabel, owner }: Props) {
           </ButtonAnchor>
           <a
             href={`mailto:${email}`}
-            className="inline-flex items-center justify-center gap-2 border border-paper/25 px-6 py-3.5 text-[0.9375rem] font-medium text-paper/85 transition-colors hover:border-paper hover:text-paper"
+            className="inline-flex items-center justify-center gap-2 border border-paper/25 px-6 py-3.5 text-[0.9375rem] font-medium text-paper/85 transition-[color,border-color,transform] hover:border-paper hover:text-paper active:translate-y-px"
           >
             <MailIcon className="h-4 w-4" aria-hidden />
             {email}
