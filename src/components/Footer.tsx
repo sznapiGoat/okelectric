@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
 import { BrandLogo } from "@/components/BrandLogo";
 import { SERVICES } from "@/content/services";
 import { NAP, TEAM } from "@/content/site";
+import { MailIcon, PhoneIcon, PinIcon } from "@/components/BrandIcons";
 
 export function Footer() {
   return (
@@ -22,18 +22,18 @@ export function Footer() {
               href={`tel:${NAP.phone}`}
               className="flex items-center gap-2.5 font-semibold text-ink hover:text-brand-deep"
             >
-              <Phone className="h-4 w-4 text-brand" aria-hidden />
+              <PhoneIcon className="h-4 w-4 text-brand" aria-hidden />
               {NAP.phoneDisplay}
             </a>
             <a
               href={`mailto:${NAP.email}`}
               className="flex items-center gap-2.5 text-ink-soft hover:text-ink"
             >
-              <Mail className="h-4 w-4 text-brand" aria-hidden />
+              <MailIcon className="h-4 w-4 text-brand" aria-hidden />
               {NAP.email}
             </a>
             <p className="flex items-start gap-2.5 text-ink-soft">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand" aria-hidden />
+              <PinIcon className="mt-0.5 h-4 w-4 shrink-0 text-brand" aria-hidden />
               <span>
                 {NAP.addressLocality}, {NAP.addressRegion}
               </span>

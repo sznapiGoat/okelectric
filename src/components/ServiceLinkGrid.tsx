@@ -37,18 +37,12 @@ export function ServiceLinkGrid({
             className="group relative flex h-full items-start gap-4 p-5 transition-colors hover:bg-mist sm:p-6"
           >
             <span
-              className={cn(
-                "absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100",
-                s.accent === "green" ? "bg-brand" : "bg-tech"
-              )}
+              className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-brand transition-transform duration-300 ease-out group-hover:scale-x-100"
               aria-hidden
             />
             <ServiceIcon
               slug={s.slug}
-              className={cn(
-                "icon-draw mt-0.5 h-7 w-7 shrink-0",
-                s.accent === "green" ? "text-brand" : "text-tech"
-              )}
+              className="icon-draw mt-0.5 h-7 w-7 shrink-0 text-brand"
             />
             <span>
               <span className="block font-display text-[1.0625rem] font-semibold leading-snug text-ink">

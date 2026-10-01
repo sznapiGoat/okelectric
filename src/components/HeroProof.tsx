@@ -29,7 +29,7 @@ const PROOFS: Proof[] = [
   {
     claim: "Revizi vystavíme sami",
     detail: "Oprávnění §6 až §8. Nečekáte na technika.",
-    accent: "tech",
+    accent: "brand",
   },
   {
     claim:
@@ -39,9 +39,9 @@ const PROOFS: Proof[] = [
   },
 ];
 
-export function HeroProof() {
+export function HeroProof({ className }: { className?: string }) {
   return (
-    <dl className="mt-12 grid grid-cols-1 border-t border-line sm:grid-cols-3">
+    <dl className={cn("mt-12 grid grid-cols-1 border-t border-line sm:grid-cols-3", className)}>
       {PROOFS.map((p, i) => (
         <div
           key={i}

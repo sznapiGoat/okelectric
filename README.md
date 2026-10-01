@@ -190,18 +190,18 @@ Budějovicích.
 
 ## Animace
 
-Všechny animace jsou v `globals.css`, bez animační knihovny a bez JavaScriptu. Při
-`prefers-reduced-motion` se vypnou. Nadpis ani fotka v hero se neanimují, jsou to LCP prvky.
-JavaScript je jen u pásu realizací: tlačítko pozastavení a spuštění počítadla v okně.
+Všechny animace jsou v `globals.css`, bez animační knihovny. Při `prefers-reduced-motion` se
+vypnou. Nadpis v hero se neanimuje, je to LCP prvek.
 
-- **Běžící pás realizací** (`RealizationsStrip`) pod hero: náhledy všech referencí s místem a
-  oborem, smyčka bez švu (stopa dvakrát, posun o polovinu). Zastaví se tlačítkem, najetím
-  myší i fokusem (WCAG 2.2.2). Při omezení pohybu neběží a dá se posouvat do strany.
-- **Počítadlo realizací** (`CountUp`) v záhlaví pásu realizací: "350+" se napočítá od nuly,
-  až pás vjede do okna. Počítání je v CSS (`@property --count` a `counter()`), komponenta
-  jen přes IntersectionObserver přepíná třídy `count-up--armed` a `count-up--run`. Bez
-  JavaScriptu i při omezení pohybu se ukáže rovnou cílové číslo. Hodnota je
-  `REALIZATIONS_COUNT` v `site.ts`. V hero je stejné číslo jako obyčejný text.
+- **Fotky přes celé hero na úvodu** (`HeroSlideshow`, fotky v `HERO_SLIDES` v
+  `src/content/hero.ts`): každá se 7 s pomalu přibližuje a posouvá (Ken Burns), pak se prolne
+  do další. Dole je přepínač s oborem a proužkem, který ukazuje čas do další fotky. Tlačítko
+  Pozastavit (WCAG 2.2.2), na skryté záložce se nepřepíná, při omezení pohybu stojí a přepíná
+  se jen ručně. V DOM je jen aktuální a následující fotka, ostatní se stahují postupně, aby
+  nebrzdily první (LCP). Soubory v `public/hero/full`, zmenšené na 2400 px a bez metadat.
+- **Fotka v hlavičce služby** (`SERVICE_HEROES` v `src/content/hero.ts`): jednou se pomalu
+  přiblíží (`.photo-drift`). Fotky jsou vybrané ručně pro každý obor, soubory v
+  `public/hero/sluzby`, bez metadat.
 - **Náběh při scrollu** třídy `.reveal` (jeden blok) a `.reveal-group` (každé dítě mřížky,
   sloupce se lehce zpozdí). Scroll-driven animace (`animation-timeline: view()`), prohlížeč
   bez podpory zobrazí obsah rovnou. Komponenta `Reveal` je jen obal s touto třídou.

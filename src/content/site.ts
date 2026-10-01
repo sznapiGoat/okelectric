@@ -230,8 +230,10 @@ export const PARTNERS: Partner[] = [
     name: "Zehnder",
     detail: "Rekuperace",
     url: "https://www.zehnder.cz/cs",
-    logo: "/partners/zehnder.svg",
-    logoHeight: 40,
+    // Jen nápis z loga, bez červeného čtverce: ve ztlumené jednobarevné řadě
+    // z celého loga zbyl šedý čtverec a nápis v něm nebyl čitelný.
+    logo: "/partners/zehnder-napis.svg",
+    logoHeight: 34,
   },
   {
     name: "Jablotron",

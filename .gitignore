@@ -43,3 +43,10 @@ next-env.d.ts
 tsconfig.tsbuildinfo
 /.orig
 /sheet*.jpg
+
+# Originály fotek od klienta: mají v metadatech GPS (adresy zákazníků).
+# Na web jdou jen zmenšené kopie bez metadat (public/hero, public/reference).
+/public/images/
+
+# Pracovní poznámky klienta k revizi webu
+*.xlsx

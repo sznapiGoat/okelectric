@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
 import { SERVICES } from "@/content/services";
 import type { TeamMember } from "@/content/site";
 import { cn } from "@/lib/utils";
+import { MailIcon, PhoneIcon, PinIcon } from "@/components/BrandIcons";
 
 /**
  * Karta člena týmu. Pod kontaktem jsou všechny obory firmy a podsvícené jsou ty,
@@ -14,7 +14,7 @@ export function TeamMemberCard({ member }: { member: TeamMember }) {
     <article className="flex h-full flex-col border-b border-r border-line p-6 sm:p-8">
       <h3 className="font-display text-[1.3rem] font-semibold tracking-tight text-ink">{member.name}</h3>
       <p className="mt-3 flex items-center gap-2 text-[0.875rem] text-ink-faint">
-        <MapPin className="h-4 w-4 text-brand" aria-hidden />
+        <PinIcon className="h-4 w-4 text-brand" aria-hidden />
         {member.town}
       </p>
 
@@ -23,14 +23,14 @@ export function TeamMemberCard({ member }: { member: TeamMember }) {
           href={`tel:${member.phone}`}
           className="flex items-center gap-2.5 font-display text-[1.15rem] font-semibold text-ink hover:text-brand-deep"
         >
-          <Phone className="h-4 w-4 text-brand" aria-hidden />
+          <PhoneIcon className="h-4 w-4 text-brand" aria-hidden />
           {member.phoneDisplay}
         </a>
         <a
           href={`mailto:${member.email}`}
           className="flex items-center gap-2.5 text-[0.9375rem] text-ink-soft hover:text-ink"
         >
-          <Mail className="h-4 w-4 text-brand" aria-hidden />
+          <MailIcon className="h-4 w-4 text-brand" aria-hidden />
           {member.email}
         </a>
       </div>
@@ -45,7 +45,7 @@ export function TeamMemberCard({ member }: { member: TeamMember }) {
                 className={cn(
                   "inline-block border px-2.5 py-1 text-[0.75rem] font-medium transition-colors",
                   does
-                    ? "border-tech bg-tech text-paper hover:border-ink hover:bg-ink"
+                    ? "border-brand/50 bg-brand-wash text-brand-deep hover:border-brand-deep"
                     : "border-transparent bg-mist text-ink-faint hover:text-ink"
                 )}
               >
