@@ -151,3 +151,22 @@ verzi), „Po–Pá“ s půlčtverčíkem (v češtině správně).
 Navíc hotovo 1. 10.: bez počtů realizací (nadpis Referencí „Naše práce na
 fotkách“, filtry bez čísel, mapa bez „22 míst“) a fotka týmu na O nás
 (`public/hero/o-nas-tym.jpg`, bez metadat).
+
+# Na schůzku s klientem (2. 10. 2026)
+
+Ukázat: hero s fotkami na úvodu, fotky v hlavičkách služeb, fotku týmu na
+O nás, Reference s velkými dlaždicemi, světlou kontaktní sekci a Kontakt.
+
+Chtít po klientovi:
+1. IČO (a případně zápis v rejstříku) do patičky, povinné (§ 435 OZ).
+2. Sedí „Obcí a měst 100+“ na O nás?
+3. Vadí, že jsme nahradili slogan „Vaše spokojenost je naším cílem a závazkem“?
+4. Fotky týmu, ideálně všech čtyř (na O nás jsou zatím tři, bez jmen).
+5. Fotky z alarmů a kamer, rekuperace a revizí (u revizí je v hlavičce
+   starý neuklizený rozvaděč).
+6. Odsouhlasit výběr a pořadí fotek v hero a u služeb.
+7. K dalším realizacím: název zakázky, místo a měsíc. Fotek v public/images
+   je přes 160, bez těchto údajů je na web nedáme.
+8. Světlá verze loga, jen pokud chceme průhledný header přes fotku.
+9. Adresa pro poptávkový formulář (NEXT_PUBLIC_FORM_ENDPOINT). Před
+   zapnutím je potřeba stránka o zpracování osobních údajů.
