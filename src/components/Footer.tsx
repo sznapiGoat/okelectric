@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
 import { SERVICES } from "@/content/services";
-import { NAP, TEAM } from "@/content/site";
+import { NAP } from "@/content/site";
 import { MailIcon, PhoneIcon, PinIcon } from "@/components/BrandIcons";
 
 export function Footer() {
@@ -104,14 +104,6 @@ export function Footer() {
       <div className="border-t border-line">
         <div className="shell flex flex-col gap-3 py-6 text-[0.8125rem] text-ink-faint sm:flex-row sm:items-center sm:justify-between">
           <p>&copy; {new Date().getFullYear()} OKelectric</p>
-          <p>
-            {/* Čeština skloňuje jinak pro 2-4 a jinak od 5 výš. */}
-            {TEAM.length} {TEAM.length >= 5 ? "lidí" : "lidi"} v týmu, {SERVICES.length} oborů,
-            jeden telefon:{" "}
-            <a href={`tel:${NAP.phone}`} className="font-semibold text-ink hover:text-brand-deep">
-              {NAP.phoneDisplay}
-            </a>
-          </p>
         </div>
       </div>
     </footer>

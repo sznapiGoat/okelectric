@@ -44,10 +44,6 @@ export default function HomePage() {
               alarmy. Vše pod jednou firmou, včetně projektu i revize.
             </p>
 
-            <p className="mt-4 text-[0.9375rem] font-medium text-white/75">
-              Sídlo máme u Písku, za prací jezdíme tam, kde je potřeba.
-            </p>
-
             <div className="mt-9 flex flex-wrap items-center gap-3">
               <ButtonAnchor href={`tel:${NAP.phone}`} variant="brand" size="lg">
                 <PhoneIcon className="h-5 w-5" aria-hidden />
@@ -96,7 +92,7 @@ export default function HomePage() {
               Poslední realizace
             </h2>
             <p className="mt-5 text-[1.0625rem] leading-relaxed text-ink-soft">
-              Fotky z vlastních zakázek, ne z katalogu. Od bytového rozvaděče v Písku po osvětlení
+              Všechno jsou fotky z našich zakázek. Od bytového rozvaděče v Písku po osvětlení
               uvnitř mostní konstrukce dálnice D4.
             </p>
           </div>
@@ -104,12 +100,12 @@ export default function HomePage() {
             href="/reference"
             className="inline-flex items-center gap-2 text-[0.9375rem] font-semibold text-ink hover:text-brand-deep"
           >
-            Všech {PROJECTS_SORTED.length} realizací
+            Prohlédnout reference
             <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>
         </div>
 
-        <ProjectGrid projects={latest} className="reveal-group mt-12" />
+        <ProjectGrid projects={latest} featureEvery={7} className="reveal-group mt-12" />
       </section>
 
       {/* Tým */}
@@ -156,8 +152,8 @@ export default function HomePage() {
       <CoverageSection />
 
       <CTASection
-        heading="Začneme prohlídkou, ne ceníkem."
-        text="Každý dům je jiný, proto se nejdřív přijedeme podívat. Zavolejte a řekněte, co potřebujete a kde."
+        heading="Nejdřív se přijedeme podívat."
+        text="Řekněte nám, co potřebujete a kde. Domluvíme prohlídku a pak pošleme nabídku."
       />
     </>
   );

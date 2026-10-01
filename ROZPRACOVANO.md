@@ -119,3 +119,32 @@ Hotovo, vizuálně zkontrolováno:
 
 Čeká na klienta: **IČO** do patičky (§ 435 OZ), před spuštěním formuláře
 stránka o zpracování osobních údajů.
+
+# AI slop check skillem design-taste-frontend (1. 10. 2026)
+
+Body 1–4, 7 a 8 hotové a vizuálně zkontrolované (1. 10.). Body 5 a 6
+(rozložení sekcí, tmavé CTA) čekají na rozhodnutí o kontaktní sekci. Čtení: web místní řemeslné firmy pro majitele domů
+a menší firmy, důvěryhodný a věcný, fotky z vlastní práce.
+
+1. Konstrukce „X, ne Y“ je v textech asi 18× („ne z katalogu“, „ne ceníkem“,
+   „ne dispečink“, „ne z plochy střechy“…). Typický AI rukopis, většinu přepsat.
+2. „Sídlo máme u Písku“ asi 13× napříč webem (hero, CTA, služby, O nás,
+   Kontakt, patička, mapa). Nechat 2–3 místa.
+3. Formule „osm oborů, jeden telefon“ 3× (úvod, O nás, patička).
+4. Hero na úvodu má 5 textových prvků. Věta o sídle pod perexem je navíc.
+5. Úvod: 4 sekce po sobě mají stejné rozložení „nadpis vlevo, obsah vpravo“
+   (Papíry, Tým, Mapa, CTA).
+6. Tmavý blok CTA na konci stránek skill bere jako „náhodnou tmavou sekci“.
+   Souvisí s úvahou přesunout CTA na Kontakt.
+7. Odkazy na reference mají 4 různé popisky (Prohlédnout reference,
+   Prohlédnout, Všechny realizace, Všechny reference). Sjednotit.
+8. Poslední realizace na úvodu jsou 3 stejné sloupce. Použít velkou dlaždici
+   jako na Referencích (6 fotek = 1 velká + 5).
+
+Vědomě neměnit: vlastní ikony (odvozené z loga, skill zakazuje ručně
+kreslené), Lucide u šipek, tmavý režim (web je jen světlý, logo nemá tmavou
+verzi), „Po–Pá“ s půlčtverčíkem (v češtině správně).
+
+Navíc hotovo 1. 10.: bez počtů realizací (nadpis Referencí „Naše práce na
+fotkách“, filtry bez čísel, mapa bez „22 míst“) a fotka týmu na O nás
+(`public/hero/o-nas-tym.jpg`, bez metadat).

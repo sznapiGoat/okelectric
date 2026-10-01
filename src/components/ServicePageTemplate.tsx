@@ -164,7 +164,7 @@ export function ServicePageTemplate({ service }: { service: Service }) {
                 href="/reference"
                 className="inline-flex items-center gap-2 text-[0.9375rem] font-semibold text-ink hover:text-brand-deep"
               >
-                Všechny reference
+                Prohlédnout reference
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </Link>
             </div>
