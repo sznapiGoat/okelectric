@@ -7,7 +7,7 @@ import { projectsByCategory } from "@/content/projects";
 import { coverageLine, TEAM } from "@/content/site";
 import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { CTASection } from "@/components/CTASection";
+import { ContactSection } from "@/components/ContactSection";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { JsonLd } from "@/components/JsonLd";
 import { ProjectGrid } from "@/components/ProjectGrid";
@@ -189,7 +189,7 @@ export function ServicePageTemplate({ service }: { service: Service }) {
         </div>
       </section>
 
-      <CTASection ctaLabel={service.ctaLabel} owner={service.owner} />
+      <ContactSection owner={service.owner} />
     </>
   );
 }

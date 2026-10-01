@@ -3,7 +3,7 @@ import { QUALIFICATIONS, REALIZATIONS_COUNT, TEAM } from "@/content/site";
 import { SERVICES } from "@/content/services";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { CTASection } from "@/components/CTASection";
+import { ContactSection } from "@/components/ContactSection";
 import { JsonLd } from "@/components/JsonLd";
 import { PartnerLogos } from "@/components/PartnerLogos";
 import { ServiceLinkGrid } from "@/components/ServiceLinkGrid";
@@ -162,7 +162,7 @@ export default function AboutPage() {
         <ServiceLinkGrid services={SERVICES} columns={4} className="reveal-group mt-8" />
       </section>
 
-      <CTASection />
+      <ContactSection />
     </>
   );
 }

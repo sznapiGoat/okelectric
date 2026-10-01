@@ -3,7 +3,7 @@ import { PROJECTS_SORTED } from "@/content/projects";
 import { SERVICES } from "@/content/services";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { CTASection } from "@/components/CTASection";
+import { ContactSection } from "@/components/ContactSection";
 import { JsonLd } from "@/components/JsonLd";
 import { ReferenceGallery } from "@/components/ReferenceGallery";
 
@@ -63,7 +63,7 @@ export default function ReferencePage() {
         </div>
       </section>
 
-      <CTASection
+      <ContactSection
         heading="Chcete něco podobného?"
         text="Řekněte nám, co máte v plánu a kde. Přijedeme se podívat a pošleme nabídku."
       />
