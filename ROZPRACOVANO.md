@@ -98,3 +98,24 @@ screenshoty mají chybu ve skládání: hero se v nich opakuje.
   Může působit, jako by to byla jejich práce, lepší by byla fotka z měření.
 - Fotky z alarmů a kamer: žádnou realizaci z tohoto oboru nemáme, takže
   na stránce alarmů jsou v „Takhle to u nás vypadá hotové“ rozvaděče.
+
+# Audit skillem redesign-existing-projects (1. 10. 2026)
+
+Hotovo, vizuálně zkontrolováno:
+
+- **Perexy služeb** bez frází (FVE, alarmy, elektro, rekuperace, revize,
+  instalatérské práce). Fakta převzatá z textů na stránkách služeb.
+- **Fotka v textu služby** pod prvním blokem: z hlavního oboru služby a jiná
+  než tři v mřížce níž. Obory s málo fotkami (TČ, rekuperace, klimatizace,
+  instalatérské, revize) zatím žádnou nemají.
+- **Alarmy** mají `projectCategories: []`: sekce s rozvaděči z elektra zmizela.
+  Vrátit, až budou fotky alarmů a kamer.
+- **Reference:** každá 7. dlaždice je velká (2×2 na desktopu, přes 2 sloupce
+  na tabletu), mřížka `grid-flow-row-dense`. Jen na stránce Reference.
+- **Tlačítka** se při stisku posunou o 1 px (`active:translate-y-px`).
+- **Tmavý blok s výzvou** má v pozadí ztmavenou fotku (dům s dodávkou, s4).
+- Poznámka: když se CSS v dev serveru nenačte (404 na layout.css), je
+  poškozená cache. Pomůže smazat `.next` a server pustit znovu.
+
+Čeká na klienta: **IČO** do patičky (§ 435 OZ), před spuštěním formuláře
+stránka o zpracování osobních údajů.

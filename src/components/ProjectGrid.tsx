@@ -13,6 +13,11 @@ type Props = {
   priorityCount?: number;
   className?: string;
   sizes?: string;
+  /**
+   * Každá n-tá dlaždice (od první) bude velká. Mřížka se doplňuje hustě
+   * (grid-flow-dense), velké dlaždice se tak střídají vlevo a vpravo.
+   */
+  featureEvery?: number;
 };
 
 /**
@@ -25,6 +30,7 @@ export function ProjectGrid({
   priorityCount = 0,
   className,
   sizes,
+  featureEvery,
 }: Props) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const gridRef = useRef<HTMLDivElement>(null);
@@ -52,19 +58,24 @@ export function ProjectGrid({
         ref={gridRef}
         className={cn(
           "grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3",
+          featureEvery && "grid-flow-row-dense",
           className
         )}
       >
-        {projects.map((p, i) => (
+        {projects.map((p, i) => {
+          const featured = !!featureEvery && projects.length > 4 && i % featureEvery === 0;
+          return (
           <ProjectGalleryItem
             key={p.id}
             project={p}
+            featured={featured}
+            sizes={featured ? "(min-width: 1024px) 62vw, (min-width: 640px) 92vw, 92vw" : sizes}
             headingLevel={headingLevel}
             priority={i < priorityCount}
-            sizes={sizes}
             onOpen={() => open(i)}
           />
-        ))}
+          );
+        })}
       </div>
 
       <Lightbox

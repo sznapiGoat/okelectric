@@ -19,6 +19,11 @@ import { CheckIcon, PhoneIcon } from "@/components/BrandIcons";
 export function ServicePageTemplate({ service }: { service: Service }) {
   const owner = TEAM.find((m) => m.slug === service.owner);
   const projects = projectsByCategory(...service.projectCategories).slice(0, 3);
+  // Fotka do textu: z hlavního oboru služby a jiná než ty tři v mřížce níž.
+  // U oborů s málo fotkami žádná nezbyde a text zůstane bez ní.
+  const shown = new Set(projects.map((p) => p.id));
+  const primary = service.projectCategories[0];
+  const bodyPhoto = primary ? projectsByCategory(primary).find((p) => !shown.has(p.id)) : undefined;
   const hero = SERVICE_HEROES[service.slug];
 
   const crumbs = [
@@ -101,6 +106,22 @@ export function ServicePageTemplate({ service }: { service: Service }) {
                     </p>
                   ))}
                 </div>
+                {i === 0 && bodyPhoto && (
+                  <figure className="mt-12">
+                    <div className="relative aspect-[3/2] overflow-hidden bg-mist">
+                      <Image
+                        src={bodyPhoto.image}
+                        alt={bodyPhoto.alt}
+                        fill
+                        sizes="(min-width: 1024px) 55vw, 92vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    <figcaption className="mt-3 text-[0.875rem] text-ink-faint">
+                      {bodyPhoto.title}, {bodyPhoto.place}, {bodyPhoto.dateLabel}
+                    </figcaption>
+                  </figure>
+                )}
               </Reveal>
             ))}
           </div>

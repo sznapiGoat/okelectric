@@ -65,6 +65,7 @@ export function ReferenceGallery({
         projects={visible}
         headingLevel={headingLevel}
         priorityCount={3}
+        featureEvery={7}
         className="mt-10"
       />
     </div>

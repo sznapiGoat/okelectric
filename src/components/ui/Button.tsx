@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import type { ComponentProps } from "react";
 
 export const buttonStyles = cva(
-  "inline-flex items-center justify-center gap-2 font-sans font-semibold transition-colors duration-200 ease-out disabled:opacity-50",
+  "inline-flex items-center justify-center gap-2 font-sans font-semibold transition-[color,background-color,border-color,transform] duration-200 ease-out active:translate-y-px disabled:opacity-50",
   {
     variants: {
       variant: {
