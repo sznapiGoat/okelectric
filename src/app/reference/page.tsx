@@ -30,11 +30,11 @@ export default function ReferencePage() {
           <div className="mt-10 grid gap-8 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <h1 className="font-display text-display-lg text-balance">
-                {PROJECTS_SORTED.length} realizací, které si můžete prohlédnout
+                Naše práce na fotkách
               </h1>
               <p className="mt-6 max-w-xl text-[1.15rem] leading-[1.6] text-ink-soft text-pretty">
                 Rodinné domy, průmyslové areály i dálniční most. Všechny fotky jsou z našich vlastních
-                zakázek, ne z katalogu.
+                zakázek.
               </p>
             </div>
           </div>

@@ -67,7 +67,7 @@ export function HeroProof({ className }: { className?: string }) {
                 href="/reference"
                 className="group mt-2 flex items-center gap-1.5 text-[0.875rem] font-semibold text-brand-deep hover:text-ink"
               >
-                Prohlédnout
+                Prohlédnout reference
                 <ArrowRight
                   className="h-3.5 w-3.5 transition-transform duration-200 ease-out group-hover:translate-x-0.5"
                   aria-hidden

@@ -34,7 +34,7 @@ export default function ContactPage() {
           <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
               <h1 className="font-display text-display-lg text-balance">
-                Zavolejte. Zvedneme to my, ne dispečink.
+                Zavolejte, telefon zvedne někdo z nás.
               </h1>
               <p className="mt-6 max-w-xl text-[1.15rem] leading-[1.6] text-ink-soft text-pretty">
                 Nejrychlejší cesta k nabídce je telefon. Řekněte, o co jde a kde, a domluvíme prohlídku.

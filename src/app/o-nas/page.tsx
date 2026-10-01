@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { QUALIFICATIONS, REALIZATIONS_COUNT, TEAM } from "@/content/site";
 import { SERVICES } from "@/content/services";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
@@ -35,7 +36,7 @@ export default function AboutPage() {
           <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
               <h1 className="font-display text-display-lg text-balance">
-                Čtyři lidi, osm oborů, jeden telefon.
+                Elektrikáři a topenáři, kteří se dali dohromady.
               </h1>
               <div className="prose-body mt-7 max-w-prose">
                 <p>
@@ -44,7 +45,7 @@ export default function AboutPage() {
                 </p>
                 <p>
                   Než něco navrhneme, přijedeme se podívat a zeptáme se, jak dům nebo provoz
-                  používáte. Nabídku pak stavíme na tom, co jsme viděli, ne na ceníku.
+                  používáte. Nabídku pak stavíme na tom, co jsme na místě viděli.
                 </p>
                 <p>
                   Sídlo máme u Písku, ale spousta zákazníků nás povolává i do Prahy, Plzně
@@ -80,6 +81,25 @@ export default function AboutPage() {
               </dl>
             </div>
           </div>
+
+          {/* Fotka týmu. Přes obličeje nedáváme text, proto samostatně pod úvodem.
+              Jména u ní nejsou: na fotce jsou tři ze čtyř a nevíme, kdo je kdo. */}
+          <figure className="mt-14">
+            <div className="relative aspect-video overflow-hidden bg-mist sm:aspect-[21/9]">
+              <Image
+                src="/hero/o-nas-tym.jpg"
+                alt="Tři členové týmu OKelectric se usmívají před velkým rozvaděčem"
+                fill
+                priority
+                sizes="(min-width: 1344px) 1280px, 92vw"
+                className="object-cover"
+                style={{ objectPosition: "50% 40%" }}
+              />
+            </div>
+            <figcaption className="mt-3 text-[0.875rem] text-ink-faint">
+              Část týmu u rozvaděče na jedné z akcí.
+            </figcaption>
+          </figure>
         </div>
       </section>
 

@@ -65,7 +65,7 @@ export const SERVICES: Service[] = [
         heading: "Zdroj tepla je jen polovina práce",
         paragraphs: [
           "Samotné tepelné čerpadlo za vás neušetří. Rozdíl mezi dobrou a špatnou instalací dělá regulace. Nastavujeme ekvitermní řízení s čidly vnitřní i venkovní teploty, ladíme optimální řízení hoření u kotlů a krbů na tuhá paliva a v kombinovaných systémech srovnáváme teplotní spády radiátorů a podlahového vytápění, aby si okruhy navzájem nebraly výkon.",
-          "Protože jsme zároveň elektrikáři, řešíme i to, co bývá u topenářských firem slabinou: úpravu rozvaděče, jištění, přepěťovou ochranu a záložní zdroje oběhových čerpadel pro případ výpadku elektřiny. Kotelna po nás zůstane zapojená podle norem a s revizí, ne s provizorním kabelem přes půlku sklepa.",
+          "Protože jsme zároveň elektrikáři, řešíme i to, co bývá u topenářských firem slabinou: úpravu rozvaděče, jištění, přepěťovou ochranu a záložní zdroje oběhových čerpadel pro případ výpadku elektřiny. Kotelna po nás zůstane zapojená podle norem a s revizí.",
         ],
       },
       {
@@ -99,7 +99,7 @@ export const SERVICES: Service[] = [
       },
       {
         title: "Návrh zdroje a regulace",
-        text: "Navrhneme zdroj podle tepelné ztráty a způsobu, jakým dům opravdu užíváte, ne podle katalogového čísla.",
+        text: "Navrhneme zdroj podle tepelné ztráty a způsobu, jakým dům opravdu užíváte.",
       },
       {
         title: "Realizace",
@@ -141,7 +141,7 @@ export const SERVICES: Service[] = [
       },
       {
         q: "Neobtěžuje venkovní jednotka hlukem sousedy?",
-        a: "Při správném umístění ne. Moderní invertorová čerpadla jsou tichá, hluk ale výrazně ovlivní, kam jednotka přijde. Doporučujeme alespoň dva až tři metry od hranice pozemku a směrem od oken sousedů. Místo vybíráme už při prohlídce, ne až v den montáže.",
+        a: "Při správném umístění ne. Moderní invertorová čerpadla jsou tichá, hluk ale výrazně ovlivní, kam jednotka přijde. Doporučujeme alespoň dva až tři metry od hranice pozemku a směrem od oken sousedů. Místo vybíráme už při prohlídce.",
       },
       {
         q: "Umí tepelné čerpadlo v létě chladit?",
@@ -186,7 +186,7 @@ export const SERVICES: Service[] = [
         heading: "Pár zásuvek natahá i soused. Dům ne",
         paragraphs: [
           "Opravit zásuvku možná zvládnete sami. U nového domu nebo u rekonstrukce bytu je to jiná disciplína. Elektroinstalace dnes není jen o zásuvkách a světlech, ale o tom, kudy povedou datové rozvody, kde bude wallbox, jestli se počítá s fotovoltaikou, s tepelným čerpadlem, s alarmem nebo s roletami, a jestli bude rozvaděč mít za pět let ještě volné pole.",
-          "Čím dřív se o instalaci začne mluvit, tím víc možností zůstává otevřených a tím míň kompromisů se pak dělá. Normy známe. Trendy poznáváme na zakázkách, ne z katalogů.",
+          "Čím dřív se o instalaci začne mluvit, tím víc možností zůstává otevřených a tím míň kompromisů se pak dělá.",
         ],
       },
       {
@@ -273,7 +273,7 @@ export const SERVICES: Service[] = [
     tagline: "Kamery a alarmy Jablotron na míru objektu, montáž zpravidla za jeden den.",
     updated: "2026-09-13",
     ctaLabel: "Chci zabezpečení",
-    ctaNote: "Projdeme objekt a navrhneme sestavu podle rizika, ne podle ceníku.",
+    ctaNote: "Projdeme objekt a navrhneme sestavu podle toho, co a před čím je potřeba chránit.",
     body: [
       {
         heading: "Bezpečí na prvním místě",
@@ -293,7 +293,7 @@ export const SERVICES: Service[] = [
         heading: "Od alarmu k chytré domácnosti",
         paragraphs: [
           "Se systémem Jablotron získáváte základ, na kterém se dá stavět dál. Ke střežení se dá připojit ovládání spotřebičů, garážových vrat a bran, monitoring teploty i hlášení havárií. Rozšíření je možné kdykoliv později, systém se nemusí vyměňovat.",
-          "Systém JABLOTRON 100 je certifikovaný dle EN 50131-4 do stupně zabezpečení 2. Jsme nositeli koncesované živnosti pro montáž zabezpečovací techniky, což je u této práce podmínka, ne bonus.",
+          "Systém JABLOTRON 100 je certifikovaný dle EN 50131-4 do stupně zabezpečení 2. Jsme nositeli koncesované živnosti pro montáž zabezpečovací techniky, bez které se tahle práce dělat nesmí.",
         ],
       },
     ],
@@ -368,7 +368,7 @@ export const SERVICES: Service[] = [
     tagline: "Elektrárny, ohřev vody i prověření starší instalace termokamerou.",
     updated: "2026-09-13",
     ctaLabel: "Chci fotovoltaiku",
-    ctaNote: "Velikost elektrárny spočítáme z vaší roční spotřeby, ne z plochy střechy.",
+    ctaNote: "Velikost elektrárny spočítáme z vaší roční spotřeby.",
     body: [
       {
         heading: "Elektrárna, která se počítá",
@@ -386,10 +386,9 @@ export const SERVICES: Service[] = [
         ],
       },
       {
-        heading: "Elektrikáři, ne montážní parta",
+        heading: "Fotovoltaiku u nás dělají elektrikáři",
         paragraphs: [
           "Fotovoltaika je z poloviny práce na střeše a z poloviny práce v rozvaděči. Protože děláme běžné elektroinstalace a hromosvody, řešíme rovnou i přepěťovou ochranu, koordinaci s jímací soustavou a přípravu na wallbox. Instalujeme mimo jiné střídače a baterie SolaX a umíme nastavit řízení přetoků do bojleru, jak jsme dělali v Čimelicích.",
-          "Sídlo máme u Písku, ale fotovoltaika je plánovaná práce na několik dní, takže za ní jezdíme i daleko.",
         ],
       },
     ],
@@ -409,7 +408,7 @@ export const SERVICES: Service[] = [
     process: [
       {
         title: "Podklady a spotřeba",
-        text: "Vycházíme z vaší reálné roční spotřeby a z toho, kdy elektřinu odebíráte, ne z plochy střechy.",
+        text: "Vycházíme z vaší reálné roční spotřeby a z toho, kdy elektřinu odebíráte.",
       },
       {
         title: "Návrh systému",
@@ -563,7 +562,7 @@ export const SERVICES: Service[] = [
       {
         heading: "Revize není razítko, ale kontrola",
         paragraphs: [
-          "Revizní zpráva má smysl jen tehdy, když za ní stojí skutečné měření a prohlídka. Provádíme revize vyhrazených elektrických zařízení na základě platného oprávnění a měříme moderními přístroji, ne odhadem podle stáří instalace.",
+          "Revizní zpráva má smysl jen tehdy, když za ní stojí skutečné měření a prohlídka. Provádíme revize vyhrazených elektrických zařízení na základě platného oprávnění a všechno skutečně měříme moderními přístroji.",
           "Většina zakázek jsou výchozí revize po naší vlastní montáži, děláme ale i revize po jiných firmách a periodické kontroly stávajících objektů.",
         ],
       },
@@ -637,7 +636,7 @@ export const SERVICES: Service[] = [
       },
       {
         q: "Proč revidovat fotovoltaiku termokamerou?",
-        a: "Protože běžné měření neodhalí přehřáté články ani zhoršené spoje uvnitř pole. Ty se projeví teplotou, ne poruchou, a ubírají výrobu roky, než si jich někdo všimne.",
+        a: "Protože běžné měření neodhalí přehřáté články ani zhoršené spoje uvnitř pole. Projeví se zvýšenou teplotou dřív než poruchou a ubírají výrobu roky, než si jich někdo všimne.",
       },
       {
         q: "Uděláte projekt nebo výkresy, i když realizaci objednám jinde?",
@@ -741,7 +740,7 @@ export const SERVICES: Service[] = [
       },
       {
         q: "Jaké rozvody používáte?",
-        a: "Plastové, měděné i ocelové. Volba se řídí typem objektu, provozní teplotou a tím, co se v domě už používá, ne tím, co má firma zrovna na skladě.",
+        a: "Plastové, měděné i ocelové. Volba se řídí typem objektu, provozní teplotou a tím, co se v domě už používá.",
       },
     ],
     projectCategories: ["kotelny", "klimatizace"],
@@ -766,7 +765,7 @@ export const SERVICES: Service[] = [
         heading: "Chlad tam, kde ho potřebujete",
         paragraphs: [
           "Montujeme klimatizace do bytů, rodinných domů, kanceláří i menších provozoven. Nejčastěji jde o dělené systémy split: venkovní jednotku osadíme na konzoli na fasádu, na plochou střechu nebo na zem u domu a v místnosti pak pracuje tichá vnitřní jednotka. Pro více místností navrhujeme multisplit, tedy jednu venkovní jednotku pro několik vnitřních.",
-          "Pracujeme mimo jiné s jednotkami Daikin. Značku a výkon ale volíme podle místnosti, orientace oken a toho, jak se prostor používá, ne podle toho, co je zrovna v akci.",
+          "Pracujeme mimo jiné s jednotkami Daikin. Značku a výkon ale volíme podle místnosti, orientace oken a toho, jak se prostor používá.",
         ],
       },
       {

@@ -21,12 +21,6 @@ export function ReferenceGallery({
     return (Object.keys(CATEGORY_LABELS) as ProjectCategory[]).filter((c) => present.has(c));
   }, [projects]);
 
-  const counts = useMemo(() => {
-    const map = new Map<Filter, number>([["vse", projects.length]]);
-    for (const c of categories) map.set(c, projects.filter((p) => p.category === c).length);
-    return map;
-  }, [projects, categories]);
-
   const visible = filter === "vse" ? projects : projects.filter((p) => p.category === filter);
 
   return (
@@ -48,9 +42,6 @@ export function ReferenceGallery({
               )}
             >
               {c === "vse" ? "Vše" : CATEGORY_LABELS[c]}
-              <span className={cn("ml-2 tabular-nums", active ? "text-paper/50" : "text-ink-faint")}>
-                {counts.get(c)}
-              </span>
             </button>
           );
         })}

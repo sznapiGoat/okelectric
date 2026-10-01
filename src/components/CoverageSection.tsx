@@ -225,7 +225,7 @@ function ProjectDotMap() {
               <span key={o} className="h-2 w-2 rounded-full bg-brand" style={{ opacity: o }} />
             ))}
           </span>
-          {PLACES_COUNT} míst, kde máme nafocené zakázky
+          Místa, kde máme nafocené zakázky
         </span>
         <span>Nevíte, jestli k vám dojedeme? Zavolejte, většinou ano.</span>
       </figcaption>

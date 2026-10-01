@@ -41,9 +41,6 @@ export const NAP = {
  */
 export const BASE_LINE = "Sídlo máme u Písku";
 
-/** Jedna věta o dosahu, do CTA, patičky a podobných míst. */
-export const REACH_LINE = "Sídlo máme u Písku a za prací jezdíme tam, kde je potřeba.";
-
 /**
  * Tři úrovně dojezdu podle druhu práce, ne podle zeměpisu. Vykreslují se
  * u schématu okruhů na homepage.
@@ -104,8 +101,8 @@ export const REGIONS_EXTENDED = [
 /** Věta o dojezdu pod postupem na stránce služby, liší se podle druhu práce. */
 export function coverageLine(reach: "local" | "national") {
   return reach === "national"
-    ? "Sídlo máme u Písku. Za touhle prací jezdíme i daleko, vzdálenost řešíme až u nabídky."
-    : "Sídlo máme u Písku. Servis a menší práce děláme hlavně v okolí, větší zakázku probereme kdekoli.";
+    ? "Za touhle prací jezdíme i daleko, vzdálenost řešíme až u nabídky."
+    : "Servis a menší práce děláme hlavně v okolí, větší zakázku probereme kdekoli.";
 }
 
 export type TeamMember = {
