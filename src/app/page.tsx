@@ -5,7 +5,7 @@ import { PROJECTS_SORTED } from "@/content/projects";
 import { NAP, TEAM } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 import { CoverageSection } from "@/components/CoverageSection";
-import { CTASection } from "@/components/CTASection";
+import { ContactSection } from "@/components/ContactSection";
 import { HeroProof } from "@/components/HeroProof";
 import { HeroSlideshow } from "@/components/HeroSlideshow";
 import { ProjectGrid } from "@/components/ProjectGrid";
@@ -108,50 +108,49 @@ export default function HomePage() {
         <ProjectGrid projects={latest} featureEvery={7} className="reveal-group mt-12" />
       </section>
 
-      {/* Tým */}
+      {/* Tým: nadpis nahoře, čtyři lidé v řadě pod ním. Úvod má i tak dost
+          sekcí s nadpisem vlevo a obsahem vpravo. */}
       <section className="border-t border-line bg-mist py-16 sm:py-24" aria-labelledby="tym">
-        <div className="shell grid gap-10 lg:grid-cols-12 lg:gap-16">
-          <div className="reveal lg:col-span-4">
-            <h2 id="tym" className="font-display text-display-lg text-balance">
-              Volejte rovnou tomu, kdo to dělá.
-            </h2>
-            <p className="mt-5 text-[1.0625rem] leading-relaxed text-ink-soft">
-              Nemáme dispečink ani formulářovou frontu. Každý obor má u nás svého člověka a ten vám
-              telefon zvedne.
-            </p>
-            <ButtonLink href="/o-nas" variant="outline" size="lg" className="mt-8">
+        <div className="shell">
+          <div className="reveal flex flex-wrap items-end justify-between gap-x-10 gap-y-6">
+            <div className="max-w-2xl">
+              <h2 id="tym" className="font-display text-display-lg text-balance">
+                Volejte rovnou tomu, kdo to dělá.
+              </h2>
+              <p className="mt-5 text-[1.0625rem] leading-relaxed text-ink-soft">
+                Nemáme dispečink ani formulářovou frontu. Každý obor má u nás svého člověka a ten vám
+                telefon zvedne.
+              </p>
+            </div>
+            <ButtonLink href="/o-nas" variant="outline" size="lg">
               Poznat tým a kvalifikace
             </ButtonLink>
           </div>
 
-          <div className="lg:col-span-8">
-            <ul className="reveal-group border-t border-line">
-              {TEAM.map((m) => (
-                <li
-                  key={m.slug}
-                  className="flex flex-col gap-2 border-b border-line py-5 sm:flex-row sm:items-baseline sm:gap-6"
+          <ul className="reveal-group mt-12 grid grid-cols-1 border-t border-line sm:grid-cols-2 lg:grid-cols-4">
+            {TEAM.map((m) => (
+              <li
+                key={m.slug}
+                className="flex flex-col border-b border-line py-6 sm:px-6 sm:odd:border-r sm:odd:pl-0 lg:border-b-0 lg:border-r lg:odd:pl-6 lg:first:pl-0 lg:last:border-r-0"
+              >
+                <p className="font-display text-[1.125rem] font-semibold text-ink">{m.name}</p>
+                <p className="mt-0.5 text-[0.8125rem] text-ink-faint">{m.town}</p>
+                <p className="mt-3 flex-1 text-[0.9375rem] leading-relaxed text-ink-soft">{m.role}</p>
+                <a
+                  href={`tel:${m.phone}`}
+                  className="mt-5 font-display text-[1.125rem] font-semibold text-ink hover:text-brand-deep"
                 >
-                  <div className="sm:w-56 sm:shrink-0">
-                    <p className="font-display text-[1.0625rem] font-semibold text-ink">{m.name}</p>
-                    <p className="text-[0.8125rem] text-ink-faint">{m.town}</p>
-                  </div>
-                  <p className="flex-1 text-[0.9375rem] leading-relaxed text-ink-soft">{m.role}</p>
-                  <a
-                    href={`tel:${m.phone}`}
-                    className="font-display text-[1.0625rem] font-semibold text-ink hover:text-brand-deep sm:shrink-0"
-                  >
-                    {m.phoneDisplay}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+                  {m.phoneDisplay}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
       <CoverageSection />
 
-      <CTASection
+      <ContactSection
         heading="Nejdřív se přijedeme podívat."
         text="Řekněte nám, co potřebujete a kde. Domluvíme prohlídku a pak pošleme nabídku."
       />

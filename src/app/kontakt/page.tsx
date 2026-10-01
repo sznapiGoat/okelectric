@@ -1,11 +1,10 @@
-import Link from "next/link";
-import { SERVICES } from "@/content/services";
 import { NAP } from "@/content/site";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { PoptavkaForm } from "@/components/PoptavkaForm";
 import { TeamGrid } from "@/components/TeamGrid";
+import { ButtonAnchor } from "@/components/ui/Button";
 import { MailIcon, PhoneIcon } from "@/components/BrandIcons";
 
 export const metadata = pageMetadata({
@@ -41,59 +40,43 @@ export default function ContactPage() {
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3">
-                <a
-                  href={`tel:${NAP.phone}`}
-                  className="inline-flex h-14 items-center gap-2 bg-brand px-7 font-semibold text-ink transition-colors hover:bg-brand-deep hover:text-paper"
-                >
+                <ButtonAnchor href={`tel:${NAP.phone}`} variant="brand" size="lg">
                   <PhoneIcon className="h-5 w-5" aria-hidden />
                   {NAP.phoneDisplay}
-                </a>
-                <a
-                  href={`mailto:${NAP.email}`}
-                  className="inline-flex h-14 items-center gap-2 border border-ink px-7 font-semibold text-ink transition-colors hover:bg-ink hover:text-paper"
-                >
+                </ButtonAnchor>
+                <ButtonAnchor href={`mailto:${NAP.email}`} variant="outline" size="lg">
                   <MailIcon className="h-5 w-5" aria-hidden />
                   {NAP.email}
-                </a>
+                </ButtonAnchor>
               </div>
             </div>
 
-            <div className="lg:col-span-5 lg:pt-4">
-              <div className="border-t border-line pt-6">
-                <h2 className="font-display text-[1.0625rem] font-semibold">Havárie</h2>
-                <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-soft">
-                  Urgentní situace a havarijní stavy řešíme podle svých možností i o víkendech.
-                  Nejsme nonstop pohotovost, ale ozveme se, jakmile to jde.
-                </p>
-              </div>
-
-              <div className="mt-8 border-t border-line pt-6">
-                <h2 className="font-display text-[1.0625rem] font-semibold">Kdy nás zastihnete</h2>
-                <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-soft">
+            <dl className="border-t border-line lg:col-span-5 lg:mt-4">
+              <div className="border-b border-line py-5">
+                <dt className="font-display text-[1.0625rem] font-semibold">Kdy nás zastihnete</dt>
+                <dd className="mt-1.5 text-[0.9375rem] leading-relaxed text-ink-soft">
                   {NAP.openingHours.days} {NAP.openingHours.opens.replace(/^0/, "")} až{" "}
-                  {NAP.openingHours.closes} hodin.{" "}
+                  {NAP.openingHours.closes} hodin. Havárie řešíme podle možností i o víkendu, nonstop
+                  pohotovost ale nejsme.
+                </dd>
+              </div>
+              <div className="border-b border-line py-5">
+                <dt className="font-display text-[1.0625rem] font-semibold">Kde nás najdete</dt>
+                <dd className="mt-1.5 text-[0.9375rem] leading-relaxed text-ink-soft">
+                  {NAP.streetAddress}, {NAP.postalCode} {NAP.addressLocality}.{" "}
                   <a
                     href={NAP.googleMaps}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-brand-deep underline underline-offset-4 hover:text-ink"
                   >
-                    Najdete nás na Mapách Google
+                    Mapy Google
                   </a>
-                </p>
+                </dd>
               </div>
-
-              <div className="mt-8 border-t border-line pt-6">
-                <h2 className="font-display text-[1.0625rem] font-semibold">Odkud k vám jedeme</h2>
-                <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-soft">
-                  Sídlo máme u Písku. Na servis jezdíme po okolí, za montáží nebo rekonstrukcí
-                  i daleko. Řekněte, kde jste, a domluvíme se.
-                </p>
-              </div>
-
-              <div className="mt-8 border-t border-line pt-6">
-                <h2 className="font-display text-[1.0625rem] font-semibold">Sledujte nás</h2>
-                <p className="mt-2 flex gap-4 text-[0.9375rem]">
+              <div className="py-5">
+                <dt className="font-display text-[1.0625rem] font-semibold">Sledujte nás</dt>
+                <dd className="mt-1.5 flex gap-4 text-[0.9375rem]">
                   <a
                     href={NAP.facebook}
                     target="_blank"
@@ -110,9 +93,9 @@ export default function ContactPage() {
                   >
                     Instagram
                   </a>
-                </p>
+                </dd>
               </div>
-            </div>
+            </dl>
           </div>
         </div>
       </section>
@@ -150,26 +133,6 @@ export default function ContactPage() {
         <TeamGrid className="mt-10" />
       </section>
 
-      <section className="border-t border-line bg-mist py-14">
-        <div className="shell">
-          <h2 className="font-display text-display-sm">Nevíte, koho volat?</h2>
-          <p className="mt-3 max-w-xl text-[0.9375rem] leading-relaxed text-ink-soft">
-            Vyberte službu a na její stránce najdete přímé číslo na člověka, který ji vede.
-          </p>
-          <ul className="mt-6 flex flex-wrap gap-2">
-            {SERVICES.map((s) => (
-              <li key={s.slug}>
-                <Link
-                  href={`/${s.slug}`}
-                  className="inline-block border border-line bg-paper px-3.5 py-2 text-[0.875rem] font-medium text-ink-soft transition-colors hover:border-ink hover:text-ink"
-                >
-                  {s.navLabel}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
     </>
   );
 }

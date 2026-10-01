@@ -122,8 +122,11 @@ stránka o zpracování osobních údajů.
 
 # AI slop check skillem design-taste-frontend (1. 10. 2026)
 
-Body 1–4, 7 a 8 hotové a vizuálně zkontrolované (1. 10.). Body 5 a 6
-(rozložení sekcí, tmavé CTA) čekají na rozhodnutí o kontaktní sekci. Čtení: web místní řemeslné firmy pro majitele domů
+Všechny body hotové a vizuálně zkontrolované (1. 10.). Body 5 a 6:
+tmavé CTA nahradila světlá `ContactSection` (telefon, e-mail, kdy nás
+zastihnete; na stránce služby kontakt na člověka, který obor dělá), tým na
+úvodu má nadpis nahoře a čtyři lidi v řadě, Kontakt je zjednodušený (tři
+krátké bloky, bez sekce „Nevíte, koho volat?“). Čtení: web místní řemeslné firmy pro majitele domů
 a menší firmy, důvěryhodný a věcný, fotky z vlastní práce.
 
 1. Konstrukce „X, ne Y“ je v textech asi 18× („ne z katalogu“, „ne ceníkem“,
