@@ -37,7 +37,6 @@ export type Service = {
    * Řídí areaServed ve schema.org i větu o působnosti na stránce služby.
    */
   reach: "local" | "national";
-  accent: "green" | "blue";
 };
 
 export const SERVICES: Service[] = [
@@ -167,7 +166,6 @@ export const SERVICES: Service[] = [
     ],
     projectCategories: ["kotelny", "rekuperace"],
     owner: "ondrej-krejci",
-    accent: "green",
   },
 
   {
@@ -261,7 +259,6 @@ export const SERVICES: Service[] = [
     ],
     projectCategories: ["elektroinstalace", "hromosvody"],
     owner: "martin-vones",
-    accent: "green",
   },
 
   {
@@ -355,7 +352,6 @@ export const SERVICES: Service[] = [
     ],
     projectCategories: ["elektroinstalace"],
     owner: "ondrej-lesak",
-    accent: "blue",
   },
 
   {
@@ -450,7 +446,6 @@ export const SERVICES: Service[] = [
     ],
     projectCategories: ["fotovoltaika", "revize"],
     owner: "ondrej-krejci",
-    accent: "green",
   },
 
   {
@@ -547,7 +542,6 @@ export const SERVICES: Service[] = [
     ],
     projectCategories: ["rekuperace", "klimatizace"],
     owner: "ondrej-krejci",
-    accent: "blue",
   },
 
   {
@@ -658,7 +652,6 @@ export const SERVICES: Service[] = [
     ],
     projectCategories: ["revize", "hromosvody"],
     owner: "ondrej-krejci",
-    accent: "blue",
   },
 
   {
@@ -751,7 +744,6 @@ export const SERVICES: Service[] = [
     ],
     projectCategories: ["kotelny", "klimatizace"],
     owner: "ondrej-krejci",
-    accent: "green",
   },
 
   {
@@ -845,7 +837,6 @@ export const SERVICES: Service[] = [
     ],
     projectCategories: ["klimatizace"],
     owner: "ondrej-krejci",
-    accent: "blue",
   },
 ];
 

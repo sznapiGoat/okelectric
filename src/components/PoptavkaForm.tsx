@@ -1,10 +1,11 @@
 "use client";
 
 import { useId, useState } from "react";
-import { Check, Loader2, Send } from "lucide-react";
+import { Loader2, Send } from "lucide-react";
 import { SERVICES } from "@/content/services";
 import { NAP } from "@/content/site";
 import { cn } from "@/lib/utils";
+import { CheckIcon } from "@/components/BrandIcons";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -67,7 +68,7 @@ export function PoptavkaForm({ endpoint }: { endpoint: string }) {
   if (status === "sent") {
     return (
       <div className="border border-line bg-mist p-8" role="status">
-        <Check className="h-8 w-8 text-brand" aria-hidden />
+        <CheckIcon className="h-8 w-8 text-brand" aria-hidden />
         <h3 className="mt-4 font-display text-display-sm">Poptávka odešla.</h3>
         <p className="mt-3 max-w-md text-[0.9375rem] leading-relaxed text-ink-soft">
           Ozveme se co nejdřív, obvykle do druhého pracovního dne. Pokud to spěchá, zavolejte rovnou

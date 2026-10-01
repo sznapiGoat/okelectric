@@ -1,4 +1,4 @@
-import { QUALIFICATIONS, TEAM } from "@/content/site";
+import { QUALIFICATIONS, REALIZATIONS_COUNT, TEAM } from "@/content/site";
 import { SERVICES } from "@/content/services";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -39,13 +39,12 @@ export default function AboutPage() {
               </h1>
               <div className="prose-body mt-7 max-w-prose">
                 <p>
-                  Vaše spokojenost je naším cílem a závazkem. Každý projekt je pro nás jedinečný, a
-                  proto nasloucháme vašim potřebám a přáním. To není fráze do patičky, ale způsob, jak
-                  se dá dělat řemeslo v regionu, kde se lidé znají.
-                </p>
-                <p>
                   OKelectric vzniklo z jednoduché úvahy: na většině akcí se potkává více profesí,
                   pojďme tedy tyhle lidi dát dohromady a ušetřit všem čas a starosti.
+                </p>
+                <p>
+                  Než něco navrhneme, přijedeme se podívat a zeptáme se, jak dům nebo provoz
+                  používáte. Nabídku pak stavíme na tom, co jsme viděli, ne na ceníku.
                 </p>
                 <p>
                   Sídlo máme u Písku, ale spousta zákazníků nás povolává i do Prahy, Plzně
@@ -57,8 +56,10 @@ export default function AboutPage() {
             <div className="lg:col-span-5 lg:pt-4">
               <dl className="grid grid-cols-2 border-t border-line">
                 <div className="border-b border-r border-line py-5 pr-5">
-                  <dt className="text-[0.8125rem] text-ink-faint">Doložených realizací</dt>
-                  <dd className="mt-1 font-display text-[2rem] font-bold tabular-nums">100+</dd>
+                  <dt className="text-[0.8125rem] text-ink-faint">Realizací</dt>
+                  <dd className="mt-1 font-display text-[2rem] font-bold tabular-nums">
+                    {REALIZATIONS_COUNT === null ? "Stovky" : `${REALIZATIONS_COUNT}+`}
+                  </dd>
                 </div>
                 <div className="border-b border-line py-5 pl-5">
                   <dt className="text-[0.8125rem] text-ink-faint">Oborů</dt>

@@ -13,6 +13,8 @@ export const buttonStyles = cva(
         tech: "bg-tech text-paper hover:bg-tech-deep",
         outline: "border border-ink text-ink hover:bg-ink hover:text-paper",
         ghost: "border border-line text-ink hover:border-ink",
+        /** Obrys pro tmavé pozadí, např. přes fotku v hero. */
+        outlineLight: "border border-white/70 text-white hover:bg-white hover:text-ink",
       },
       size: {
         md: "h-11 px-5 text-[0.9375rem]",

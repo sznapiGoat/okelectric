@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Mail, Phone } from "lucide-react";
 import { SERVICES } from "@/content/services";
 import { NAP } from "@/content/site";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
@@ -7,6 +6,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { PoptavkaForm } from "@/components/PoptavkaForm";
 import { TeamGrid } from "@/components/TeamGrid";
+import { MailIcon, PhoneIcon } from "@/components/BrandIcons";
 
 export const metadata = pageMetadata({
   title: "Kontakt | Elektrikáři a topenáři od Písku | OKelectric",
@@ -45,14 +45,14 @@ export default function ContactPage() {
                   href={`tel:${NAP.phone}`}
                   className="inline-flex h-14 items-center gap-2 bg-brand px-7 font-semibold text-ink transition-colors hover:bg-brand-deep hover:text-paper"
                 >
-                  <Phone className="h-5 w-5" aria-hidden />
+                  <PhoneIcon className="h-5 w-5" aria-hidden />
                   {NAP.phoneDisplay}
                 </a>
                 <a
                   href={`mailto:${NAP.email}`}
                   className="inline-flex h-14 items-center gap-2 border border-ink px-7 font-semibold text-ink transition-colors hover:bg-ink hover:text-paper"
                 >
-                  <Mail className="h-5 w-5" aria-hidden />
+                  <MailIcon className="h-5 w-5" aria-hidden />
                   {NAP.email}
                 </a>
               </div>
@@ -76,7 +76,7 @@ export default function ContactPage() {
                     href={NAP.googleMaps}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-tech underline underline-offset-4 hover:text-tech-deep"
+                    className="text-brand-deep underline underline-offset-4 hover:text-ink"
                   >
                     Najdete nás na Mapách Google
                   </a>
@@ -98,7 +98,7 @@ export default function ContactPage() {
                     href={NAP.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-tech underline underline-offset-4 hover:text-tech-deep"
+                    className="text-brand-deep underline underline-offset-4 hover:text-ink"
                   >
                     Facebook
                   </a>
@@ -106,7 +106,7 @@ export default function ContactPage() {
                     href={NAP.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-tech underline underline-offset-4 hover:text-tech-deep"
+                    className="text-brand-deep underline underline-offset-4 hover:text-ink"
                   >
                     Instagram
                   </a>

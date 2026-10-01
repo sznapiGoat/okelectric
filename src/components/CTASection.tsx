@@ -1,6 +1,6 @@
-import { Mail, Phone } from "lucide-react";
 import { NAP, REACH_LINE, TEAM } from "@/content/site";
 import { ButtonAnchor } from "@/components/ui/Button";
+import { MailIcon, PhoneIcon } from "@/components/BrandIcons";
 
 type Props = {
   heading?: string;
@@ -37,14 +37,14 @@ export function CTASection({ heading, text, ctaLabel, owner }: Props) {
             size="lg"
             className="w-full justify-center sm:w-auto"
           >
-            <Phone className="h-5 w-5" aria-hidden />
+            <PhoneIcon className="h-5 w-5" aria-hidden />
             {ctaLabel ? `${ctaLabel}: ${phoneDisplay}` : phoneDisplay}
           </ButtonAnchor>
           <a
             href={`mailto:${email}`}
             className="inline-flex items-center justify-center gap-2 border border-paper/25 px-6 py-3.5 text-[0.9375rem] font-medium text-paper/85 transition-colors hover:border-paper hover:text-paper"
           >
-            <Mail className="h-4 w-4" aria-hidden />
+            <MailIcon className="h-4 w-4" aria-hidden />
             {email}
           </a>
         </div>

@@ -1,8 +1,8 @@
-import { Phone } from "lucide-react";
 import { SERVICES } from "@/content/services";
 import { NAP } from "@/content/site";
 import { ServiceLinkGrid } from "@/components/ServiceLinkGrid";
 import { ButtonAnchor, ButtonLink } from "@/components/ui/Button";
+import { PhoneIcon } from "@/components/BrandIcons";
 
 /*
  * Robots je nutné uvést explicitně. Bez toho se sem propíše index, follow
@@ -24,7 +24,7 @@ export default function NotFound() {
 
       <div className="mt-8 flex flex-wrap gap-3">
         <ButtonAnchor href={`tel:${NAP.phone}`} variant="brand" size="lg">
-          <Phone className="h-5 w-5" aria-hidden />
+          <PhoneIcon className="h-5 w-5" aria-hidden />
           {NAP.phoneDisplay}
         </ButtonAnchor>
         <ButtonLink href="/" variant="outline" size="lg">

@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ChevronDown, Menu, Phone, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { SERVICES } from "@/content/services";
 import { BASE_LINE, NAP } from "@/content/site";
 import { BrandLogo } from "@/components/BrandLogo";
 import { ServiceIcon } from "@/components/ServiceIcon";
 import { cn } from "@/lib/utils";
+import { PhoneIcon } from "@/components/BrandIcons";
 
 const SECONDARY = [
   { href: "/reference", label: "Reference" },
@@ -107,7 +108,7 @@ export function Header() {
                         slug={s.slug}
                         className={cn(
                           "mt-0.5 h-6 w-6 shrink-0",
-                          s.accent === "green" ? "text-brand" : "text-tech"
+                          "text-brand"
                         )}
                       />
                       <span>
@@ -142,7 +143,7 @@ export function Header() {
             href={`tel:${NAP.phone}`}
             className="inline-flex h-11 items-center gap-2 bg-brand px-4 font-semibold text-ink transition-colors hover:bg-brand-deep hover:text-paper"
           >
-            <Phone className="h-4 w-4" aria-hidden />
+            <PhoneIcon className="h-4 w-4" aria-hidden />
             <span className="hidden text-[0.9375rem] sm:inline">{NAP.phoneDisplay}</span>
             <span className="sr-only sm:hidden">Zavolat {NAP.phoneDisplay}</span>
           </a>
@@ -185,7 +186,7 @@ export function Header() {
               >
                 <ServiceIcon
                   slug={s.slug}
-                  className={cn("h-6 w-6 shrink-0", s.accent === "green" ? "text-brand" : "text-tech")}
+                  className={"h-6 w-6 shrink-0 text-brand"}
                 />
                 {s.navLabel}
               </Link>

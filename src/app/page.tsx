@@ -1,18 +1,18 @@
 import Link from "next/link";
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { SERVICES } from "@/content/services";
 import { PROJECTS_SORTED } from "@/content/projects";
 import { NAP, TEAM } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 import { CoverageSection } from "@/components/CoverageSection";
 import { CTASection } from "@/components/CTASection";
-import { HeroCarousel } from "@/components/HeroCarousel";
 import { HeroProof } from "@/components/HeroProof";
+import { HeroSlideshow } from "@/components/HeroSlideshow";
 import { ProjectGrid } from "@/components/ProjectGrid";
-import { RealizationsStrip } from "@/components/RealizationsStrip";
 import { ServiceCard } from "@/components/ServiceCard";
 import { TrustStrip } from "@/components/TrustStrip";
 import { ButtonAnchor, ButtonLink } from "@/components/ui/Button";
+import { PhoneIcon } from "@/components/BrandIcons";
 
 export const metadata = pageMetadata({
   title: "Elektrikář a topenář Písek | Tepelná čerpadla, FVE | OKelectric",
@@ -21,63 +21,50 @@ export const metadata = pageMetadata({
   path: "/",
 });
 
-// Fotky do hero se vybírají podle id, aby se nezměnily při přeřazení referencí.
-// Záměrně z různých oborů, karusel má ukázat šíři, ne šest fotovoltaik za sebou.
-const HERO_IDS = ["p02", "p03", "p14", "p04", "p06", "p05"];
-const heroProjects = HERO_IDS.map((id) => PROJECTS_SORTED.find((p) => p.id === id)).filter(
-  (p): p is (typeof PROJECTS_SORTED)[number] => Boolean(p)
-);
 const latest = PROJECTS_SORTED.slice(0, 6);
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden border-b border-line">
-        <div
-          className="schematic pointer-events-none absolute inset-0 opacity-60 [mask-image:radial-gradient(120%_90%_at_15%_0%,black,transparent)]"
-          aria-hidden
-        />
+      {/* Hero: fotky přes celou plochu, text vlevo nad nimi */}
+      <section className="relative isolate flex min-h-[calc(100svh-4rem)] flex-col overflow-hidden bg-ink text-white lg:min-h-[min(calc(100svh-5rem),860px)]">
+        <HeroSlideshow />
 
-        <div className="shell relative grid gap-12 pb-16 pt-14 sm:pt-20 lg:grid-cols-12 lg:gap-14 lg:pb-24 lg:pt-24">
-          <div className="lg:col-span-6 xl:col-span-6">
-            <p className="eyebrow">Elektrikáři a topenáři od Písku</p>
+        <div className="shell relative z-[5] flex flex-1 flex-col justify-end pb-24 pt-24 sm:pb-32 lg:justify-center lg:pb-36 lg:pt-28">
+          <div className="max-w-2xl">
+            <p className="eyebrow !text-white/75">Elektrikáři a topenáři od Písku</p>
             <h1 className="mt-4 font-display text-display-xl text-balance">
               Energie. Teplo.
               <br />
               Jeden tým.
             </h1>
 
-            <p className="mt-7 max-w-lg text-[1.15rem] leading-[1.6] text-ink-soft text-pretty sm:text-[1.25rem]">
+            <p className="mt-7 max-w-lg text-[1.15rem] leading-[1.6] text-white/85 text-pretty sm:text-[1.25rem]">
               Elektroinstalace, hromosvody, kotelny a tepelná čerpadla, fotovoltaika, rekuperace i
               alarmy. Vše pod jednou firmou, včetně projektu i revize.
             </p>
 
-            <p className="mt-4 text-[0.9375rem] font-medium text-ink-soft">
+            <p className="mt-4 text-[0.9375rem] font-medium text-white/75">
               Sídlo máme u Písku, za prací jezdíme tam, kde je potřeba.
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">
               <ButtonAnchor href={`tel:${NAP.phone}`} variant="brand" size="lg">
-                <Phone className="h-5 w-5" aria-hidden />
+                <PhoneIcon className="h-5 w-5" aria-hidden />
                 {NAP.phoneDisplay}
               </ButtonAnchor>
-              <ButtonLink href="/reference" variant="outline" size="lg">
+              <ButtonLink href="/reference" variant="outlineLight" size="lg">
                 Prohlédnout reference
               </ButtonLink>
             </div>
-
-            <HeroProof />
-          </div>
-
-          <div className="lg:col-span-6">
-            <HeroCarousel projects={heroProjects} />
           </div>
         </div>
-
       </section>
 
-      <RealizationsStrip />
+      {/* Tři argumenty hned pod fotkou */}
+      <div className="border-b border-line">
+        <HeroProof className="shell mt-0 border-t-0 py-2 sm:py-6" />
+      </div>
 
       {/* Služby */}
       <section className="shell py-16 sm:py-24" aria-labelledby="sluzby">
@@ -169,8 +156,8 @@ export default function HomePage() {
       <CoverageSection />
 
       <CTASection
-        heading="Vaše spokojenost je naším cílem a závazkem."
-        text="Každý projekt je jiný, proto začínáme tím, že posloucháme. Zavolejte a řekněte, co potřebujete a kde."
+        heading="Začneme prohlídkou, ne ceníkem."
+        text="Každý dům je jiný, proto se nejdřív přijedeme podívat. Zavolejte a řekněte, co potřebujete a kde."
       />
     </>
   );
