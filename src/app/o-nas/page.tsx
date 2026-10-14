@@ -110,8 +110,8 @@ export default function AboutPage() {
             Kdo k vám přijede
           </h2>
           <p className="mt-5 text-[1.0625rem] leading-relaxed text-ink-soft">
-            Volejte rovnou tomu, kdo má obor na starosti. U každého jsou podsvícené obory, které
-            dělá.
+            Volejte rovnou tomu, kdo má obor na starosti. U každého jsou podsvícené obory, na
+            které se specializuje.
           </p>
         </div>
 

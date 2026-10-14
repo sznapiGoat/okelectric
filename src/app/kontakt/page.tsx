@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { PoptavkaForm } from "@/components/PoptavkaForm";
 import { TeamGrid } from "@/components/TeamGrid";
+import { CoverageSection } from "@/components/CoverageSection";
 import { ButtonAnchor } from "@/components/ui/Button";
 import { MailIcon, PhoneIcon } from "@/components/BrandIcons";
 
@@ -61,16 +62,14 @@ export default function ContactPage() {
                 </dd>
               </div>
               <div className="border-b border-line py-5">
-                <dt className="font-display text-[1.0625rem] font-semibold">Kde nás najdete</dt>
+                <dt className="font-display text-[1.0625rem] font-semibold">Kde pracujeme</dt>
                 <dd className="mt-1.5 text-[0.9375rem] leading-relaxed text-ink-soft">
-                  {NAP.streetAddress}, {NAP.postalCode} {NAP.addressLocality}.{" "}
+                  Pracujeme v Písku a okolí.{" "}
                   <a
-                    href={NAP.googleMaps}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#pusobnost"
                     className="text-brand-deep underline underline-offset-4 hover:text-ink"
                   >
-                    Mapy Google
+                    Mapa dosahu
                   </a>
                 </dd>
               </div>
@@ -126,12 +125,14 @@ export default function ContactPage() {
           Na koho se obrátit
         </h2>
         <p className="mt-4 max-w-xl text-[1.0625rem] leading-relaxed text-ink-soft">
-          Každý obor má svého člověka. Vyberte podle toho, co potřebujete, nebo podle toho, kdo to má
-          k vám nejblíž.
+          Zavolejte tomu, kdo je vám nejblíže. U každého jsou podsvícené obory, na které se
+          specializuje.
         </p>
 
         <TeamGrid className="mt-10" />
       </section>
+
+      <CoverageSection />
 
     </>
   );

@@ -104,6 +104,14 @@ export function Footer() {
       <div className="border-t border-line">
         <div className="shell flex flex-col gap-3 py-6 text-[0.8125rem] text-ink-faint sm:flex-row sm:items-center sm:justify-between">
           <p>&copy; {new Date().getFullYear()} OKelectric</p>
+          {/* Každý z týmu je samostatná OSVČ. IČO a zápis v rejstříku jsou u jejich
+              karet na O nás, odsud na ně vede odkaz z každé stránky. */}
+          <p>
+            Pod značkou OKelectric pracují samostatní podnikatelé.{" "}
+            <Link href="/o-nas#tym" className="underline underline-offset-4 hover:text-ink">
+              IČO a údaje o zápisu
+            </Link>
+          </p>
         </div>
       </div>
     </footer>

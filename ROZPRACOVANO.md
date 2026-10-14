@@ -170,3 +170,17 @@ Chtít po klientovi:
 8. Světlá verze loga, jen pokud chceme průhledný header přes fotku.
 9. Adresa pro poptávkový formulář (NEXT_PUBLIC_FORM_ENDPOINT). Před
    zapnutím je potřeba stránka o zpracování osobních údajů.
+
+# Druhé poznámky klienta, xlsx „poznámky FSZ - 2“ (14. 10. 2026)
+
+Zapracováno všech cca 30 poznámek ze screenshotů. Mimo doslovné převzetí:
+- IČO, adresy a živnostenské úřady dohledané v ARES. Voneš je vedený
+  u MÚ Blatná, ne Strakonice, jak klient odhadoval.
+- Norma u alarmu zůstala EN 50131-4, klient v poznámce napsal 50141-4 (překlep).
+- „Vám/Vás“ z klientových textů psané malým písmenem kvůli jednotnosti webu.
+- Nová reference tepelného čerpadla LG (Mirovice, duben 2024, místo podle GPS
+  z fotky). Stejná fotka je výřezem i v hlavičce stránky Tepelná čerpadla.
+- Kontaktní sekce na konci stránek ukazuje všechny čtyři lidi, ne jen
+  člověka přes daný obor.
+- Uničov odebrán jen z mapy, reference rozvodny Billa zůstala.
+

@@ -10,7 +10,7 @@ export const NAP = {
   /**
    * Adresa a souřadnice přesně podle profilu firmy na Googlu (Mapy Google), aby se
    * údaje o firmě na webu a v profilu shodovaly. Při změně upravit na obou místech.
-   * IČO zatím chybí.
+   * Firma nemá vlastní IČO, každý z týmu je samostatná OSVČ, viz TEAM.
    */
   streetAddress: "Smetanova Lhota 12",
   addressLocality: "Smetanova Lhota",
@@ -95,7 +95,6 @@ export const REGIONS_EXTENDED = [
   "Plzeň",
   "Brno",
   "Ostrava",
-  "Uničov",
 ] as const;
 
 /** Věta o dojezdu pod postupem na stránce služby, liší se podle druhu práce. */
@@ -115,6 +114,14 @@ export type TeamMember = {
   town: string;
   /** Obory, které dělá. Na kartě člena týmu se podsvítí mezi všemi obory firmy. */
   handles: string[];
+  /**
+   * Podnikatelské údaje, které musí OSVČ uvádět na webu (§13a živnostenského zákona).
+   * Převzato z ARES 14. 10. 2026, při změně ověřit tam.
+   */
+  ico: string;
+  address: string;
+  /** Městský úřad, u kterého je vedený v živnostenském rejstříku. */
+  tradeOffice: string;
 };
 
 export const TEAM: TeamMember[] = [
@@ -135,6 +142,9 @@ export const TEAM: TeamMember[] = [
       "klimatizace",
       "elektrorevize",
     ],
+    ico: "09891374",
+    address: "Husova 304, 398 11 Protivín",
+    tradeOffice: "Písek",
   },
   {
     slug: "ondrej-lesak",
@@ -151,6 +161,9 @@ export const TEAM: TeamMember[] = [
       "fotovoltaika",
       "rekuperace",
     ],
+    ico: "72118245",
+    address: "Smetanova Lhota 12, 398 04 Smetanova Lhota",
+    tradeOffice: "Písek",
   },
   {
     slug: "martin-vones",
@@ -161,6 +174,9 @@ export const TEAM: TeamMember[] = [
     email: "vones@okelectric.cz",
     town: "Blatná",
     handles: ["elektroinstalace", "fotovoltaika", "rekuperace"],
+    ico: "14224551",
+    address: "Za Malým vrchem 1542, 388 01 Blatná",
+    tradeOffice: "Blatná",
   },
   {
     slug: "milan-stecha",
@@ -171,6 +187,9 @@ export const TEAM: TeamMember[] = [
     email: "milan.stecha@outlook.com",
     town: "Písek",
     handles: ["elektroinstalace", "rekuperace"],
+    ico: "23358661",
+    address: "Denisova 1245, 397 01 Písek",
+    tradeOffice: "Písek",
   },
 ];
 

@@ -48,11 +48,11 @@ export const SERVICES: Service[] = [
     metaTitle: "Tepelná čerpadla Písek | Montáž, kotelny a dotace | OKelectric",
     metaDescription:
       "Výměna starých kotlů na tuhá paliva za tepelné čerpadlo, peletový nebo zplynovací kotel. Řídicí systémy kotelen, ekvitermní regulace, pomoc s aktuálními dotačními programy. Sídlo u Písku, kotelny stavíme i daleko.",
-    lead: "Nahrazujeme staré nevyhovující kotle na tuhá paliva efektivním zdrojem a doděláme k němu i regulaci, která z něj skutečně dostane maximum.",
+    lead: "Nahrazujeme staré nevyhovující kotle na tuhá paliva efektivním zdrojem včetně řízení, které z něj dostane maximum.",
     tagline: "Tepelná čerpadla, peletové kotle a regulace, která z nich dostane maximum.",
     updated: "2026-09-13",
     ctaLabel: "Chci tepelné čerpadlo",
-    ctaNote: "Přijedeme se podívat na dům, kotelnu a otopnou soustavu, pak pošleme nabídku.",
+    ctaNote: "Nabídku od stolu od nás nečekejte. Přijedeme se k vám podívat a navrhneme jen to, co je pro vás nejlepší.",
     body: [
       {
         heading: "Moderní vytápění bez kompromisů",
@@ -71,7 +71,7 @@ export const SERVICES: Service[] = [
       {
         heading: "Dotační programy",
         paragraphs: [
-          "Pomůžeme vám s aktuálními dotačními programy, od výběru toho vhodného po podklady k žádosti a doložení realizace. Podmínky programů se často mění, proto je vždy ověříme pro váš konkrétní dům a zdroj tepla.",
+          "Pomůžeme vám s aktuálními dotačními programy, od výběru toho vhodného, po podklady k žádosti a doložení realizace. Podmínky programů se často mění, proto je vždy ověříme pro váš konkrétní dům a zdroj tepla.",
           "Držíme profesní kvalifikaci 26-074-M pro instalatéry soustav s tepelnými čerpadly a mělkých geotermálních systémů. Nejčastěji montujeme tepelná čerpadla českého výrobce Hotjet.",
         ],
       },
@@ -164,7 +164,7 @@ export const SERVICES: Service[] = [
         a: "Nejspíš ano. Sídlo máme u Písku, ale kotelna je práce na několik dní, takže vzdálenost u ní nerozhoduje. Řekněte, kde jste, a domluvíme se.",
       },
     ],
-    projectCategories: ["kotelny", "rekuperace"],
+    projectCategories: ["kotelny"],
     owner: "ondrej-krejci",
   },
 
@@ -183,10 +183,10 @@ export const SERVICES: Service[] = [
     ctaNote: "Řekneme, co to obnáší, ideálně dřív, než se začne bourat.",
     body: [
       {
-        heading: "Pár zásuvek natahá i soused. Dům ne",
+        heading: "Zásuvku přidělá i soused. Domácí elektroinstalaci nechte na profesionálech",
         paragraphs: [
           "Opravit zásuvku možná zvládnete sami. U nového domu nebo u rekonstrukce bytu je to jiná disciplína. Elektroinstalace dnes není jen o zásuvkách a světlech, ale o tom, kudy povedou datové rozvody, kde bude wallbox, jestli se počítá s fotovoltaikou, s tepelným čerpadlem, s alarmem nebo s roletami, a jestli bude rozvaděč mít za pět let ještě volné pole.",
-          "Čím dřív se o instalaci začne mluvit, tím víc možností zůstává otevřených a tím míň kompromisů se pak dělá.",
+          "Známe trendy a víme, co budete chtít za pár let. Připravíme vás na to už dnes.",
         ],
       },
       {
@@ -200,7 +200,7 @@ export const SERVICES: Service[] = [
         heading: "Hromosvody",
         paragraphs: [
           "Hromosvod je jedna z mála věcí na domě, jejíž hodnotu poznáte jen tehdy, když ji nemáte. Montujeme jímací soustavy i svody na novostavbách a doplňujeme je na stávající domy, typicky při rekonstrukci střechy, kdy je práce nejlevnější. Součástí je i výchozí revize, kterou vystavíme sami.",
-          "U domů s fotovoltaikou řešíme hromosvod a přepěťovou ochranu společně, protože panely na střeše mění celý koncept ochrany před bleskem. Konkrétní realizace najdete mezi referencemi ve Střelských Hošticích, Topělci a Bílsku.",
+          "Používáme kvalitní nerezové díly a na vzhledu si dáváme záležet. Garantujeme, že budete mít hezčí hromosvod než soused.",
         ],
       },
     ],
@@ -279,7 +279,7 @@ export const SERVICES: Service[] = [
         heading: "Bezpečí na prvním místě",
         paragraphs: [
           "Zabezpečení má smysl tehdy, když je navržené na konkrétní objekt. Jinak se chrání byt v panelovém domě, jinak samostatně stojící dům na okraji obce a úplně jinak dílna nebo sklad. Navrhujeme a instalujeme systémy na míru, od alarmů přes kamerový dohled po přístupové systémy.",
-          "Připojení na pult centralizované ochrany bezpečnostní agentury je jen otázkou vašeho přání. Doporučujeme tříměsíční dohled bezpečnostní služby zdarma, abyste si vyzkoušeli, jestli ho chcete provozovat trvale.",
+          "Připojení na pult centrální ochrany bezpečnostní agentury je jen otázkou vašeho přání. Doporučujeme tříměsíční dohled bezpečnostní služby zdarma, abyste si vyzkoušeli, jestli ho chcete provozovat trvale.",
         ],
       },
       {
@@ -293,7 +293,7 @@ export const SERVICES: Service[] = [
         heading: "Od alarmu k chytré domácnosti",
         paragraphs: [
           "Se systémem Jablotron získáváte základ, na kterém se dá stavět dál. Ke střežení se dá připojit ovládání spotřebičů, garážových vrat a bran, monitoring teploty i hlášení havárií. Rozšíření je možné kdykoliv později, systém se nemusí vyměňovat.",
-          "Systém JABLOTRON 100 je certifikovaný dle EN 50131-4 do stupně zabezpečení 2. Jsme nositeli koncesované živnosti pro montáž zabezpečovací techniky, bez které se tahle práce dělat nesmí.",
+          "Systém JABLOTRON 100 je certifikovaný dle EN 50131-4 do stupně zabezpečení 2. Jsme držiteli koncesované živnosti pro montáž zabezpečovací techniky, bez které se tahle práce dělat nesmí.",
         ],
       },
     ],
@@ -306,7 +306,7 @@ export const SERVICES: Service[] = [
         "Požární a kouřové detektory, záplavová čidla",
         "Detektory tříštění skla, mikrovlnné detektory a infračervené závory",
         "Osobní tísňová tlačítka například pro seniory",
-        "Připojení na pult centralizované ochrany",
+        "Připojení na pult centrální ochrany",
         "Ovládání spotřebičů, vrat a monitoring teploty",
       ],
     },
@@ -330,6 +330,10 @@ export const SERVICES: Service[] = [
     ],
     faq: [
       {
+        q: "Kolik to bude stát?",
+        a: "Záleží na velikosti instalace. Byt se dvěma pohybovými čidly, kouřovým detektorem a záplavovým detektorem u pračky vyjde přibližně na 20 tisíc i s montáží. Rodinné domy jsou složitější, tam počítejte s částkou od 40 tisíc výše.",
+      },
+      {
         q: "Bude se kvůli alarmu sekat do zdí?",
         a: "Nemusí. Systém JABLOTRON 100 umí pracovat bezdrátově, takže do hotového bytu nebo domu nainstalujeme zabezpečení bez bourání. Drátové provedení volíme jen tam, kde se dělá souběžně elektroinstalace.",
       },
@@ -339,11 +343,11 @@ export const SERVICES: Service[] = [
       },
       {
         q: "Musím mít připojení na bezpečnostní agenturu?",
-        a: "Nemusíte, systém funguje i samostatně s hlášením do telefonu. Připojení na pult centralizované ochrany nabízíme jako volitelné, s tříměsíčním dohledem zdarma na vyzkoušení.",
+        a: "Nemusíte, systém funguje i samostatně s hlášením do telefonu. Připojení na pult centrální ochrany nabízíme jako volitelné, s tříměsíčním dohledem zdarma na vyzkoušení.",
       },
       {
         q: "Splní systém požadavky pojišťovny?",
-        a: "JABLOTRON 100 je certifikovaný dle EN 50131-4 do stupně zabezpečení 2, což pokrývá běžné požadavky pojistných smluv na byty, domy i menší provozovny. Konkrétní stupeň si předem ověříme u vaší pojistky.",
+        a: "Ano, systém Jablotron je certifikovaný dle EN 50131-4 do stupně zabezpečení 2, takže splňuje požadavky pojišťoven.",
       },
       {
         q: "Dá se alarm později rozšířit o chytrou domácnost?",
@@ -351,7 +355,7 @@ export const SERVICES: Service[] = [
       },
     ],
     // Fotky alarmů a kamer zatím nemáme. Rozvaděče z elektroinstalací by
-    // pod "Takhle to u nás vypadá hotové" mátly, sekce se proto neukáže.
+    // pod "Některé z posledních instalací" mátly, sekce se proto neukáže.
     projectCategories: [],
     owner: "ondrej-lesak",
   },
@@ -388,7 +392,7 @@ export const SERVICES: Service[] = [
       {
         heading: "Fotovoltaiku u nás dělají elektrikáři",
         paragraphs: [
-          "Fotovoltaika je z poloviny práce na střeše a z poloviny práce v rozvaděči. Protože děláme běžné elektroinstalace a hromosvody, řešíme rovnou i přepěťovou ochranu, koordinaci s jímací soustavou a přípravu na wallbox. Instalujeme mimo jiné střídače a baterie SolaX a umíme nastavit řízení přetoků do bojleru, jak jsme dělali v Čimelicích.",
+          "Fotovoltaika je z poloviny práce na střeše a z poloviny práce v rozvaděči. Protože děláme běžné elektroinstalace a hromosvody, řešíme rovnou i přepěťovou ochranu, koordinaci s jímací soustavou a přípravu na wallbox. Instalujeme mimo jiné střídače a baterie SolaX a umíme nastavit řízení přetoků do bojleru nebo akumulační nádrže.",
         ],
       },
     ],
@@ -552,8 +556,8 @@ export const SERVICES: Service[] = [
     title: "Revize a projektování",
     metaTitle: "Elektrorevize Písek | Revize hromosvodů, FVE a projekty | OKelectric",
     metaDescription:
-      "Výchozí i periodické revize elektroinstalací, hromosvodů a fotovoltaik, revize přípojek pro ČEZ a EG.D. Projekty hromosvodů a elektroinstalací, zaměření skutečného stavu, 2D i 3D. Sídlo u Písku.",
-    lead: "Výchozí i periodické revize elektroinstalací, hromosvodů a fotovoltaik, k tomu projekty a výkresy. Revizního technika máme ve vlastním týmu.",
+      "Výchozí i periodické revize elektroinstalací, hromosvodů a fotovoltaik, revize přípojek pro ČEZ a EG.D. Projekty hromosvodů a elektroinstalací, dokumentace skutečného provedení stavby. Sídlo u Písku.",
+    lead: "Výchozí i periodické revize elektroinstalací, hromosvodů a fotovoltaik, k tomu projekty nebo výkresy skutečného provedení. Revizního technika máme ve vlastním týmu.",
     tagline: "Revize elektroinstalací, hromosvodů a fotovoltaik, projekty a výkresy.",
     updated: "2026-09-13",
     ctaLabel: "Chci revizi nebo projekt",
@@ -577,8 +581,9 @@ export const SERVICES: Service[] = [
       {
         heading: "Projekty a výkresová dokumentace",
         paragraphs: [
-          "K revizím patří i papíry, ze kterých se dá pracovat. Kreslíme projekty hromosvodů a elektroinstalací pro domy a provozovny, ve 2D i ve 3D, k vlastním realizacím i samostatně jako službu. Výkres má sloužit tomu, kdo podle něj bude pracovat, proto kreslíme čitelně a s popisem, který dává smysl i za pět let.",
-          "Velká část starších objektů použitelnou dokumentaci nemá, nebo neodpovídá tomu, co je ve zdi. Zaměříme skutečný stav a překreslíme ho, ať už kvůli rekonstrukci, revizi, nebo prodeji. Bez schématu se každý další zásah do elektroinstalace dělá metodou pokus a omyl. Navrhujeme a kreslíme také strojní díly a přípravky včetně 3D modelů pro výrobu.",
+          "Velká část starších objektů dokumentaci nemá, nebo ta stávající již neodpovídá skutečnosti.",
+          "Jedním z podkladů pro revizi je dokumentace skutečného provedení. Pokud ji ještě nemáte, umíme ji vytvořit a na jejím základě elektroinstalaci zrevidovat.",
+          "Kreslení skutečných stavů provádíme u našich zakázek a nabízíme ho i samostatně jako službu.",
         ],
       },
       {
@@ -597,10 +602,8 @@ export const SERVICES: Service[] = [
         "Výchozí a periodické revize hromosvodů",
         "Revize fotovoltaických elektráren",
         "Dílčí revize pro tepelná čerpadla, bazény a další zařízení",
-        "Analýza fotovoltaických polí termokamerou",
         "Projekty hromosvodů a elektroinstalací",
-        "Zaměření a překreslení skutečného stavu",
-        "2D výkresy a 3D modely, i strojní díly a přípravky",
+        "Vytvoření dokumentace skutečného provedení stavby",
       ],
     },
     process: [
@@ -611,6 +614,10 @@ export const SERVICES: Service[] = [
       {
         title: "Prohlídka a měření",
         text: "Vizuální prohlídka a měření podle příslušných norem, u fotovoltaiky doplněné o termokameru.",
+      },
+      {
+        title: "Aktualizace nebo vytvoření dokumentace skutečného provedení",
+        text: "Pokud dokumentace chybí nebo neodpovídá skutečnosti, zaměříme stávající stav a zakreslíme ho.",
       },
       {
         title: "Revizní zpráva",
@@ -680,13 +687,12 @@ export const SERVICES: Service[] = [
         heading: "Podlahové vytápění a otopná tělesa",
         paragraphs: [
           "Pokládáme podlahové vytápění do novostaveb i do rekonstrukcí a kombinujeme ho s radiátory tam, kde má smysl mít oboje. Součástí je návrh okruhů, rozdělovač, regulační ventily a zaregulování, bez kterého podlahovka nikdy netopí rovnoměrně.",
-          "Vyměňujeme dosluhující otopná tělesa, montujeme a servisujeme oběhová čerpadla a doplňujeme tepelné izolace rozvodů, což je jedna z nejlevnějších úspor, kterou v domě lze udělat.",
         ],
       },
       {
         heading: "Havárie",
         paragraphs: [
-          "Urgentní situace a havarijní stavy řešíme podle svých možností i o víkendech. Nejsme nonstop pohotovost a neslibujeme to, ale pokud teče, zavolejte, ozveme se.",
+          "Urgentní situace a havarijní stavy řešíme podle svých možností i o víkendech. Nejsme nonstop pohotovost a neslibujeme to, ale pokud teče (nebo neteče :-), zavolejte.",
         ],
       },
     ],
@@ -724,7 +730,7 @@ export const SERVICES: Service[] = [
     faq: [
       {
         q: "Přijedete i k havárii o víkendu?",
-        a: "Urgentní situace a havarijní stavy řešíme podle svých možností i o víkendech. Nejsme nonstop pohotovost, ale pokud teče, zavolejte na 603 815 149 a domluvíme se.",
+        a: "Urgentní situace a havarijní stavy řešíme podle svých možností i o víkendech. Nejsme nonstop pohotovost, ale pokud jde o havárii, zavolejte na 603 815 149 a domluvíme se.",
       },
       {
         q: "Uděláte podlahové vytápění i do rekonstrukce?",

@@ -34,7 +34,9 @@ export type Project = {
  * Souřadnice [šířka, délka] míst z referencí, pro tečkovou mapu na homepage.
  * Dohledané přes OpenStreetMap Nominatim, u víceznačných názvů nejbližší obec k sídlu.
  * Doksy a Kozlov chybí záměrně: v Česku je víc obcí téhož jména a z podkladů nejde
- * poznat, o kterou jde. Místo bez souřadnic se na mapě prostě nevykreslí.
+ * poznat, o kterou jde. Uničov chybí taky: byla to jednorázová zakázka a firma tam
+ * nikoho nemá, na mapě by sliboval dosah, který neplatí. Místo bez souřadnic se na
+ * mapě prostě nevykreslí.
  */
 export const PLACE_COORDS: Record<string, [number, number]> = {
   "Blatná": [49.424, 13.8841],
@@ -42,6 +44,7 @@ export const PLACE_COORDS: Record<string, [number, number]> = {
   "Dmýštice": [49.4881, 14.3229],
   "Horažďovice": [49.321, 13.7004],
   "Klínovice": [49.313, 13.8823],
+  "Mirovice": [49.5158, 14.0366],
   "Mutěnice": [49.2413, 13.8915],
   "Nerestce": [49.4975, 14.0683],
   "Oldřichov u Písku": [49.3171, 14.1076],
@@ -51,7 +54,6 @@ export const PLACE_COORDS: Record<string, [number, number]> = {
   "Strakonice": [49.2613, 13.9025],
   "Střelské Hoštice": [49.2976, 13.756],
   "Topělec": [49.3412, 14.143],
-  "Uničov": [49.7712, 17.1214],
   "Vimperk": [49.0527, 13.7742],
   "Vodňany": [49.1479, 14.1755],
   "Zadní Zborovice": [49.331, 13.8444],
@@ -91,6 +93,16 @@ export const PROJECTS: Project[] = [
     category: "kotelny",
     image: "/reference/p03.jpg",
     alt: "Venkovní jednotka tepelného čerpadla HotJet postavená na betonových patkách u fasády rodinného domu, Blatná",
+  },
+  {
+    id: "p28",
+    title: "Tepelné čerpadlo LG u rodinného domu",
+    place: "Mirovice",
+    date: "2024-04",
+    dateLabel: "duben 2024",
+    category: "kotelny",
+    image: "/reference/p28.jpg",
+    alt: "Venkovní jednotka tepelného čerpadla LG na betonových tvárnicích u kamenné zdi domu, vedle okapový svod, Mirovice",
   },
   {
     id: "p04",

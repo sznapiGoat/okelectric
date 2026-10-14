@@ -35,7 +35,7 @@ export function TeamMemberCard({ member }: { member: TeamMember }) {
         </a>
       </div>
 
-      <ul className="mt-auto flex flex-wrap gap-1.5 pt-6" aria-label={`Obory, které dělá ${member.name}`}>
+      <ul className="mt-auto flex flex-wrap gap-1.5 pt-6" aria-label={`Obory, na které se specializuje ${member.name}`}>
         {SERVICES.map((s) => {
           const does = member.handles.includes(s.slug);
           return (
@@ -56,6 +56,12 @@ export function TeamMemberCard({ member }: { member: TeamMember }) {
           );
         })}
       </ul>
+
+      {/* Každý z týmu je samostatná OSVČ, zákon vyžaduje tyto údaje na webu uvést. */}
+      <p className="mt-6 border-t border-line pt-4 text-[0.75rem] leading-relaxed text-ink-faint">
+        IČO {member.ico}, {member.address}. Fyzická osoba zapsaná v živnostenském rejstříku vedeném
+        u MÚ {member.tradeOffice}.
+      </p>
     </article>
   );
 }

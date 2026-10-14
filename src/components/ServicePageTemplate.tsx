@@ -158,7 +158,7 @@ export function ServicePageTemplate({ service }: { service: Service }) {
           <div className="shell">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <h2 className="font-display text-display-md text-balance">
-                Takhle to u nás vypadá hotové
+                Některé z posledních instalací
               </h2>
               <Link
                 href="/reference"
@@ -189,7 +189,7 @@ export function ServicePageTemplate({ service }: { service: Service }) {
         </div>
       </section>
 
-      <ContactSection owner={service.owner} />
+      <ContactSection />
     </>
   );
 }

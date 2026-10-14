@@ -115,11 +115,11 @@ export default function HomePage() {
           <div className="reveal flex flex-wrap items-end justify-between gap-x-10 gap-y-6">
             <div className="max-w-2xl">
               <h2 id="tym" className="font-display text-display-lg text-balance">
-                Volejte rovnou tomu, kdo to dělá.
+                Volejte rovnou tomu, kdo je vám nejblíže.
               </h2>
               <p className="mt-5 text-[1.0625rem] leading-relaxed text-ink-soft">
-                Nemáme dispečink ani formulářovou frontu. Každý obor má u nás svého člověka a ten vám
-                telefon zvedne.
+                Nemáme dispečink ani formulářovou frontu. Telefony zvedáme, a pokud jsme zrovna na
+                štaflích, zavoláme za chvíli zpátky.
               </p>
             </div>
             <ButtonLink href="/o-nas" variant="outline" size="lg">
@@ -134,11 +134,10 @@ export default function HomePage() {
                 className="flex flex-col border-b border-line py-6 sm:px-6 sm:odd:border-r sm:odd:pl-0 lg:border-b-0 lg:border-r lg:odd:pl-6 lg:first:pl-0 lg:last:border-r-0"
               >
                 <p className="font-display text-[1.125rem] font-semibold text-ink">{m.name}</p>
-                <p className="mt-0.5 text-[0.8125rem] text-ink-faint">{m.town}</p>
-                <p className="mt-3 flex-1 text-[0.9375rem] leading-relaxed text-ink-soft">{m.role}</p>
+                <p className="mt-0.5 flex-1 text-[0.8125rem] text-ink-faint">{m.town}</p>
                 <a
                   href={`tel:${m.phone}`}
-                  className="mt-5 font-display text-[1.125rem] font-semibold text-ink hover:text-brand-deep"
+                  className="mt-4 font-display text-[1.125rem] font-semibold text-ink hover:text-brand-deep"
                 >
                   {m.phoneDisplay}
                 </a>

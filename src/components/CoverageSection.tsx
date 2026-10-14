@@ -6,10 +6,11 @@ const TIERS = [COVERAGE.core, COVERAGE.extended, COVERAGE.nationwide] as const;
 
 /**
  * Odkud firma jezdí: text s úrovněmi dojezdu podle druhu práce a vedle něj
- * tečková mapa Česka, na které se zelenají místa skutečných zakázek z referencí.
+ * tečková mapa Česka. Zelená je běžný dosah kolem sídla (až za Prahu) a místa
+ * skutečných zakázek z referencí.
  *
- * Mapa nekreslí žádný okruh ani region. Dosah ukazují jen doložené zakázky,
- * takže web netvrdí "celá ČR" a zároveň se neuzavírá do jižních Čech.
+ * Mapa nekreslí ostrou hranici, dosah se k okrajům ztrácí. Web tak netvrdí
+ * "celá ČR" a zároveň se neuzavírá do jižních Čech.
  */
 export function CoverageSection() {
   return (
@@ -64,6 +65,13 @@ const H = Math.round((LAT0 - 48.5) * K);
 const STEP = 14;
 /** Dosah "tepla" jedné zakázky, zhruba 25 km. */
 const SIGMA = 42;
+/**
+ * Běžný dosah kolem sídla, nezávisle na nafocených zakázkách. Rozteč je nastavená
+ * tak, aby zelená plocha bezpečně přesáhla Prahu (asi 120 km od sídla),
+ * kam firma běžně jezdí.
+ */
+const REACH_SIGMA = 115;
+const REACH_STRENGTH = 1.1;
 
 const BRAND = "#60B23A";
 
@@ -115,7 +123,7 @@ function buildDots(): Dot[] {
     const offset = row % 2 ? STEP / 2 : 0;
     for (let x = STEP / 2 + offset; x < W; x += STEP) {
       if (!insideOutline(x, y)) continue;
-      let heat = 0;
+      let heat = REACH_STRENGTH * Math.exp(-((x - BASE[0]) ** 2 + (y - BASE[1]) ** 2) / (REACH_SIGMA * REACH_SIGMA));
       for (const j of JOBS) {
         const d2 = (x - j.xy[0]) ** 2 + (y - j.xy[1]) ** 2;
         heat += Math.exp(-d2 / (SIGMA * SIGMA));
@@ -162,7 +170,7 @@ function ProjectDotMap() {
           viewBox={`0 0 ${W} ${H}`}
           className="h-auto w-full"
           role="img"
-          aria-label={`Tečková mapa Česka: sídlo u Písku a ${PLACES_COUNT} míst našich zakázek, nejvíc v okolí sídla, nejdál ${FAR_PLACES.map((f) => f.place).join(", ")}.`}
+          aria-label={`Tečková mapa Česka: sídlo u Písku, běžný dosah až za Prahu a ${PLACES_COUNT} míst našich zakázek, nejvíc v okolí sídla.`}
         >
           {LEVEL_STYLE.map((style, level) => (
             <path
@@ -225,7 +233,7 @@ function ProjectDotMap() {
               <span key={o} className="h-2 w-2 rounded-full bg-brand" style={{ opacity: o }} />
             ))}
           </span>
-          Místa, kde máme nafocené zakázky
+          Kam běžně jezdíme a kde máme nafocené zakázky
         </span>
         <span>Nevíte, jestli k vám dojedeme? Zavolejte, většinou ano.</span>
       </figcaption>
