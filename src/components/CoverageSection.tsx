@@ -67,11 +67,11 @@ const STEP = 14;
 const SIGMA = 42;
 /**
  * Běžný dosah kolem sídla, nezávisle na nafocených zakázkách. Rozteč je nastavená
- * tak, aby zelená plocha bezpečně přesáhla Prahu (asi 120 km od sídla),
+ * tak, aby Praha (asi 120 km od sídla) ležela uvnitř sytě zelené plochy, ne na jejím okraji,
  * kam firma běžně jezdí.
  */
-const REACH_SIGMA = 115;
-const REACH_STRENGTH = 1.1;
+const REACH_SIGMA = 145;
+const REACH_STRENGTH = 1.3;
 
 const BRAND = "#60B23A";
 
