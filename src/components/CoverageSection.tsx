@@ -72,7 +72,7 @@ const SIGMA = 42;
  * leží zřetelně uvnitř zelené, okraj končí kolem 150 jednotek (asi 155 km).
  */
 const REACH_RADIUS = 128;
-const REACH_STRENGTH = 1.6;
+const REACH_STRENGTH = 2.3;
 
 const BRAND = "#60B23A";
 
