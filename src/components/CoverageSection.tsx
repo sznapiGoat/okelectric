@@ -66,12 +66,13 @@ const STEP = 14;
 /** Dosah "tepla" jedné zakázky, zhruba 25 km. */
 const SIGMA = 42;
 /**
- * Běžný dosah kolem sídla, nezávisle na nafocených zakázkách. Rozteč je nastavená
- * tak, aby Praha (asi 120 km od sídla) ležela uvnitř sytě zelené plochy, ne na jejím okraji,
- * kam firma běžně jezdí.
+ * Běžný dosah kolem sídla, nezávisle na nafocených zakázkách. Podle klientovy
+ * poznámky (kruh kolem sídla, do kterého se ještě vejde Praha) je to kulatá plocha
+ * s plochým středem a rychle mizejícím okrajem: Praha (117 jednotek od sídla)
+ * leží zřetelně uvnitř zelené, okraj končí kolem 150 jednotek (asi 155 km).
  */
-const REACH_SIGMA = 145;
-const REACH_STRENGTH = 1.3;
+const REACH_RADIUS = 128;
+const REACH_STRENGTH = 1.6;
 
 const BRAND = "#60B23A";
 
@@ -123,7 +124,8 @@ function buildDots(): Dot[] {
     const offset = row % 2 ? STEP / 2 : 0;
     for (let x = STEP / 2 + offset; x < W; x += STEP) {
       if (!insideOutline(x, y)) continue;
-      let heat = REACH_STRENGTH * Math.exp(-((x - BASE[0]) ** 2 + (y - BASE[1]) ** 2) / (REACH_SIGMA * REACH_SIGMA));
+      const reach = Math.hypot(x - BASE[0], y - BASE[1]) / REACH_RADIUS;
+      let heat = REACH_STRENGTH * Math.exp(-(reach ** 6));
       for (const j of JOBS) {
         const d2 = (x - j.xy[0]) ** 2 + (y - j.xy[1]) ** 2;
         heat += Math.exp(-d2 / (SIGMA * SIGMA));
