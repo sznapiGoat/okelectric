@@ -119,6 +119,8 @@ export type TeamMember = {
    * Převzato z ARES 14. 10. 2026, při změně ověřit tam.
    */
   ico: string;
+  /** Jen u plátců DPH. DIČ od klienta, 15. 10. 2026. */
+  dic?: string;
   address: string;
   /** Městský úřad, u kterého je vedený v živnostenském rejstříku. */
   tradeOffice: string;
@@ -143,6 +145,7 @@ export const TEAM: TeamMember[] = [
       "elektrorevize",
     ],
     ico: "09891374",
+    dic: "CZ8803231371",
     address: "Husova 304, 398 11 Protivín",
     tradeOffice: "Písek",
   },

@@ -150,6 +150,7 @@ export default function HomePage() {
       <CoverageSection />
 
       <ContactSection
+        showContacts={false}
         heading="Nejdřív se přijedeme podívat."
         text="Řekněte nám, co potřebujete a kde. Domluvíme prohlídku a pak pošleme nabídku."
       />

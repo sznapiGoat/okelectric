@@ -2,7 +2,6 @@ import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
 import { SERVICES } from "@/content/services";
 import { NAP } from "@/content/site";
-import { MailIcon, PhoneIcon, PinIcon } from "@/components/BrandIcons";
 
 export function Footer() {
   return (
@@ -16,29 +15,6 @@ export function Footer() {
             Jsme vaši elektrikáři a topenáři. Elektroinstalace, kotelny, fotovoltaika,
             rekuperace i zabezpečení pod jednou firmou.
           </p>
-
-          <div className="mt-6 space-y-2 text-[0.9375rem]">
-            <a
-              href={`tel:${NAP.phone}`}
-              className="flex items-center gap-2.5 font-semibold text-ink hover:text-brand-deep"
-            >
-              <PhoneIcon className="h-4 w-4 text-brand" aria-hidden />
-              {NAP.phoneDisplay}
-            </a>
-            <a
-              href={`mailto:${NAP.email}`}
-              className="flex items-center gap-2.5 text-ink-soft hover:text-ink"
-            >
-              <MailIcon className="h-4 w-4 text-brand" aria-hidden />
-              {NAP.email}
-            </a>
-            <p className="flex items-start gap-2.5 text-ink-soft">
-              <PinIcon className="mt-0.5 h-4 w-4 shrink-0 text-brand" aria-hidden />
-              <span>
-                {NAP.addressLocality}, {NAP.addressRegion}
-              </span>
-            </p>
-          </div>
         </div>
 
         <div className="md:col-span-4">

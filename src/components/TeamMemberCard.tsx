@@ -59,7 +59,7 @@ export function TeamMemberCard({ member }: { member: TeamMember }) {
 
       {/* Každý z týmu je samostatná OSVČ, zákon vyžaduje tyto údaje na webu uvést. */}
       <p className="mt-6 border-t border-line pt-4 text-[0.75rem] leading-relaxed text-ink-faint">
-        IČO {member.ico}, {member.address}. Fyzická osoba zapsaná v živnostenském rejstříku vedeném
+        IČO {member.ico}{member.dic && `, DIČ ${member.dic}`}, {member.address}. Fyzická osoba zapsaná v živnostenském rejstříku vedeném
         u MÚ {member.tradeOffice}.
       </p>
     </article>
