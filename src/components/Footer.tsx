@@ -88,6 +88,11 @@ export function Footer() {
               IČO a údaje o zápisu
             </Link>
           </p>
+          <p>
+            <Link href="/ochrana-osobnich-udaju" className="underline underline-offset-4 hover:text-ink">
+              Zpracování osobních údajů
+            </Link>
+          </p>
         </div>
       </div>
     </footer>

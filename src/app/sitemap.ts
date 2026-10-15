@@ -13,6 +13,7 @@ const STATIC_UPDATED: Record<string, string> = {
   "/": "2026-09-13",
   "/o-nas": "2026-09-13",
   "/kontakt": "2026-09-13",
+  "/ochrana-osobnich-udaju": "2026-10-15",
 };
 
 /** Reference se mění s poslední doloženou realizací. */
@@ -41,6 +42,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(STATIC_UPDATED["/kontakt"]),
       changeFrequency: "yearly",
       priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/ochrana-osobnich-udaju`,
+      lastModified: new Date(STATIC_UPDATED["/ochrana-osobnich-udaju"]),
+      changeFrequency: "yearly",
+      priority: 0.2,
     },
   ];
 

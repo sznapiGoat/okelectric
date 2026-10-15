@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useId, useState } from "react";
 import { Loader2, Send } from "lucide-react";
 import { SERVICES } from "@/content/services";
@@ -41,7 +42,6 @@ export function PoptavkaForm({ endpoint }: { endpoint: string }) {
     if (telefon && telefon.replace(/\D/g, "").length < 9) next.telefon = "Telefon vypadá neúplně.";
     if (email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) next.email = "Zkontrolujte e-mail.";
     if (zprava.length < 10) next.zprava = "Napište prosím pár slov o zakázce.";
-    if (!data.get("souhlas")) next.souhlas = "Bez souhlasu vás nemůžeme kontaktovat.";
 
     setErrors(next);
     if (Object.keys(next).length > 0) {
@@ -193,21 +193,17 @@ export function PoptavkaForm({ endpoint }: { endpoint: string }) {
         {errorFor("zprava")}
       </div>
 
-      <div className="sm:col-span-2">
-        <label className="flex items-start gap-3 text-[0.875rem] leading-relaxed text-ink-soft">
-          <input
-            type="checkbox"
-            name="souhlas"
-            value="ano"
-            className="mt-1 h-4 w-4 shrink-0 accent-[#60B23A]"
-            {...(errors.souhlas ? { "data-invalid": "true" } : {})}
-          />
-          <span>
-            Souhlasím, aby OKelectric zpracoval uvedené údaje za účelem vyřízení této poptávky.
-          </span>
-        </label>
-        {errorFor("souhlas")}
-      </div>
+      {/* Údaje jsou potřeba k jednání o zakázce (čl. 6 odst. 1 písm. b GDPR),
+          souhlas k tomu není potřeba. Stačí informovat. */}
+      <p className="text-[0.875rem] leading-relaxed text-ink-soft sm:col-span-2">
+        Údaje použijeme jen k vyřízení poptávky.{" "}
+        <Link
+          href="/ochrana-osobnich-udaju"
+          className="text-brand-deep underline underline-offset-4 hover:text-ink"
+        >
+          Jak s nimi zacházíme
+        </Link>
+      </p>
 
       <div className="sm:col-span-2">
         <button

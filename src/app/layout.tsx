@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Wix_Madefor_Display, Wix_Madefor_Text } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -55,6 +56,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main id="obsah">{children}</main>
         <Footer />
+        {/* Vercel Web Analytics neukládá cookies, takže web nepotřebuje cookie lištu.
+            Data začnou chodit až po zapnutí Analytics v nastavení projektu na Vercelu. */}
+        <Analytics />
       </body>
     </html>
   );
