@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
+import { CookieSettingsButton } from "@/components/CookieConsent";
 import { SERVICES } from "@/content/services";
 import { NAP } from "@/content/site";
 
@@ -92,6 +93,8 @@ export function Footer() {
             <Link href="/ochrana-osobnich-udaju" className="underline underline-offset-4 hover:text-ink">
               Zpracování osobních údajů
             </Link>
+            {" · "}
+            <CookieSettingsButton className="underline underline-offset-4 hover:text-ink" />
           </p>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { CookieConsent } from "@/components/CookieConsent";
 import { JsonLd } from "@/components/JsonLd";
 import { localBusinessSchema, websiteSchema } from "@/lib/seo";
 import { SITE_URL } from "@/content/site";
@@ -56,9 +57,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main id="obsah">{children}</main>
         <Footer />
-        {/* Vercel Web Analytics neukládá cookies, takže web nepotřebuje cookie lištu.
+        {/* Vercel Web Analytics neukládá cookies, běží proto i bez souhlasu.
             Data začnou chodit až po zapnutí Analytics v nastavení projektu na Vercelu. */}
         <Analytics />
+        {/* Google Analytics se načte jen po souhlasu v liště. */}
+        <CookieConsent />
       </body>
     </html>
   );

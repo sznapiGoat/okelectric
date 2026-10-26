@@ -18,7 +18,7 @@ const crumbs = [
 ];
 
 /** Datum poslední úpravy textu. Při změně posunout i v sitemap.ts. */
-const UPDATED = "15. 10. 2026";
+const UPDATED = "26. 10. 2026";
 
 /*
  * Poptávky z formuláře chodí na NAP.email, proto je správcem jeho majitel.
@@ -26,9 +26,17 @@ const UPDATED = "15. 10. 2026";
  */
 const controller = TEAM.find((m) => m.email === NAP.email) ?? TEAM[0];
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({
+  title,
+  id,
+  children,
+}: {
+  title: string;
+  id?: string;
+  children: React.ReactNode;
+}) {
   return (
-    <section className="mt-12">
+    <section id={id} className="mt-12 scroll-mt-28">
       <h2 className="font-display text-display-sm text-balance">{title}</h2>
       <div className="prose-body mt-4">{children}</div>
     </section>
@@ -107,16 +115,28 @@ export default function PrivacyPage() {
           </p>
         </Section>
 
-        <Section title="Cookies a měření návštěvnosti">
+        <Section id="cookies" title="Cookies a měření návštěvnosti">
           <p>
-            Web nepoužívá reklamní ani sledovací cookies, proto se vás na ně neptáme. Návštěvnost
-            měříme službou Vercel Web Analytics, která cookies neukládá a jednotlivé návštěvníky
-            nerozlišuje déle než jeden den. Vidíme jen souhrnná čísla, třeba kolik lidí přišlo na
-            stránku fotovoltaiky.
+            Základní návštěvnost měříme službou Vercel Web Analytics. Ta cookies neukládá
+            a jednotlivé návštěvníky nerozlišuje déle než jeden den. Vidíme jen souhrnná čísla,
+            třeba kolik lidí přišlo na stránku fotovoltaiky. Běží proto i bez vašeho souhlasu.
           </p>
           <p>
-            Web nenačítá nic od Facebooku, Instagramu ani Googlu. Odkazy na ně vedou na jejich
-            stránky a co tam dělají s údaji, popisují jejich vlastní zásady.
+            Podrobnější přehled nám dává Google Analytics od společnosti Google Ireland Limited.
+            Zapne se jen tehdy, když v liště dole na stránce kliknete na „Přijmout“. Do té doby web
+            od Googlu nic nenačítá. Po souhlasu Google uloží do prohlížeče cookies <code>_ga</code>{" "}
+            a <code>_ga_P3VJ2GXD5V</code> (platí až 2 roky) a dozví se, které stránky jste
+            prohlíželi, z jakého zařízení a přibližně odkud. Data mohou putovat i na servery
+            Googlu v USA, které jsou zapojené do rámce EU–USA pro ochranu údajů. K reklamě
+            ani k cílení je nepoužíváme.
+          </p>
+          <p>
+            Souhlas můžete kdykoli odvolat odkazem „Nastavení cookies“ v patičce každé stránky.
+            Cookies Google Analytics pak smažeme a měření se vypne.
+          </p>
+          <p>
+            Web nenačítá nic od Facebooku ani Instagramu. Odkazy na ně vedou na jejich stránky
+            a co tam dělají s údaji, popisují jejich vlastní zásady.
           </p>
         </Section>
 

@@ -13,7 +13,7 @@ const STATIC_UPDATED: Record<string, string> = {
   "/": "2026-09-13",
   "/o-nas": "2026-09-13",
   "/kontakt": "2026-09-13",
-  "/ochrana-osobnich-udaju": "2026-10-15",
+  "/ochrana-osobnich-udaju": "2026-10-26",
 };
 
 /** Reference se mění s poslední doloženou realizací. */
