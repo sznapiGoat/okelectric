@@ -2,7 +2,6 @@ import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
 import { CookieSettingsButton } from "@/components/CookieConsent";
 import { SERVICES } from "@/content/services";
-import { NAP } from "@/content/site";
 
 export function Footer() {
   return (
@@ -48,26 +47,6 @@ export function Footer() {
               <Link href="/kontakt" className="text-[0.9375rem] text-ink-soft hover:text-brand-deep">
                 Kontakt
               </Link>
-            </li>
-            <li>
-              <a
-                href={NAP.facebook}
-                rel="noopener noreferrer"
-                target="_blank"
-                className="text-[0.9375rem] text-ink-soft hover:text-brand-deep"
-              >
-                Facebook
-              </a>
-            </li>
-            <li>
-              <a
-                href={NAP.instagram}
-                rel="noopener noreferrer"
-                target="_blank"
-                className="text-[0.9375rem] text-ink-soft hover:text-brand-deep"
-              >
-                Instagram
-              </a>
             </li>
           </ul>
 

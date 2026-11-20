@@ -100,7 +100,7 @@ export function localBusinessSchema() {
       closes: NAP.openingHours.closes,
     },
     hasMap: NAP.googleMaps,
-    sameAs: [NAP.facebook, NAP.instagram, NAP.googleMaps],
+    sameAs: [NAP.googleMaps],
     employee: TEAM.map((m) => ({
       "@type": "Person",
       name: m.name,

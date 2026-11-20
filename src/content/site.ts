@@ -26,8 +26,8 @@ export const NAP = {
   /** Profil firmy na Mapách Google. Odkazuje na něj kontakt i strukturovaná data. */
   googleMaps:
     "https://www.google.com/maps/search/?api=1&query=OK%20electric&query_place_id=ChIJ49V39gZBC0cRF1YhDj3FTJs",
-  facebook: "https://www.facebook.com/okelectriccz",
-  instagram: "https://www.instagram.com/okelectric.cz/",
+  // Facebook a Instagram firma podle klienta nemá (20. 11. 2026), odkazy
+  // z webu zmizely. Dřív tu byly facebook.com/okelectriccz a instagram.com/okelectric.cz.
 } as const;
 
 /**

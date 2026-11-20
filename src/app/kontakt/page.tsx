@@ -61,7 +61,7 @@ export default function ContactPage() {
                   pohotovost ale nejsme.
                 </dd>
               </div>
-              <div className="border-b border-line py-5">
+              <div className="py-5">
                 <dt className="font-display text-[1.0625rem] font-semibold">Kde pracujeme</dt>
                 <dd className="mt-1.5 text-[0.9375rem] leading-relaxed text-ink-soft">
                   Pracujeme v Písku a okolí.{" "}
@@ -70,27 +70,6 @@ export default function ContactPage() {
                     className="text-brand-deep underline underline-offset-4 hover:text-ink"
                   >
                     Mapa dosahu
-                  </a>
-                </dd>
-              </div>
-              <div className="py-5">
-                <dt className="font-display text-[1.0625rem] font-semibold">Sledujte nás</dt>
-                <dd className="mt-1.5 flex gap-4 text-[0.9375rem]">
-                  <a
-                    href={NAP.facebook}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-brand-deep underline underline-offset-4 hover:text-ink"
-                  >
-                    Facebook
-                  </a>
-                  <a
-                    href={NAP.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-brand-deep underline underline-offset-4 hover:text-ink"
-                  >
-                    Instagram
                   </a>
                 </dd>
               </div>

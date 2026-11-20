@@ -134,10 +134,6 @@ export default function PrivacyPage() {
             Souhlas můžete kdykoli odvolat odkazem „Nastavení cookies“ v patičce každé stránky.
             Cookies Google Analytics pak smažeme a měření se vypne.
           </p>
-          <p>
-            Web nenačítá nic od Facebooku ani Instagramu. Odkazy na ně vedou na jejich stránky
-            a co tam dělají s údaji, popisují jejich vlastní zásady.
-          </p>
         </Section>
 
         <Section title="Vaše práva">
