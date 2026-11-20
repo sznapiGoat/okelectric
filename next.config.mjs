@@ -33,12 +33,20 @@ const nextConfig = {
       ["/page-sitemap.xml", "/sitemap.xml"],
       ["/wp-sitemap.xml", "/sitemap.xml"],
     ];
-    return moved.map(([source, destination]) => ({ source, destination, statusCode: 301 }));
-  },
-  // Elektronické vizitky (public/*.htm), na které vedou QR kódy z papírových
-  // vizitek. Do vyhledávání nepatří.
-  async headers() {
-    return [{ source: "/:name.htm", headers: [{ key: "X-Robots-Tag", value: "noindex" }] }];
+    // QR kódy z papírových vizitek vedou na /prijmeni.htm ze starého webu.
+    // Dočasné přesměrování: cíl se může změnit a kódy na papíře ne.
+    const cards = [
+      ["/krejci.htm", "/vizitka/ondrej-krejci"],
+      ["/lesak.htm", "/vizitka/ondrej-lesak"],
+      ["/vones.htm", "/vizitka/martin-vones"],
+      ["/stecha.htm", "/vizitka/milan-stecha"],
+      // Jiří Biedermann na webu v týmu není, jeho kód zatím vede na úvod.
+      ["/biedermann.htm", "/"],
+    ];
+    return [
+      ...moved.map(([source, destination]) => ({ source, destination, statusCode: 301 })),
+      ...cards.map(([source, destination]) => ({ source, destination, permanent: false })),
+    ];
   },
 };
 
