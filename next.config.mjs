@@ -35,6 +35,11 @@ const nextConfig = {
     ];
     return moved.map(([source, destination]) => ({ source, destination, statusCode: 301 }));
   },
+  // Elektronické vizitky (public/*.htm), na které vedou QR kódy z papírových
+  // vizitek. Do vyhledávání nepatří.
+  async headers() {
+    return [{ source: "/:name.htm", headers: [{ key: "X-Robots-Tag", value: "noindex" }] }];
+  },
 };
 
 export default nextConfig;
